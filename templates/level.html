@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Select Level</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        button {
+            width: 80%;
+            padding: 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Select Level</h1>
+
+    <h2>{{ subject }}</h2>
+
+    <p>Select your learning level</p>
+
+
+    {% if subject == "Aptitude" %}
+
+        <!-- APTITUDE LEVELS -->
+
+        <form action="/recommendation" method="POST">
+
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="regno" value="{{ regno }}">
+            <input type="hidden" name="subject" value="{{ subject }}">
+
+            <button type="submit" name="level" value="Easy">
+                Easy
+            </button>
+
+        </form>
+
+
+        <form action="/recommendation" method="POST">
+
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="regno" value="{{ regno }}">
+            <input type="hidden" name="subject" value="{{ subject }}">
+
+            <button type="submit" name="level" value="Medium">
+                Medium
+            </button>
+
+        </form>
+
+
+        <form action="/recommendation" method="POST">
+
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="regno" value="{{ regno }}">
+            <input type="hidden" name="subject" value="{{ subject }}">
+
+            <button type="submit" name="level" value="Hard">
+                Hard
+            </button>
+
+        </form>
+
+
+    {% else %}
+
+        <!-- OTHER SUBJECTS -->
+
+        <form action="/recommendation" method="POST">
+
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="regno" value="{{ regno }}">
+            <input type="hidden" name="subject" value="{{ subject }}">
+
+            <button type="submit" name="level" value="Beginner">
+                Beginner
+            </button>
+
+        </form>
+
+
+        <form action="/recommendation" method="POST">
+
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="regno" value="{{ regno }}">
+            <input type="hidden" name="subject" value="{{ subject }}">
+
+            <button type="submit" name="level" value="Intermediate">
+                Intermediate
+            </button>
+
+        </form>
+
+
+        <form action="/recommendation" method="POST">
+
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="regno" value="{{ regno }}">
+            <input type="hidden" name="subject" value="{{ subject }}">
+
+            <button type="submit" name="level" value="Advanced">
+                Advanced
+            </button>
+
+        </form>
+
+    {% endif %}
+
+
+</div>
+
+</body>
+</html>

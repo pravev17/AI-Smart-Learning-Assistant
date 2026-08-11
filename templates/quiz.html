@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ subject }} Quiz</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .quiz-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .student-info {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .student-info p {
+            margin: 6px 0;
+        }
+
+        .question-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .option {
+            display: block;
+            padding: 10px;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #f1f5f9;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .no-question {
+            text-align: center;
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+    <div class="header">
+
+        <h1>AI Smart Learning Assistant</h1>
+
+        <h2>{{ subject }} Quiz</h2>
+
+        <p>
+            Test your knowledge based on the selected subject and level.
+        </p>
+
+    </div>
+
+
+    <div class="student-info">
+
+        <p><strong>Name:</strong> {{ name }}</p>
+
+        <p><strong>Register Number:</strong> {{ regno }}</p>
+
+        <p><strong>Subject:</strong> {{ subject }}</p>
+
+        <p><strong>Level:</strong> {{ level }}</p>
+
+    </div>
+
+
+    {% if questions %}
+
+    <form action="/submit_quiz" method="POST">
+
+        <input type="hidden" name="name" value="{{ name }}">
+        <input type="hidden" name="regno" value="{{ regno }}">
+        <input type="hidden" name="subject" value="{{ subject }}">
+        <input type="hidden" name="level" value="{{ level }}">
+
+
+        {% for question in questions %}
+
+        <div class="question-box">
+
+            <h3>
+                {{ loop.index }}. {{ question.question }}
+            </h3>
+
+            {% set question_number = loop.index %}
+
+            {% for option in question.options %}
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q{{ question_number }}"
+                    value="{{ option }}"
+                    required
+                >
+
+                {{ option }}
+
+            </label>
+
+            {% endfor %}
+
+        </div>
+
+        {% endfor %}
+
+
+        <button
+            type="submit"
+            class="submit-button">
+
+            Submit Quiz
+
+        </button>
+
+    </form>
+
+
+    {% else %}
+
+    <div class="no-question">
+
+        <h2>No Questions Available</h2>
+
+        <p>
+            There are no questions available for
+            {{ subject }} - {{ level }}.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

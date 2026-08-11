@@ -1,0 +1,171 @@
+Python Intermediate Notes
+
+1. Object-Oriented Programming (OOP)
+
+Object-Oriented Programming organizes programs into classes and objects.
+
+Class: Blueprint for creating objects.
+Object: Instance of a class.
+
+Example:
+
+class Student:
+    def __init__(self,name):
+        self.name=name
+
+s=Student("Prave")
+print(s.name)
+
+Concepts:
+• Class
+• Object
+• Constructor
+• Encapsulation
+• Inheritance
+• Polymorphism
+• Abstraction
+
+Advantages:
+- Code reuse
+- Better organization
+- Easy maintenance
+
+2. File Handling
+
+Python can create, read, write and append files.
+
+Modes:
+r  -> Read
+w  -> Write
+a  -> Append
+
+Example:
+
+file=open("data.txt","w")
+file.write("Hello")
+file.close()
+
+Always close files after use or use the 'with' statement.
+
+3. Exception Handling
+
+Exceptions are runtime errors.
+
+Keywords:
+try
+except
+finally
+raise
+
+Example:
+
+try:
+    num=int(input("Enter Number:"))
+except ValueError:
+    print("Invalid Input")
+finally:
+    print("Program Finished")
+
+Exception handling prevents program crashes.
+
+4. Modules and Packages
+
+Modules help organize code.
+
+Common Modules:
+math
+random
+datetime
+os
+
+Example:
+
+import math
+print(math.sqrt(25))
+
+Packages contain multiple related modules.
+
+5. Lambda Functions
+
+Lambda functions are anonymous one-line functions.
+
+Example:
+
+square=lambda x:x*x
+print(square(5))
+
+Useful with map(), filter() and sorted().
+
+6. List Comprehension
+
+Create lists using a single line.
+
+Example:
+
+numbers=[x*x for x in range(1,6)]
+
+Benefits:
+• Cleaner code
+• Faster execution
+• Better readability
+
+7. Dictionaries and Sets
+
+Dictionary stores key-value pairs.
+
+student={
+"name":"Prave",
+"cgpa":8.2
+}
+
+Set stores unique values.
+
+colors={"Red","Blue","Green"}
+
+Useful methods:
+add()
+remove()
+keys()
+values()
+items()
+
+8. Database Connectivity
+
+Python can connect to SQLite and MySQL.
+
+SQLite Example:
+
+import sqlite3
+
+conn=sqlite3.connect("student.db")
+
+Database connectivity is useful in web applications.
+
+9. Mini Projects
+
+Practice Projects:
+
+• Student Management System
+• Library Management
+• Expense Tracker
+• Contact Book
+• Password Generator
+• Weather App
+
+10. Interview Questions
+
+1. Explain OOP.
+2. Difference between class and object.
+3. What is exception handling?
+4. What is lambda?
+5. Explain list comprehension.
+6. Difference between list and set.
+7. Why use modules?
+
+11. Summary
+
+This module covered Object-Oriented Programming, File Handling,
+Exception Handling, Modules, Lambda Functions,
+List Comprehension, Dictionaries, Sets and Database Connectivity.
+
+Next, move to Flask, REST APIs, JSON and Deployment.

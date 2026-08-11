@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Recommendation</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <h1>AI Smart Learning Assistant</h1>
+
+    <h2>Welcome {{ name }}</h2>
+
+    <p><b>Register Number:</b> {{ regno }}</p>
+
+    <p><b>Subject:</b> {{ subject }}</p>
+
+    <p><b>Level:</b> {{ level }}</p>
+
+    <h2>Recommended Topics</h2>
+
+    <ul>
+        {% for topic in topics %}
+            <li>{{ topic }}</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <!-- Dashboard Button -->
+    <form action="/dashboard" method="POST">
+
+        <input type="hidden" name="name" value="{{ name }}">
+
+        <button type="submit">
+            View Dashboard
+        </button>
+
+    </form>
+
+    <br>
+
+    <!-- Quiz Button -->
+    <form action="/notes" method="POST">
+
+    <input type="hidden"
+           name="name"
+           value="{{ name }}">
+
+    <input type="hidden"
+           name="regno"
+           value="{{ regno }}">
+
+    <input type="hidden"
+           name="subject"
+           value="{{ subject }}">
+
+    <input type="hidden"
+           name="level"
+           value="{{ level }}">
+
+    <button type="submit">
+        📚 Read Detailed Notes
+    </button>
+
+</form>
+
+</body>
+
+</html>

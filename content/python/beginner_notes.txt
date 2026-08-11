@@ -1,0 +1,74 @@
+PYTHON BEGINNER NOTES
+
+1. Introduction to Python
+Python is a simple, high-level programming language used for web development, data science, artificial intelligence, automation, and software development.
+
+2. Variables
+Variables are used to store values.
+
+Example:
+x = 10
+name = "Prave"
+
+3. Data Types
+- int
+- float
+- str
+- bool
+- list
+- tuple
+- dictionary
+
+4. Input and Output
+
+name = input("Enter your name: ")
+print(name)
+
+5. Conditional Statements
+
+if
+elif
+else
+
+Example:
+
+age = 18
+
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not Eligible")
+
+6. Loops
+
+for loop
+while loop
+
+Example:
+
+for i in range(5):
+    print(i)
+
+7. Functions
+
+def add(a, b):
+    return a + b
+
+8. Lists
+
+fruits = ["Apple", "Orange", "Mango"]
+
+9. Dictionaries
+
+student = {
+    "name":"Prave",
+    "age":21
+}
+
+10. Practice Programs
+
+• Factorial
+• Fibonacci
+• Armstrong Number
+• Palindrome
+• Prime Number

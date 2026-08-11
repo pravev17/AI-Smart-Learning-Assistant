@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ subject }} Notes</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin-bottom: 10px;
+        }
+
+        .info {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .info p {
+            margin: 7px 0;
+        }
+
+        .notes {
+            white-space: pre-line;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .quiz {
+            background: #2563eb;
+            color: white;
+        }
+
+        .back {
+            background: #64748b;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <div class="header">
+
+        <h1>📚 {{ subject }} Notes</h1>
+
+        <h2>{{ level }} Level</h2>
+
+        <p>
+            AI Smart Learning Assistant
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <p>
+            <strong>Student:</strong>
+            {{ name }}
+        </p>
+
+        <p>
+            <strong>Register Number:</strong>
+            {{ regno }}
+        </p>
+
+        <p>
+            <strong>Subject:</strong>
+            {{ subject }}
+        </p>
+
+        <p>
+            <strong>Level:</strong>
+            {{ level }}
+        </p>
+
+    </div>
+
+
+    <div class="notes">
+
+        {{ content }}
+
+    </div>
+
+
+    <div class="buttons">
+
+
+        <!-- Quiz Button -->
+
+        <form action="/quiz" method="POST">
+
+            <input type="hidden"
+                   name="name"
+                   value="{{ name }}">
+
+            <input type="hidden"
+                   name="regno"
+                   value="{{ regno }}">
+
+            <input type="hidden"
+                   name="subject"
+                   value="{{ subject }}">
+
+            <input type="hidden"
+                   name="level"
+                   value="{{ level }}">
+
+            <button class="quiz"
+                    type="submit">
+
+                📝 Take Quiz
+
+            </button>
+
+        </form>
+
+
+        <!-- Back Button -->
+
+        <button class="back"
+                onclick="history.back()">
+
+            ← Back
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

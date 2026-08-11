@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Welcome {{name}}</h1>
+
+<h3>Register Number : {{regno}}</h3>
+
+<h2>Select Your Subject</h2>
+
+<form action="/level" method="POST">
+
+    <input type="hidden" name="name" value="{{name}}">
+    <input type="hidden" name="regno" value="{{regno}}">
+
+    <button type="submit" name="subject" value="Python">Python</button>
+    <br><br>
+
+    <button type="submit" name="subject" value="DBMS">DBMS</button>
+    <br><br>
+
+    <button type="submit" name="subject" value="Operating System">Operating System</button>
+    <br><br>
+
+    <button type="submit" name="subject" value="Aptitude">Aptitude</button>
+
+</form>
+
+</body>
+
+</html>

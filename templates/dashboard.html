@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1>AI Smart Learning Assistant</h1>
+
+<h2>Student Dashboard</h2>
+
+<h3>Welcome {{name}}</h3>
+
+<table border="1" cellpadding="10" cellspacing="0">
+
+<tr>
+
+<th>Subject</th>
+
+<th>Level</th>
+
+</tr>
+
+{% for row in records %}
+
+<tr>
+
+<td>{{ row[0] }}</td>
+
+<td>{{ row[1] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<h3>Total Subjects Learned : {{ records|length }}</h3>
+
+<br>
+
+<a href="/">Logout</a>
+
+</body>
+
+</html>
