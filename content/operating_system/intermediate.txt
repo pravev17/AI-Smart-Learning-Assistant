@@ -1,0 +1,936 @@
+OPERATING SYSTEM – INTERMEDIATE LEVEL
+=====================================
+
+1. INTRODUCTION
+
+At the intermediate level, Operating System concepts focus on how
+the OS manages processes, CPU scheduling, memory, synchronization,
+storage and file systems.
+
+Important topics include:
+
+• Process scheduling
+• Threads
+• Process synchronization
+• Semaphores
+• Deadlocks
+• Memory management
+• Virtual memory
+• Page replacement
+• File systems
+• Disk scheduling
+• Protection and security
+
+
+2. PROCESS SCHEDULING
+
+Process scheduling is the method used by the operating system to
+select which process should execute on the CPU.
+
+The scheduler tries to improve:
+
+• CPU utilization
+• Throughput
+• Response time
+• Waiting time
+• Turnaround time
+
+
+3. SCHEDULER
+
+A scheduler is an operating system component that selects processes
+for execution.
+
+Common types are:
+
+• Long-term scheduler
+• Short-term scheduler
+• Medium-term scheduler
+
+
+4. LONG-TERM SCHEDULER
+
+The long-term scheduler selects processes from the job pool and
+loads them into main memory for execution.
+
+It controls the degree of multiprogramming.
+
+
+5. SHORT-TERM SCHEDULER
+
+The short-term scheduler selects a process from the ready queue and
+allocates the CPU to it.
+
+It runs very frequently, so it must be fast.
+
+
+6. MEDIUM-TERM SCHEDULER
+
+The medium-term scheduler can temporarily remove processes from
+memory and later bring them back.
+
+This process is called swapping.
+
+
+7. CPU SCHEDULING CRITERIA
+
+Important scheduling measures include:
+
+• CPU utilization
+• Throughput
+• Turnaround time
+• Waiting time
+• Response time
+
+
+8. CPU UTILIZATION
+
+CPU utilization represents the percentage of time the CPU is busy
+performing useful work.
+
+Higher CPU utilization is generally desirable.
+
+
+9. THROUGHPUT
+
+Throughput is the number of processes completed by the system in a
+given period of time.
+
+Higher throughput generally means more work is completed.
+
+
+10. TURNAROUND TIME
+
+Turnaround time is the total time taken from process submission
+until its completion.
+
+Formula:
+
+Turnaround Time =
+Completion Time - Arrival Time
+
+
+11. WAITING TIME
+
+Waiting time is the total time a process spends waiting in the
+ready queue.
+
+Formula:
+
+Waiting Time =
+Turnaround Time - Burst Time
+
+
+12. RESPONSE TIME
+
+Response time is the time between submitting a request and receiving
+the first response.
+
+It is particularly important in interactive systems.
+
+
+13. PREEMPTIVE SCHEDULING
+
+In preemptive scheduling, the operating system can interrupt a
+running process and allocate the CPU to another process.
+
+Examples:
+
+• Round Robin
+• Shortest Remaining Time First
+• Preemptive Priority Scheduling
+
+
+14. NON-PREEMPTIVE SCHEDULING
+
+In non-preemptive scheduling, a running process normally keeps the
+CPU until it completes or voluntarily enters a waiting state.
+
+Examples:
+
+• FCFS
+• Non-preemptive SJF
+• Non-preemptive Priority Scheduling
+
+
+15. SHORTEST REMAINING TIME FIRST
+
+Shortest Remaining Time First is the preemptive version of
+Shortest Job First.
+
+The process with the smallest remaining CPU burst is selected.
+
+
+16. MULTILEVEL QUEUE SCHEDULING
+
+Processes are divided into different queues based on their
+characteristics.
+
+Example queues:
+
+• System processes
+• Interactive processes
+• Batch processes
+
+Each queue can have its own scheduling policy.
+
+
+17. MULTILEVEL FEEDBACK QUEUE
+
+Multilevel Feedback Queue allows processes to move between queues
+depending on their behavior and CPU usage.
+
+It can provide flexibility for different types of workloads.
+
+
+18. THREADS
+
+A thread is the smallest unit of CPU execution within a process.
+
+A process may contain multiple threads.
+
+Threads belonging to the same process can share:
+
+• Code
+• Data
+• Files
+• Memory resources
+
+
+19. USER-LEVEL THREADS
+
+User-level threads are managed by a thread library in user space.
+
+Advantages:
+
+• Fast creation
+• Fast switching
+• No direct kernel management required
+
+A limitation is that blocking behavior can affect the process
+depending on the threading model.
+
+
+20. KERNEL-LEVEL THREADS
+
+Kernel-level threads are managed by the operating system kernel.
+
+Advantages:
+
+• Better OS-level scheduling
+• Can run on multiple CPU cores
+• Kernel can manage individual threads
+
+
+21. PROCESS SYNCHRONIZATION
+
+Process synchronization controls access to shared resources when
+multiple processes or threads execute concurrently.
+
+It helps prevent inconsistent results.
+
+
+22. CRITICAL SECTION
+
+A critical section is a part of a program where shared data or
+resources are accessed.
+
+Only the appropriate number of processes or threads should enter
+the critical section at a time.
+
+
+23. CRITICAL SECTION REQUIREMENTS
+
+A correct solution should satisfy:
+
+• Mutual exclusion
+• Progress
+• Bounded waiting
+
+
+24. MUTUAL EXCLUSION
+
+Mutual exclusion ensures that only one process or thread can execute
+a critical section involving the same shared resource at a time.
+
+
+25. PROGRESS
+
+Progress means that if no process is currently executing inside a
+critical section, the selection of the next process should not be
+unnecessarily delayed.
+
+
+26. BOUNDED WAITING
+
+Bounded waiting ensures that a process does not wait indefinitely
+while other processes repeatedly enter the critical section.
+
+
+27. RACE CONDITION
+
+A race condition occurs when multiple processes or threads access
+shared data at the same time and the final result depends on the
+order of execution.
+
+
+28. SEMAPHORE
+
+A semaphore is a synchronization mechanism used to control access
+to shared resources.
+
+Common types:
+
+• Binary semaphore
+• Counting semaphore
+
+
+29. BINARY SEMAPHORE
+
+A binary semaphore generally has two states and can be used to
+provide mutual exclusion.
+
+It behaves similarly to a lock in many synchronization situations.
+
+
+30. COUNTING SEMAPHORE
+
+A counting semaphore can represent multiple available instances
+of a resource.
+
+For example, if a system has five identical resources, a counting
+semaphore can track their availability.
+
+
+31. WAIT AND SIGNAL OPERATIONS
+
+Semaphores commonly use operations such as:
+
+wait()
+signal()
+
+The exact implementation depends on the operating system.
+
+
+32. MUTEX
+
+A mutex, or mutual exclusion lock, allows only one thread at a time
+to access a protected critical section.
+
+It is commonly used in multithreaded programs.
+
+
+33. DEADLOCK
+
+Deadlock occurs when processes remain blocked because each process
+is waiting for resources held by another process.
+
+
+34. FOUR DEADLOCK CONDITIONS
+
+The four necessary conditions for deadlock are:
+
+1. Mutual exclusion
+2. Hold and wait
+3. No preemption
+4. Circular wait
+
+
+35. DEADLOCK PREVENTION
+
+Deadlock prevention attempts to ensure that at least one of the
+four necessary conditions cannot occur.
+
+
+36. DEADLOCK AVOIDANCE
+
+Deadlock avoidance dynamically checks resource allocation and
+attempts to keep the system in a safe state.
+
+The Banker’s Algorithm is a well-known deadlock avoidance method.
+
+
+37. SAFE STATE
+
+A system is in a safe state if there is at least one sequence in
+which all processes can complete without causing deadlock.
+
+
+38. UNSAFE STATE
+
+An unsafe state does not necessarily mean that deadlock has already
+occurred, but it means the system cannot guarantee that deadlock
+will be avoided.
+
+
+39. BANKER'S ALGORITHM
+
+Banker's Algorithm checks whether granting a resource request will
+leave the system in a safe state.
+
+It considers:
+
+• Available resources
+• Maximum resource requirements
+• Currently allocated resources
+• Remaining resource needs
+
+
+40. DEADLOCK DETECTION
+
+Deadlock detection allows deadlocks to occur and then attempts to
+identify them.
+
+The system can periodically check for cycles or resource conflicts.
+
+
+41. DEADLOCK RECOVERY
+
+After detecting a deadlock, recovery can involve:
+
+• Terminating processes
+• Preempting resources
+• Rolling back processes
+
+
+42. MEMORY MANAGEMENT
+
+Memory management controls how processes use main memory.
+
+The operating system keeps track of:
+
+• Which memory areas are used
+• Which memory areas are free
+• Which process owns each area
+
+
+43. CONTIGUOUS MEMORY ALLOCATION
+
+In contiguous memory allocation, a process receives a continuous
+block of memory.
+
+Common approaches include:
+
+• First Fit
+• Best Fit
+• Worst Fit
+
+
+44. FIRST FIT
+
+First Fit allocates the first available memory block that is large
+enough for the requested process.
+
+
+45. BEST FIT
+
+Best Fit allocates the smallest available block that is large
+enough for the process.
+
+
+46. WORST FIT
+
+Worst Fit allocates the largest available memory block to the
+process.
+
+
+47. FRAGMENTATION
+
+Fragmentation occurs when memory is divided into unused or
+inefficiently used spaces.
+
+Two common types are:
+
+• Internal fragmentation
+• External fragmentation
+
+
+48. INTERNAL FRAGMENTATION
+
+Internal fragmentation occurs when allocated memory contains some
+unused space inside the allocated block.
+
+
+49. EXTERNAL FRAGMENTATION
+
+External fragmentation occurs when enough total free memory exists,
+but the free memory is divided into small separated blocks.
+
+
+50. PAGING
+
+Paging divides logical memory into fixed-size pages and physical
+memory into fixed-size frames.
+
+Pages can be placed into any available frames.
+
+
+51. PAGE TABLE
+
+A page table maps logical pages to physical memory frames.
+
+It is used during address translation.
+
+
+52. TRANSLATION LOOKASIDE BUFFER
+
+A Translation Lookaside Buffer (TLB) is a fast cache that stores
+recent page-table translations.
+
+It can reduce the time required for virtual-to-physical address
+translation.
+
+
+53. VIRTUAL MEMORY
+
+Virtual memory allows programs to use a logical address space larger
+than the available physical RAM.
+
+Only required portions of a process need to be loaded into memory.
+
+
+54. DEMAND PAGING
+
+Demand paging loads a page into physical memory only when the page
+is actually needed.
+
+
+55. PAGE FAULT
+
+A page fault occurs when a process references a page that is not
+currently in physical memory.
+
+The operating system must load the required page from storage.
+
+
+56. PAGE REPLACEMENT
+
+When memory is full and a new page must be loaded, the operating
+system may need to remove an existing page.
+
+This is called page replacement.
+
+
+57. PAGE REPLACEMENT ALGORITHMS
+
+Common algorithms include:
+
+• FIFO
+• Optimal
+• LRU
+• Second Chance
+
+
+58. FIFO PAGE REPLACEMENT
+
+FIFO stands for First In First Out.
+
+The page that has been in memory for the longest time is replaced
+first.
+
+
+59. OPTIMAL PAGE REPLACEMENT
+
+The Optimal algorithm replaces the page that will not be used for
+the longest period in the future.
+
+It provides an ideal benchmark but requires knowledge of future
+references, so it is not normally implementable exactly in real
+systems.
+
+
+60. LRU PAGE REPLACEMENT
+
+LRU stands for Least Recently Used.
+
+It replaces the page that has not been used for the longest time.
+
+
+61. THRASHING
+
+Thrashing occurs when a system spends excessive time handling page
+faults and moving pages between memory and storage instead of
+performing useful work.
+
+
+62. FILE SYSTEM
+
+A file system organizes files and directories on storage devices.
+
+It manages:
+
+• File names
+• File locations
+• File metadata
+• Storage allocation
+• Access permissions
+
+
+63. FILE ALLOCATION
+
+Common file allocation methods include:
+
+• Contiguous allocation
+• Linked allocation
+• Indexed allocation
+
+
+64. CONTIGUOUS FILE ALLOCATION
+
+In contiguous allocation, file blocks are stored in consecutive
+storage locations.
+
+Advantages:
+
+• Fast sequential access
+• Simple implementation
+
+Disadvantage:
+
+• External fragmentation can occur.
+
+
+65. LINKED FILE ALLOCATION
+
+In linked allocation, file blocks can be stored in different
+locations and linked together.
+
+It reduces external fragmentation but can make direct access less
+efficient.
+
+
+66. INDEXED FILE ALLOCATION
+
+Indexed allocation uses an index block containing pointers to the
+data blocks of a file.
+
+It supports direct access more effectively than linked allocation.
+
+
+67. DIRECTORY STRUCTURE
+
+Operating systems can use different directory structures:
+
+• Single-level directory
+• Two-level directory
+• Tree-structured directory
+• Acyclic graph directory
+
+
+68. DISK SCHEDULING
+
+Disk scheduling determines the order in which disk I/O requests
+are processed.
+
+It aims to reduce access time and improve disk performance.
+
+
+69. DISK SCHEDULING ALGORITHMS
+
+Common algorithms include:
+
+• FCFS
+• SSTF
+• SCAN
+• C-SCAN
+• LOOK
+• C-LOOK
+
+
+70. FCFS DISK SCHEDULING
+
+First Come First Serve processes disk requests in the order they
+arrive.
+
+It is simple but may not provide the best performance.
+
+
+71. SSTF
+
+Shortest Seek Time First selects the disk request closest to the
+current head position.
+
+It can reduce average seek time but may cause starvation for some
+requests.
+
+
+72. SCAN
+
+SCAN moves the disk head in one direction servicing requests and
+then reverses direction.
+
+It is sometimes called the elevator algorithm.
+
+
+73. C-SCAN
+
+Circular SCAN moves in one direction.
+
+After reaching one end, the disk head returns to the beginning
+without servicing requests during the return movement.
+
+
+74. PROTECTION
+
+Protection controls how processes and users access system resources.
+
+It helps prevent unauthorized operations.
+
+
+75. ACCESS CONTROL
+
+Access control determines which users or processes can access
+specific resources.
+
+Resources may include:
+
+• Files
+• Memory
+• Devices
+• Processes
+
+
+76. AUTHENTICATION
+
+Authentication verifies the identity of a user.
+
+Examples:
+
+• Password
+• PIN
+• Biometric authentication
+• Security token
+
+
+77. AUTHORIZATION
+
+Authorization determines what an authenticated user is allowed to do.
+
+Example:
+
+A normal user may read a file but may not modify system files.
+
+
+78. OPERATING SYSTEM SECURITY
+
+OS security mechanisms can include:
+
+• User authentication
+• File permissions
+• Access control
+• Encryption
+• Secure boot
+• Firewalls
+• Security updates
+
+
+79. VIRTUALIZATION
+
+Virtualization allows multiple virtual machines to run on a physical
+computer.
+
+A virtual machine behaves like a separate computer system.
+
+
+80. HYPERVISOR
+
+A hypervisor is software or firmware that manages virtual machines.
+
+Two broad types are:
+
+• Type 1 hypervisor
+• Type 2 hypervisor
+
+
+81. TYPE 1 HYPERVISOR
+
+A Type 1 hypervisor runs directly on physical hardware.
+
+It is commonly used in server and data-center environments.
+
+
+82. TYPE 2 HYPERVISOR
+
+A Type 2 hypervisor runs on top of a host operating system.
+
+It is commonly used for desktop virtualization and development.
+
+
+83. OPERATING SYSTEM PERFORMANCE
+
+Performance can be evaluated using:
+
+• CPU utilization
+• Memory utilization
+• Disk I/O
+• Throughput
+• Response time
+• Number of running processes
+
+
+84. PROCESS MONITORING
+
+Operating systems provide tools to monitor processes.
+
+Examples:
+
+Windows:
+• Task Manager
+
+Linux:
+• top
+• htop
+• ps
+
+
+85. LINUX PROCESS COMMANDS
+
+Common Linux commands include:
+
+ps
+
+Displays information about running processes.
+
+top
+
+Displays processes and resource usage in real time.
+
+kill
+
+Sends a signal to a process.
+
+
+86. FILE PERMISSION EXAMPLE
+
+Linux commonly represents permissions using:
+
+r = read
+w = write
+x = execute
+
+For example:
+
+rwx
+
+means read, write and execute permissions.
+
+
+87. INTERPROCESS COMMUNICATION
+
+Interprocess Communication (IPC) allows processes to exchange
+information.
+
+Common IPC methods include:
+
+• Pipes
+• Message queues
+• Shared memory
+• Sockets
+• Signals
+
+
+88. PIPE
+
+A pipe provides a communication channel between processes.
+
+It is commonly used to pass output from one process to another.
+
+
+89. SHARED MEMORY
+
+Shared memory allows multiple processes to access a common region
+of memory.
+
+It can provide fast communication but requires synchronization to
+avoid race conditions.
+
+
+90. MESSAGE QUEUE
+
+A message queue allows processes to exchange messages through a
+managed queue.
+
+
+91. SOCKET
+
+Sockets allow processes to communicate across a network or within
+the same computer.
+
+They are widely used in client-server applications.
+
+
+92. PRACTICE TASKS
+
+Practice the following:
+
+1. Calculate FCFS scheduling waiting time.
+2. Calculate Round Robin scheduling.
+3. Compare preemptive and non-preemptive scheduling.
+4. Solve a Banker's Algorithm problem.
+5. Identify a deadlock situation.
+6. Calculate page replacement using FIFO.
+7. Calculate page replacement using LRU.
+8. Compare First Fit, Best Fit and Worst Fit.
+9. Solve disk scheduling problems.
+10. Explore Linux process commands.
+11. Practice Linux file permissions.
+12. Create a simple process communication example.
+
+
+93. INTERMEDIATE LEARNING CHECKLIST
+
+After completing this level, you should understand:
+
+✓ Process scheduling
+✓ Scheduling criteria
+✓ Preemptive scheduling
+✓ Non-preemptive scheduling
+✓ Multilevel Queue
+✓ Multilevel Feedback Queue
+✓ Threads
+✓ Process synchronization
+✓ Critical section
+✓ Race condition
+✓ Semaphores
+✓ Mutex
+✓ Deadlock
+✓ Deadlock prevention
+✓ Deadlock avoidance
+✓ Banker's Algorithm
+✓ Deadlock detection
+✓ Deadlock recovery
+✓ Memory allocation
+✓ Fragmentation
+✓ Paging
+✓ TLB
+✓ Virtual memory
+✓ Demand paging
+✓ Page faults
+✓ Page replacement
+✓ FIFO
+✓ Optimal
+✓ LRU
+✓ File allocation
+✓ Directory structures
+✓ Disk scheduling
+✓ Protection
+✓ Authentication
+✓ Authorization
+✓ Virtualization
+✓ Interprocess communication
+
+
+SUMMARY
+
+Intermediate Operating System concepts explain how the operating
+system efficiently manages CPU, memory, processes, files and
+hardware resources.
+
+A learner at this level should be able to understand scheduling,
+synchronization, deadlocks, virtual memory, page replacement,
+file allocation, disk scheduling and basic operating system
+security.
+
+These concepts provide the foundation for advanced operating system
+topics such as advanced synchronization, distributed systems,
+virtualization, kernel architecture and advanced memory management.

@@ -1,0 +1,836 @@
+DBMS – INTERMEDIATE LEVEL
+=========================
+
+1. INTRODUCTION
+
+At the intermediate level, DBMS focuses on designing efficient
+databases, connecting multiple tables, handling complex queries,
+maintaining data consistency and understanding database performance.
+
+Important topics include:
+
+• Advanced SQL
+• Joins
+• Subqueries
+• Normalization
+• Transactions
+• Views
+• Indexes
+• Constraints
+• Stored procedures
+• Triggers
+• Database design
+
+
+2. ADVANCED SQL QUERIES
+
+SQL queries can combine multiple conditions and operations to
+retrieve useful information from databases.
+
+Example:
+
+SELECT name, marks
+FROM students
+WHERE marks > 70
+ORDER BY marks DESC;
+
+This retrieves students with marks above 70 and sorts them from
+highest to lowest.
+
+
+3. JOINS
+
+Joins are used to combine data from two or more related tables.
+
+Common joins are:
+
+• INNER JOIN
+• LEFT JOIN
+• RIGHT JOIN
+• FULL OUTER JOIN
+• CROSS JOIN
+• SELF JOIN
+
+
+4. INNER JOIN
+
+INNER JOIN returns only records that have matching values in
+both tables.
+
+Example:
+
+SELECT students.name, departments.department_name
+FROM students
+INNER JOIN departments
+ON students.department_id = departments.department_id;
+
+
+5. LEFT JOIN
+
+LEFT JOIN returns all records from the left table and matching
+records from the right table.
+
+Example:
+
+SELECT students.name, departments.department_name
+FROM students
+LEFT JOIN departments
+ON students.department_id = departments.department_id;
+
+If there is no matching department, the department information
+may contain NULL.
+
+
+6. RIGHT JOIN
+
+RIGHT JOIN returns all records from the right table and matching
+records from the left table.
+
+Example:
+
+SELECT students.name, departments.department_name
+FROM students
+RIGHT JOIN departments
+ON students.department_id = departments.department_id;
+
+
+7. FULL OUTER JOIN
+
+FULL OUTER JOIN returns matching records as well as unmatched
+records from both tables.
+
+It is useful when we need a complete view of both tables.
+
+Note:
+Some database systems do not directly support FULL OUTER JOIN.
+
+
+8. CROSS JOIN
+
+CROSS JOIN produces every possible combination of records from
+two tables.
+
+Example:
+
+SELECT students.name, courses.course_name
+FROM students
+CROSS JOIN courses;
+
+If there are 5 students and 4 courses, the result can contain
+20 combinations.
+
+
+9. SELF JOIN
+
+A SELF JOIN joins a table with itself.
+
+It can be useful for hierarchical data such as employees and
+their managers.
+
+Example:
+
+SELECT e.name AS employee,
+       m.name AS manager
+FROM employees e
+LEFT JOIN employees m
+ON e.manager_id = m.id;
+
+
+10. SUBQUERIES
+
+A subquery is a query written inside another query.
+
+Example:
+
+SELECT name
+FROM students
+WHERE marks > (
+    SELECT AVG(marks)
+    FROM students
+);
+
+The inner query calculates the average marks and the outer query
+finds students who scored above average.
+
+
+11. TYPES OF SUBQUERIES
+
+Subqueries can be:
+
+• Single-row subqueries
+• Multiple-row subqueries
+• Correlated subqueries
+• Nested subqueries
+
+A single-row subquery returns one value.
+
+A multiple-row subquery can return multiple values.
+
+
+12. IN WITH SUBQUERY
+
+Example:
+
+SELECT name
+FROM students
+WHERE department_id IN (
+    SELECT department_id
+    FROM departments
+    WHERE location = 'Chennai'
+);
+
+This retrieves students belonging to departments located in
+Chennai.
+
+
+13. EXISTS
+
+EXISTS checks whether a subquery returns at least one record.
+
+Example:
+
+SELECT name
+FROM students s
+WHERE EXISTS (
+    SELECT 1
+    FROM results r
+    WHERE r.student_id = s.id
+);
+
+
+14. CORRELATED SUBQUERY
+
+A correlated subquery depends on the outer query.
+
+Example:
+
+SELECT name
+FROM employees e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+    WHERE department_id = e.department_id
+);
+
+The inner query is evaluated in relation to the current employee.
+
+
+15. SET OPERATIONS
+
+Set operations combine results from multiple SELECT queries.
+
+Important operations include:
+
+• UNION
+• UNION ALL
+• INTERSECT
+• EXCEPT
+
+
+16. UNION
+
+UNION combines results and removes duplicate rows.
+
+Example:
+
+SELECT name FROM students
+UNION
+SELECT name FROM teachers;
+
+
+17. UNION ALL
+
+UNION ALL combines results without removing duplicates.
+
+Example:
+
+SELECT name FROM students
+UNION ALL
+SELECT name FROM teachers;
+
+
+18. NORMALIZATION
+
+Normalization is the process of organizing database tables
+to reduce redundancy and improve data consistency.
+
+Main normal forms include:
+
+• 1NF
+• 2NF
+• 3NF
+• BCNF
+
+
+19. FIRST NORMAL FORM – 1NF
+
+A table is in 1NF when:
+
+• Each column contains atomic values.
+• There are no repeating groups.
+• Each row can be uniquely identified.
+
+Example of a problem:
+
+Student | Subjects
+Arun | Python, DBMS
+
+A better design stores each subject as a separate record.
+
+
+20. SECOND NORMAL FORM – 2NF
+
+A table is in 2NF when:
+
+• It is already in 1NF.
+• It has no partial dependency on a part of a composite key.
+
+2NF mainly applies when a table has a composite primary key.
+
+
+21. THIRD NORMAL FORM – 3NF
+
+A table is in 3NF when:
+
+• It is already in 2NF.
+• There are no transitive dependencies.
+
+Non-key attributes should depend directly on the primary key.
+
+
+22. BCNF
+
+Boyce-Codd Normal Form is a stronger version of 3NF.
+
+A relation is in BCNF when every determinant is a candidate key.
+
+BCNF is useful when certain dependency situations cannot be
+properly handled by 3NF.
+
+
+23. DENORMALIZATION
+
+Denormalization intentionally introduces some redundancy
+to improve query performance.
+
+Advantages:
+
+• Faster read operations
+• Fewer joins
+
+Disadvantages:
+
+• More duplicate data
+• Greater possibility of inconsistency
+• More storage requirements
+
+
+24. DATABASE CONSTRAINTS
+
+Constraints enforce rules on data.
+
+Important constraints are:
+
+• PRIMARY KEY
+• FOREIGN KEY
+• UNIQUE
+• NOT NULL
+• CHECK
+• DEFAULT
+
+
+25. CHECK CONSTRAINT
+
+CHECK ensures that values satisfy a condition.
+
+Example:
+
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    marks INTEGER CHECK(marks >= 0 AND marks <= 100)
+);
+
+This prevents invalid marks from being inserted.
+
+
+26. VIEWS
+
+A view is a virtual table based on a SQL query.
+
+Example:
+
+CREATE VIEW high_scorers AS
+SELECT name, marks
+FROM students
+WHERE marks >= 80;
+
+The view can then be queried like a table:
+
+SELECT *
+FROM high_scorers;
+
+
+27. ADVANTAGES OF VIEWS
+
+Views can provide:
+
+• Simpler queries
+• Data security
+• Abstraction
+• Reusable queries
+• Restricted access to selected columns
+
+
+28. INDEXES
+
+An index improves the speed of data retrieval.
+
+Example:
+
+CREATE INDEX idx_student_name
+ON students(name);
+
+Indexes are useful for columns frequently used in searches.
+
+
+29. ADVANTAGES OF INDEXES
+
+Indexes can:
+
+• Speed up SELECT queries
+• Improve search performance
+• Improve sorting and filtering
+
+However, indexes also require additional storage and can make
+INSERT, UPDATE and DELETE operations slower.
+
+
+30. COMPOSITE INDEX
+
+A composite index contains more than one column.
+
+Example:
+
+CREATE INDEX idx_student
+ON students(department, marks);
+
+It can be useful when queries frequently filter by both columns.
+
+
+31. TRANSACTIONS
+
+A transaction is a group of database operations treated as one
+logical unit.
+
+Example:
+
+A bank transfer may involve:
+
+1. Deducting money from Account A.
+2. Adding money to Account B.
+
+Both operations should succeed together.
+
+
+32. ACID PROPERTIES
+
+Transactions follow four important properties:
+
+A – Atomicity
+C – Consistency
+I – Isolation
+D – Durability
+
+
+33. ATOMICITY
+
+Atomicity means that all operations in a transaction are completed
+or none of them are completed.
+
+If one operation fails, the transaction can be rolled back.
+
+
+34. CONSISTENCY
+
+Consistency ensures that a transaction moves the database from one
+valid state to another valid state.
+
+Database constraints must remain satisfied.
+
+
+35. ISOLATION
+
+Isolation controls how transactions interact with each other.
+
+One transaction should not incorrectly affect another transaction
+while it is still in progress.
+
+
+36. DURABILITY
+
+Durability means that once a transaction is successfully committed,
+its changes should remain stored even if a system failure occurs.
+
+
+37. COMMIT
+
+COMMIT permanently saves changes made during a transaction.
+
+Example:
+
+COMMIT;
+
+
+38. ROLLBACK
+
+ROLLBACK cancels changes made during a transaction that has not
+been committed.
+
+Example:
+
+ROLLBACK;
+
+
+39. SAVEPOINT
+
+A SAVEPOINT creates a point within a transaction to which we can
+roll back.
+
+Example:
+
+SAVEPOINT point1;
+
+ROLLBACK TO point1;
+
+
+40. TRANSACTION EXAMPLE
+
+Example:
+
+BEGIN TRANSACTION;
+
+UPDATE accounts
+SET balance = balance - 500
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 500
+WHERE id = 2;
+
+COMMIT;
+
+Both updates are treated as part of the same transaction.
+
+
+41. STORED PROCEDURES
+
+A stored procedure is a group of SQL statements stored in the
+database and executed when required.
+
+Stored procedures can:
+
+• Reduce repeated code
+• Improve organization
+• Encapsulate database operations
+• Provide controlled access
+
+
+42. FUNCTIONS
+
+Database functions perform operations and return a value.
+
+Functions can be used for:
+
+• Calculations
+• String processing
+• Date operations
+• Data transformation
+
+
+43. TRIGGERS
+
+A trigger is automatically executed when a specified database
+event occurs.
+
+Events may include:
+
+• INSERT
+• UPDATE
+• DELETE
+
+Example use:
+
+When a student record is deleted, a trigger can automatically
+store information about the deletion in an audit table.
+
+
+44. DATABASE TRIGGERS
+
+Triggers are useful for:
+
+• Auditing
+• Maintaining derived data
+• Enforcing business rules
+• Recording changes
+
+
+45. CURSORS
+
+A cursor allows database results to be processed one record at
+a time.
+
+Cursors can be useful when row-by-row processing is required.
+
+However, set-based SQL operations are often preferred when possible
+because they can be more efficient.
+
+
+46. DATABASE SECURITY
+
+Database security protects data against unauthorized access.
+
+Security methods include:
+
+• Authentication
+• Authorization
+• Access control
+• Encryption
+• Auditing
+• Backup
+• Input validation
+
+
+47. SQL INJECTION
+
+SQL injection is a security vulnerability where malicious input
+is inserted into an SQL query.
+
+Unsafe example:
+
+query = "SELECT * FROM users WHERE name='" + name + "'"
+
+A safer approach is to use parameterized queries.
+
+Example in Python:
+
+cursor.execute(
+    "SELECT * FROM users WHERE name=?",
+    (name,)
+)
+
+
+48. BACKUP AND RECOVERY
+
+Database backup means creating a copy of stored data.
+
+Backups help recover data after:
+
+• Hardware failure
+• Software errors
+• Accidental deletion
+• Security incidents
+• System failures
+
+
+49. DATABASE PERFORMANCE
+
+Database performance can be improved by:
+
+• Creating appropriate indexes
+• Optimizing queries
+• Avoiding unnecessary columns
+• Using suitable data types
+• Reducing unnecessary joins
+• Analyzing query execution plans
+
+
+50. QUERY OPTIMIZATION
+
+Query optimization is the process of improving a query so that
+it executes efficiently.
+
+Example:
+
+Instead of:
+
+SELECT *
+FROM students;
+
+when only the name is required, use:
+
+SELECT name
+FROM students;
+
+Selecting only required columns can reduce unnecessary data
+processing.
+
+
+51. DATABASE DESIGN
+
+A good database design should:
+
+• Avoid unnecessary duplication
+• Use appropriate keys
+• Define relationships
+• Maintain data integrity
+• Use suitable data types
+• Consider security
+• Support future expansion
+
+
+52. ENTITY-RELATIONSHIP MODEL
+
+An Entity-Relationship model represents database entities and
+their relationships.
+
+Main concepts:
+
+• Entity
+• Attribute
+• Relationship
+
+
+53. ENTITY
+
+An entity is a real-world object about which data is stored.
+
+Examples:
+
+• Student
+• Teacher
+• Course
+• Employee
+• Product
+
+
+54. ATTRIBUTE
+
+An attribute describes an entity.
+
+For a Student entity:
+
+• Student ID
+• Name
+• Age
+• Department
+• Email
+
+
+55. RELATIONSHIP
+
+A relationship describes how entities are connected.
+
+Example:
+
+A Student enrolls in a Course.
+
+Student and Course are entities.
+
+Enrolls is the relationship.
+
+
+56. CARDINALITY
+
+Cardinality describes how many records can be associated.
+
+Common types:
+
+• One-to-One
+• One-to-Many
+• Many-to-Many
+
+
+57. MANY-TO-MANY RELATIONSHIP
+
+In a many-to-many relationship, many records from one table can
+be related to many records from another table.
+
+Example:
+
+A student can take many courses.
+
+A course can contain many students.
+
+A junction table is normally used to represent this relationship.
+
+
+58. DATABASE ADMINISTRATION BASICS
+
+A database administrator may be responsible for:
+
+• Database security
+• User management
+• Backup
+• Recovery
+• Performance monitoring
+• Database maintenance
+
+
+59. DBMS PRACTICE TASKS
+
+Practice the following:
+
+1. Create two related tables.
+2. Insert sample records.
+3. Perform INNER JOIN.
+4. Perform LEFT JOIN.
+5. Write a subquery.
+6. Create a view.
+7. Create an index.
+8. Use GROUP BY and HAVING.
+9. Create a transaction.
+10. Practice COMMIT and ROLLBACK.
+11. Create a trigger.
+12. Write a parameterized SQL query.
+
+
+60. INTERMEDIATE LEARNING CHECKLIST
+
+After completing this level, you should understand:
+
+✓ Advanced SELECT queries
+✓ INNER JOIN
+✓ LEFT JOIN
+✓ RIGHT JOIN
+✓ FULL JOIN
+✓ SELF JOIN
+✓ CROSS JOIN
+✓ Subqueries
+✓ Correlated subqueries
+✓ UNION
+✓ Normalization
+✓ 1NF
+✓ 2NF
+✓ 3NF
+✓ BCNF
+✓ Denormalization
+✓ Views
+✓ Indexes
+✓ Transactions
+✓ ACID properties
+✓ COMMIT
+✓ ROLLBACK
+✓ SAVEPOINT
+✓ Stored procedures
+✓ Functions
+✓ Triggers
+✓ Cursors
+✓ SQL injection
+✓ Database security
+✓ Backup and recovery
+✓ Query optimization
+✓ ER modeling
+
+
+SUMMARY
+
+Intermediate DBMS knowledge focuses on designing efficient databases
+and writing more powerful SQL queries.
+
+A learner at this level should be able to work with multiple tables,
+joins, subqueries, normalization, transactions, views, indexes and
+database security.
+
+These concepts provide a foundation for advanced database
+administration, distributed databases, query optimization and
+large-scale database systems.

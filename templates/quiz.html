@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>{{ subject }} Quiz</title>
 
@@ -49,15 +52,24 @@
             border-radius: 10px;
         }
 
+        .question-box h3 {
+            margin-top: 0;
+        }
+
         .option {
             display: block;
             padding: 10px;
             margin: 8px 0;
             cursor: pointer;
+            border-radius: 6px;
         }
 
         .option:hover {
             background: #f1f5f9;
+        }
+
+        .option input {
+            margin-right: 10px;
         }
 
         .submit-button {
@@ -74,9 +86,11 @@
         .no-question {
             text-align: center;
             color: red;
+            padding: 30px;
         }
 
     </style>
+
 </head>
 
 <body>
@@ -85,7 +99,7 @@
 
     <div class="header">
 
-        <h1>AI Smart Learning Assistant</h1>
+        <h1>🤖 AI Smart Learning Assistant</h1>
 
         <h2>{{ subject }} Quiz</h2>
 
@@ -121,13 +135,14 @@
 
         {% for question in questions %}
 
+        {% set question_number = loop.index %}
+
         <div class="question-box">
 
             <h3>
-                {{ loop.index }}. {{ question.question }}
+                {{ question_number }}. {{ question.question }}
             </h3>
 
-            {% set question_number = loop.index %}
 
             {% for option in question.options %}
 
@@ -153,10 +168,9 @@
 
         <button
             type="submit"
-            class="submit-button">
-
-            Submit Quiz
-
+            class="submit-button"
+        >
+            📝 Submit Quiz
         </button>
 
     </form>
@@ -166,7 +180,7 @@
 
     <div class="no-question">
 
-        <h2>No Questions Available</h2>
+        <h2>❌ No Questions Available</h2>
 
         <p>
             There are no questions available for

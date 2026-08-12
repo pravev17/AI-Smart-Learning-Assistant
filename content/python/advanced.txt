@@ -1,0 +1,667 @@
+PYTHON – ADVANCED LEVEL
+=======================
+
+1. ADVANCED PYTHON PROGRAMMING
+
+Advanced Python focuses on writing efficient, reusable, scalable and
+maintainable programs.
+
+Important advanced concepts include:
+
+• Object-Oriented Programming
+• Decorators
+• Generators
+• Iterators
+• Lambda functions
+• Exception handling
+• Modules and packages
+• APIs
+• Database connectivity
+• Web development
+• Data processing
+
+
+2. OBJECT-ORIENTED PROGRAMMING
+
+Object-Oriented Programming (OOP) organizes programs using classes
+and objects.
+
+The main concepts are:
+
+• Class
+• Object
+• Encapsulation
+• Inheritance
+• Polymorphism
+• Abstraction
+
+
+3. CLASSES AND OBJECTS
+
+A class is a blueprint for creating objects.
+
+Example:
+
+class Student:
+
+    def __init__(self, name, mark):
+        self.name = name
+        self.mark = mark
+
+    def display(self):
+        print(self.name)
+        print(self.mark)
+
+
+student1 = Student("John", 85)
+
+student1.display()
+
+Here Student is the class and student1 is an object.
+
+
+4. INHERITANCE
+
+Inheritance allows one class to use the properties and methods
+of another class.
+
+Example:
+
+class Animal:
+
+    def speak(self):
+        print("Animal makes a sound")
+
+
+class Dog(Animal):
+
+    def bark(self):
+        print("Dog barks")
+
+
+dog = Dog()
+
+dog.speak()
+dog.bark()
+
+Dog inherits the speak() method from Animal.
+
+
+5. ENCAPSULATION
+
+Encapsulation means combining data and methods inside a class
+and controlling access to the data.
+
+Example:
+
+class Student:
+
+    def __init__(self):
+        self.__marks = 90
+
+    def get_marks(self):
+        return self.__marks
+
+The double underscore is commonly used for name-mangling of
+class attributes.
+
+
+6. POLYMORPHISM
+
+Polymorphism means the same interface can behave differently
+depending on the object.
+
+Example:
+
+class Dog:
+
+    def sound(self):
+        print("Bark")
+
+
+class Cat:
+
+    def sound(self):
+        print("Meow")
+
+
+animals = [Dog(), Cat()]
+
+for animal in animals:
+    animal.sound()
+
+
+7. ABSTRACTION
+
+Abstraction means hiding unnecessary implementation details
+and exposing only the required functionality.
+
+Python provides abstract classes through the abc module.
+
+Example:
+
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+
+8. DECORATORS
+
+A decorator modifies or extends the behavior of a function
+without changing its original code.
+
+Example:
+
+def decorator_function(func):
+
+    def wrapper():
+        print("Before function")
+        func()
+        print("After function")
+
+    return wrapper
+
+
+@decorator_function
+def hello():
+    print("Hello")
+
+
+hello()
+
+Decorators are commonly used in Flask applications.
+
+
+9. GENERATORS
+
+Generators produce values one at a time instead of storing
+all values in memory.
+
+The yield keyword is used to create generators.
+
+Example:
+
+def numbers():
+    for i in range(5):
+        yield i
+
+for number in numbers():
+    print(number)
+
+Generators are useful when working with large amounts of data.
+
+
+10. ITERATORS
+
+An iterator is an object that can be traversed one element
+at a time.
+
+Python provides iter() and next() functions.
+
+Example:
+
+numbers = [10, 20, 30]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+
+
+11. LAMBDA FUNCTIONS
+
+A lambda function is a small anonymous function.
+
+Example:
+
+square = lambda x: x * x
+
+print(square(5))
+
+Lambda functions are useful for short operations.
+
+
+12. LIST COMPREHENSION
+
+List comprehension provides a compact way to create lists.
+
+Example:
+
+numbers = [1, 2, 3, 4, 5]
+
+squares = [x * x for x in numbers]
+
+print(squares)
+
+
+13. DICTIONARY COMPREHENSION
+
+Dictionary comprehension creates dictionaries using a compact
+syntax.
+
+Example:
+
+numbers = [1, 2, 3]
+
+squares = {x: x*x for x in numbers}
+
+print(squares)
+
+
+14. EXCEPTION HANDLING
+
+Exception handling is used to handle runtime errors.
+
+Important keywords are:
+
+• try
+• except
+• else
+• finally
+• raise
+
+Example:
+
+try:
+    number = int(input("Enter number: "))
+    result = 100 / number
+
+except ValueError:
+    print("Invalid input")
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+finally:
+    print("Program completed")
+
+
+15. CUSTOM EXCEPTIONS
+
+Python allows programmers to create their own exceptions.
+
+Example:
+
+class AgeError(Exception):
+    pass
+
+
+age = 15
+
+if age < 18:
+    raise AgeError("Age must be 18 or above")
+
+
+16. MODULES AND PACKAGES
+
+A module is a Python file containing reusable code.
+
+A package is a collection of related Python modules.
+
+Examples of built-in modules:
+
+• math
+• os
+• sys
+• random
+• datetime
+• json
+
+
+17. JSON
+
+JSON stands for JavaScript Object Notation.
+
+It is commonly used for exchanging data between applications.
+
+Example:
+
+import json
+
+student = {
+    "name": "John",
+    "mark": 85
+}
+
+data = json.dumps(student)
+
+print(data)
+
+JSON is commonly used with web APIs.
+
+
+18. API
+
+API stands for Application Programming Interface.
+
+An API allows different software applications to communicate
+with each other.
+
+For example, a Python application can request data from a
+web server using an API.
+
+
+19. HTTP REQUESTS
+
+Python applications can communicate with web services using
+HTTP requests.
+
+Common HTTP methods include:
+
+• GET
+• POST
+• PUT
+• DELETE
+
+GET is commonly used to retrieve information.
+
+POST is commonly used to send information.
+
+
+20. FLASK
+
+Flask is a lightweight Python web framework.
+
+It is commonly used to develop web applications and APIs.
+
+Basic example:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    return "Hello World"
+
+
+if __name__ == "__main__":
+    app.run()
+
+
+21. FLASK ROUTES
+
+Routes define the URL paths of a Flask application.
+
+Example:
+
+@app.route("/home")
+def home():
+    return "Home Page"
+
+When a user visits /home, Flask executes the associated
+function.
+
+
+22. HTML TEMPLATES
+
+Flask can use HTML templates to create dynamic web pages.
+
+Example:
+
+return render_template(
+    "home.html",
+    name="Student"
+)
+
+The value can then be displayed using Jinja syntax:
+
+{{ name }}
+
+
+23. DATABASE CONNECTIVITY
+
+Python can connect to databases such as:
+
+• SQLite
+• MySQL
+• PostgreSQL
+
+Example using SQLite:
+
+import sqlite3
+
+conn = sqlite3.connect("student.db")
+
+cursor = conn.cursor()
+
+cursor.execute(
+    "CREATE TABLE IF NOT EXISTS students "
+    "(id INTEGER PRIMARY KEY, name TEXT)"
+)
+
+conn.commit()
+conn.close()
+
+
+24. NUMPY
+
+NumPy is a Python library used for numerical computing.
+
+It provides arrays and mathematical operations.
+
+Example:
+
+import numpy as np
+
+numbers = np.array([10, 20, 30])
+
+print(numbers)
+
+
+25. PANDAS
+
+Pandas is commonly used for data analysis and manipulation.
+
+Example:
+
+import pandas as pd
+
+data = {
+    "Name": ["A", "B", "C"],
+    "Marks": [80, 90, 85]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+
+
+26. MACHINE LEARNING WITH PYTHON
+
+Python is widely used for Machine Learning.
+
+Popular libraries include:
+
+• Scikit-learn
+• TensorFlow
+• PyTorch
+
+Machine Learning can be used for:
+
+• Classification
+• Regression
+• Prediction
+• Clustering
+
+
+27. ASYNCHRONOUS PROGRAMMING
+
+Asynchronous programming allows programs to perform operations
+without waiting for every operation to finish before continuing.
+
+Python provides asyncio for asynchronous programming.
+
+Example:
+
+import asyncio
+
+async def main():
+    print("Task started")
+    await asyncio.sleep(1)
+    print("Task completed")
+
+asyncio.run(main())
+
+
+28. MULTITHREADING
+
+Multithreading allows multiple threads to execute tasks within
+a program.
+
+It can be useful for I/O-bound operations such as:
+
+• File operations
+• Network requests
+• Web applications
+
+
+29. PROJECT STRUCTURE
+
+A well-organized Python project can contain:
+
+project/
+│
+├── app.py
+├── requirements.txt
+├── database.py
+├── recommendation.py
+├── templates/
+├── static/
+└── content/
+
+Separating files by responsibility makes the project easier
+to maintain.
+
+
+30. REQUIREMENTS FILE
+
+A requirements.txt file contains the Python packages required
+by a project.
+
+Example:
+
+Flask
+requests
+pandas
+numpy
+
+Packages can be installed using:
+
+pip install -r requirements.txt
+
+
+31. DEBUGGING
+
+Debugging is the process of finding and fixing errors.
+
+Common Python errors include:
+
+• SyntaxError
+• NameError
+• TypeError
+• ValueError
+• IndexError
+• KeyError
+• FileNotFoundError
+
+
+32. CODE OPTIMIZATION
+
+Optimization aims to improve program performance.
+
+Some basic techniques are:
+
+• Avoid unnecessary calculations
+• Use suitable data structures
+• Reuse functions
+• Avoid unnecessary loops
+• Use generators for large data
+• Use efficient database queries
+
+
+33. SOFTWARE DEVELOPMENT PRACTICES
+
+Good Python programs should have:
+
+• Meaningful variable names
+• Proper indentation
+• Comments where required
+• Reusable functions
+• Error handling
+• Organized project structure
+• Secure database operations
+
+
+34. ADVANCED PROJECT IDEAS
+
+Advanced Python can be used to build:
+
+• AI Learning Assistant
+• Student Performance Predictor
+• Recommendation System
+• Chatbot
+• Data Analysis Dashboard
+• Machine Learning Application
+• Flask Web Application
+• REST API
+
+
+35. PRACTICE TASKS
+
+Try creating:
+
+1. A student management application.
+2. A Flask-based login system.
+3. A database-connected Python application.
+4. A simple REST API.
+5. A data analysis application using Pandas.
+6. A basic Machine Learning prediction model.
+7. A recommendation system.
+8. A Python chatbot.
+
+
+36. ADVANCED LEARNING CHECKLIST
+
+After completing this level, you should understand:
+
+✓ Advanced OOP
+✓ Inheritance
+✓ Encapsulation
+✓ Polymorphism
+✓ Abstraction
+✓ Decorators
+✓ Generators
+✓ Iterators
+✓ Lambda functions
+✓ Comprehensions
+✓ Exception handling
+✓ Modules and packages
+✓ JSON
+✓ APIs
+✓ Flask
+✓ Database connectivity
+✓ NumPy
+✓ Pandas
+✓ Machine Learning basics
+✓ Asynchronous programming
+✓ Project organization
+
+
+SUMMARY
+
+Advanced Python focuses on developing real-world applications
+using reusable, efficient and maintainable code.
+
+The learner should be able to combine Python programming with
+web frameworks, databases, APIs and data-processing libraries
+to build practical applications.
+
+After completing this level, the learner can progress toward
+specialized areas such as Data Science, Artificial Intelligence,
+Machine Learning, Backend Development and Automation.

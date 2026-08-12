@@ -1,0 +1,1044 @@
+OPERATING SYSTEM – ADVANCED LEVEL
+=================================
+
+1. INTRODUCTION
+
+Advanced Operating System concepts explain how modern operating
+systems manage complex hardware, multiple processors, virtual
+machines, distributed systems, memory, security and concurrency.
+
+Important topics include:
+
+• Advanced process management
+• Advanced CPU scheduling
+• Synchronization
+• Deadlocks
+• Virtual memory
+• Memory optimization
+• File systems
+• Distributed operating systems
+• Virtualization
+• Security
+• Kernel architecture
+
+
+2. PROCESS MANAGEMENT
+
+Process management is responsible for creating, scheduling,
+synchronizing and terminating processes.
+
+The operating system maintains information about each process
+through a Process Control Block (PCB).
+
+
+3. PROCESS CREATION
+
+A process can create another process.
+
+The creating process is called the parent process.
+
+The newly created process is called the child process.
+
+This creates a process hierarchy.
+
+
+4. PROCESS TERMINATION
+
+A process can terminate when:
+
+• Its execution is completed.
+• It encounters an error.
+• It is terminated by another process.
+• The operating system terminates it.
+
+
+5. PROCESS HIERARCHY
+
+Processes can form parent-child relationships.
+
+Example:
+
+Parent Process
+     |
+     +---- Child Process 1
+     |
+     +---- Child Process 2
+
+
+6. CONTEXT SWITCHING
+
+A context switch occurs when the CPU changes from one process or
+thread to another.
+
+The operating system saves the current execution state and loads
+the state of the next process.
+
+Context switching allows multitasking but also introduces overhead.
+
+
+7. CONTEXT SWITCH INFORMATION
+
+The operating system may save:
+
+• Program counter
+• CPU registers
+• Process state
+• Scheduling information
+• Memory management information
+
+
+8. DISPATCHER
+
+The dispatcher gives control of the CPU to the process selected
+by the short-term scheduler.
+
+Dispatcher activities include:
+
+• Context switching
+• Switching to user mode
+• Jumping to the correct program location
+
+
+9. DISPATCH LATENCY
+
+Dispatch latency is the time required by the operating system to
+stop one process and start another process.
+
+Lower dispatch latency generally improves responsiveness.
+
+
+10. MULTIPROCESSOR SYSTEMS
+
+A multiprocessor system contains multiple processors or CPU cores.
+
+Benefits include:
+
+• Parallel execution
+• Higher throughput
+• Better performance
+• Improved reliability
+
+
+11. SYMMETRIC MULTIPROCESSING
+
+In Symmetric Multiprocessing (SMP), processors generally share
+access to system resources and can execute operating-system or
+application tasks.
+
+Work can be distributed among processors.
+
+
+12. MULTICORE PROCESSORS
+
+A multicore processor contains multiple processing cores on a
+single processor package.
+
+Each core can execute instructions independently.
+
+Modern operating systems are designed to take advantage of multiple
+cores.
+
+
+13. LOAD BALANCING
+
+Load balancing distributes work among available CPU cores or
+processors.
+
+The goal is to prevent one processor from being overloaded while
+others remain underused.
+
+
+14. CPU AFFINITY
+
+CPU affinity controls or influences which CPU cores a process or
+thread can execute on.
+
+It can sometimes improve cache utilization and performance.
+
+
+15. REAL-TIME OPERATING SYSTEMS
+
+A Real-Time Operating System is designed to provide predictable
+responses within specified timing requirements.
+
+Real-time systems are generally divided into:
+
+• Hard real-time systems
+• Soft real-time systems
+
+
+16. HARD REAL-TIME SYSTEM
+
+In a hard real-time system, missing a required deadline can cause
+serious system failure.
+
+Examples include certain:
+
+• Aircraft control systems
+• Industrial control systems
+• Safety-critical embedded systems
+
+
+17. SOFT REAL-TIME SYSTEM
+
+In a soft real-time system, deadlines are important, but occasional
+deadline violations may be tolerated.
+
+Examples can include:
+
+• Multimedia systems
+• Streaming applications
+• Interactive systems
+
+
+18. REAL-TIME SCHEDULING
+
+Real-time scheduling attempts to ensure that time-sensitive tasks
+meet their deadlines.
+
+Important approaches include:
+
+• Rate Monotonic Scheduling
+• Earliest Deadline First
+
+
+19. RATE MONOTONIC SCHEDULING
+
+Rate Monotonic Scheduling assigns higher priority to tasks with
+shorter periods.
+
+It is a fixed-priority scheduling approach.
+
+
+20. EARLIEST DEADLINE FIRST
+
+Earliest Deadline First assigns priority dynamically.
+
+The task with the closest deadline receives the highest priority.
+
+
+21. ADVANCED SYNCHRONIZATION
+
+Synchronization is essential when multiple processes or threads
+share resources.
+
+Incorrect synchronization can cause:
+
+• Race conditions
+• Deadlocks
+• Starvation
+• Data inconsistency
+
+
+22. STARVATION
+
+Starvation occurs when a process waits for a resource or CPU for
+an excessively long time because other processes are repeatedly
+given preference.
+
+
+23. AGING
+
+Aging is a technique used to reduce starvation.
+
+The priority of a waiting process is gradually increased so that
+it eventually receives CPU time.
+
+
+24. MONITORS
+
+A monitor is a high-level synchronization mechanism that provides
+controlled access to shared data.
+
+Only one process or thread generally executes inside a monitor at
+a time.
+
+
+25. CONDITION VARIABLES
+
+Condition variables allow threads to wait for a particular condition
+and be notified when that condition changes.
+
+They are commonly used together with locks or monitors.
+
+
+26. PRODUCER-CONSUMER PROBLEM
+
+The Producer-Consumer problem involves:
+
+• Producers generating data
+• Consumers using the data
+• A shared buffer
+
+Synchronization is required to prevent:
+
+• Buffer overflow
+• Buffer underflow
+• Race conditions
+
+
+27. READERS-WRITERS PROBLEM
+
+The Readers-Writers problem involves shared data that can be read
+by multiple readers but must be carefully controlled when writers
+modify it.
+
+Multiple readers may often read simultaneously, while writing
+requires exclusive access.
+
+
+28. DINING PHILOSOPHERS PROBLEM
+
+The Dining Philosophers problem is a classic synchronization
+problem.
+
+It demonstrates challenges involving:
+
+• Resource sharing
+• Deadlock
+• Starvation
+• Synchronization
+
+
+29. DEADLOCK GRAPH
+
+A Resource Allocation Graph can represent relationships between
+processes and resources.
+
+It can help identify possible deadlock situations.
+
+
+30. DEADLOCK PREVENTION
+
+Deadlock prevention ensures that at least one necessary deadlock
+condition is eliminated.
+
+Possible approaches include:
+
+• Avoid holding resources while waiting for others.
+• Allow resource preemption where appropriate.
+• Impose an ordering on resource acquisition.
+
+
+31. DEADLOCK AVOIDANCE
+
+Deadlock avoidance examines resource requests before granting them.
+
+The system grants a request only if doing so keeps the system in a
+safe state.
+
+Banker's Algorithm is a common example.
+
+
+32. DEADLOCK DETECTION
+
+A system may allow deadlocks and periodically check whether
+deadlock has occurred.
+
+Detection algorithms depend on the resource model.
+
+
+33. DEADLOCK RECOVERY
+
+After detecting deadlock, the operating system can recover by:
+
+• Terminating selected processes
+• Preempting resources
+• Rolling back processes
+
+
+34. VIRTUAL MEMORY
+
+Virtual memory allows each process to use a logical address space
+that is independent of the physical memory layout.
+
+It enables programs larger than available physical RAM to execute,
+provided sufficient secondary storage is available.
+
+
+35. DEMAND PAGING
+
+Demand paging loads pages into memory only when they are required.
+
+This reduces unnecessary memory usage.
+
+
+36. PAGE FAULT HANDLING
+
+When a page fault occurs:
+
+1. CPU detects that the required page is unavailable.
+2. Operating system identifies the missing page.
+3. A free frame is located or another page is selected for
+   replacement.
+4. Required page is loaded from storage.
+5. Page table is updated.
+6. Interrupted instruction is restarted.
+
+
+37. PAGE REPLACEMENT
+
+When no free frame is available, the operating system selects a
+page to remove.
+
+Common algorithms include:
+
+• FIFO
+• Optimal
+• LRU
+• Clock / Second Chance
+
+
+38. BELADY'S ANOMALY
+
+Belady's Anomaly is a situation where increasing the number of
+available page frames can sometimes increase page faults.
+
+It can occur with certain page replacement algorithms such as FIFO.
+
+
+39. WORKING SET
+
+The working set is the group of pages actively used by a process
+during a particular period.
+
+Keeping the working set in memory can reduce excessive page faults.
+
+
+40. THRASHING
+
+Thrashing occurs when a system spends most of its time handling
+page faults and swapping pages instead of executing useful work.
+
+Possible solutions include:
+
+• Reducing the degree of multiprogramming
+• Increasing available memory
+• Improving page replacement
+• Monitoring working sets
+
+
+41. MEMORY-MAPPED FILES
+
+Memory-mapped files allow file contents to be mapped into a
+process's virtual address space.
+
+Programs can access file data using memory operations.
+
+This can be useful for efficient file sharing and I/O.
+
+
+42. SHARED MEMORY
+
+Shared memory allows multiple processes to access a common memory
+region.
+
+It provides fast communication but requires synchronization.
+
+
+43. KERNEL
+
+The kernel is the core component of an operating system.
+
+It manages:
+
+• Processes
+• Memory
+• Devices
+• File systems
+• System calls
+• Security
+
+
+44. KERNEL MODE AND USER MODE
+
+Modern operating systems commonly separate execution into:
+
+• User mode
+• Kernel mode
+
+User programs operate with restricted privileges.
+
+The kernel operates with higher privileges to manage hardware and
+protected resources.
+
+
+45. SYSTEM CALLS
+
+System calls provide an interface between applications and the
+operating system.
+
+Examples include operations for:
+
+• Process creation
+• File access
+• Memory management
+• Device communication
+
+
+46. MONOLITHIC KERNEL
+
+A monolithic kernel provides many operating-system services inside
+the kernel space.
+
+Advantages:
+
+• High performance
+• Direct communication between kernel components
+
+Disadvantages:
+
+• Large trusted code base
+• Failure in one kernel component can have broader effects
+
+
+47. MICROKERNEL
+
+A microkernel keeps only essential services in kernel space.
+
+Other services can run outside the kernel.
+
+Advantages:
+
+• Better modularity
+• Smaller kernel
+• Improved fault isolation in some designs
+
+
+48. HYBRID KERNEL
+
+A hybrid kernel combines ideas from monolithic and microkernel
+architectures.
+
+Modern operating systems may use architectures that incorporate
+features from both approaches.
+
+
+49. DEVICE MANAGEMENT
+
+The operating system manages hardware devices through device drivers
+and I/O subsystems.
+
+It coordinates:
+
+• Device requests
+• Interrupts
+• Buffers
+• Queues
+• Data transfer
+
+
+50. INTERRUPT HANDLING
+
+Interrupts allow hardware or software events to notify the CPU.
+
+The operating system uses interrupt handlers to respond to these
+events.
+
+
+51. DIRECT MEMORY ACCESS
+
+Direct Memory Access (DMA) allows certain hardware devices to
+transfer data directly to main memory with limited CPU involvement.
+
+DMA can improve I/O performance by reducing CPU overhead.
+
+
+52. BUFFERING
+
+Buffering temporarily stores data while it is being transferred
+between components operating at different speeds.
+
+Example:
+
+A printer can use a buffer to store documents waiting to be printed.
+
+
+53. CACHING
+
+Caching stores frequently accessed information in faster memory.
+
+Examples include:
+
+• CPU cache
+• Disk cache
+• File-system cache
+
+
+54. FILE SYSTEM DESIGN
+
+Advanced file systems manage:
+
+• Files
+• Directories
+• Metadata
+• Storage allocation
+• Permissions
+• Journaling
+• Recovery
+
+
+55. FILE SYSTEM JOURNALING
+
+A journaling file system records intended changes before applying
+them fully.
+
+This can help recover the file system after a crash or power
+failure.
+
+
+56. FILE SYSTEM MOUNTING
+
+Mounting makes a file system available at a location in the operating
+system's directory structure.
+
+Linux systems commonly mount storage devices into directories.
+
+
+57. RAID
+
+RAID stands for Redundant Array of Independent Disks.
+
+It combines multiple physical storage devices to improve:
+
+• Performance
+• Reliability
+• Availability
+
+Different RAID levels provide different combinations of redundancy
+and performance.
+
+
+58. RAID 0
+
+RAID 0 uses striping across multiple disks.
+
+Advantages:
+
+• Improved performance
+• Full usable capacity across the disks
+
+Disadvantage:
+
+• No redundancy
+
+
+59. RAID 1
+
+RAID 1 uses mirroring.
+
+The same data is stored on multiple disks.
+
+Advantage:
+
+• Improved redundancy
+
+Disadvantage:
+
+• More storage capacity is required for the same amount of data.
+
+
+60. DISTRIBUTED OPERATING SYSTEM
+
+A distributed operating system manages resources across multiple
+networked computers.
+
+The system attempts to provide coordinated resource management.
+
+
+61. DISTRIBUTED SYSTEM CHARACTERISTICS
+
+Important characteristics include:
+
+• Resource sharing
+• Concurrency
+• Scalability
+• Fault tolerance
+• Communication between nodes
+
+
+62. DISTRIBUTED PROCESSING
+
+Distributed processing divides work across multiple computers.
+
+This can improve performance and scalability for suitable workloads.
+
+
+63. DISTRIBUTED FILE SYSTEM
+
+A distributed file system allows files to be accessed across
+multiple machines.
+
+It can provide:
+
+• Shared storage
+• Scalability
+• Availability
+
+
+64. DISTRIBUTED COMMUNICATION
+
+Distributed systems communicate through mechanisms such as:
+
+• Message passing
+• Remote procedure calls
+• Network sockets
+
+
+65. REMOTE PROCEDURE CALL
+
+Remote Procedure Call (RPC) allows a program to request execution
+of a procedure on another computer as though it were a local
+operation.
+
+The underlying system handles network communication.
+
+
+66. VIRTUALIZATION
+
+Virtualization creates virtual computing environments on physical
+hardware.
+
+A physical system can run multiple virtual machines.
+
+
+67. VIRTUAL MACHINE
+
+A virtual machine is an isolated software-based computer environment.
+
+It can have:
+
+• Virtual CPU
+• Virtual memory
+• Virtual storage
+• Virtual network devices
+
+
+68. HYPERVISOR
+
+A hypervisor manages virtual machines.
+
+Types include:
+
+• Type 1
+• Type 2
+
+
+69. CONTAINERIZATION
+
+Containers provide isolated application environments while sharing
+the host operating system kernel.
+
+Containers are generally lighter than full virtual machines.
+
+
+70. VIRTUAL MACHINE VS CONTAINER
+
+Virtual Machine:
+
+• Includes a guest operating system
+• Provides stronger hardware-level virtualization
+• Usually requires more resources
+
+Container:
+
+• Shares the host kernel
+• Usually starts faster
+• Generally uses fewer resources
+
+
+71. CLOUD COMPUTING AND OPERATING SYSTEMS
+
+Operating systems play an important role in cloud infrastructure.
+
+Cloud platforms use virtualization, networking, storage and resource
+management to provide computing services.
+
+
+72. OPERATING SYSTEM SECURITY
+
+Advanced OS security protects the kernel, processes, memory, files
+and devices.
+
+Important techniques include:
+
+• Access control
+• Authentication
+• Authorization
+• Encryption
+• Secure boot
+• Sandboxing
+• Auditing
+
+
+73. PRIVILEGE ESCALATION
+
+Privilege escalation occurs when a user or process gains permissions
+greater than those originally granted.
+
+Operating systems use access controls and security mechanisms to
+reduce this risk.
+
+
+74. SANDBOXING
+
+Sandboxing isolates applications from sensitive system resources.
+
+It limits what an application can access if the application behaves
+incorrectly or becomes compromised.
+
+
+75. SECURE BOOT
+
+Secure Boot verifies trusted software components during system
+startup.
+
+It helps prevent unauthorized boot software from executing.
+
+
+76. ACCESS CONTROL
+
+Access control determines which users or processes can access
+resources and what operations they can perform.
+
+
+77. PRINCIPLE OF LEAST PRIVILEGE
+
+The principle of least privilege means giving users and processes
+only the permissions required to perform their tasks.
+
+This reduces the impact of security problems.
+
+
+78. OPERATING SYSTEM MONITORING
+
+Advanced system monitoring may track:
+
+• CPU utilization
+• Memory usage
+• Disk I/O
+• Network traffic
+• Process activity
+• System calls
+• Security events
+
+
+79. PERFORMANCE BOTTLENECKS
+
+A bottleneck is a resource that limits overall system performance.
+
+Possible bottlenecks include:
+
+• CPU
+• Memory
+• Storage
+• Network
+• Synchronization
+
+
+80. PERFORMANCE OPTIMIZATION
+
+Operating system performance can be improved by:
+
+• Efficient scheduling
+• Better memory allocation
+• Caching
+• Load balancing
+• Reducing unnecessary I/O
+• Optimizing synchronization
+• Using suitable storage techniques
+
+
+81. POWER MANAGEMENT
+
+Modern operating systems manage power consumption.
+
+Techniques include:
+
+• CPU frequency scaling
+• Sleep modes
+• Device power management
+• Display power management
+• Battery monitoring
+
+
+82. EMBEDDED OPERATING SYSTEMS
+
+Embedded operating systems are designed for specialized devices.
+
+Examples include systems used in:
+
+• Smart appliances
+• Automotive systems
+• Industrial controllers
+• IoT devices
+
+
+83. MOBILE OPERATING SYSTEMS
+
+Mobile operating systems manage:
+
+• Touch input
+• Battery
+• Wireless communication
+• Applications
+• Sensors
+• Security
+
+
+84. OPERATING SYSTEM APIs
+
+An API provides a defined interface that applications can use to
+request operating-system services.
+
+APIs make application development easier by hiding low-level
+implementation details.
+
+
+85. KERNEL MODULES
+
+Kernel modules are components that can be loaded into or removed
+from the kernel when needed.
+
+They can provide functionality such as device drivers or file-system
+support.
+
+
+86. SYSTEM BOOT PROCESS
+
+A simplified boot process is:
+
+1. Hardware starts.
+2. Firmware performs initial checks.
+3. Bootloader is loaded.
+4. Kernel is loaded.
+5. Kernel initializes hardware and system services.
+6. User-space services start.
+7. Login or desktop environment becomes available.
+
+
+87. OPERATING SYSTEM RECOVERY
+
+Recovery mechanisms help restore a system after failures.
+
+Examples include:
+
+• System backups
+• Recovery environments
+• Checkpoints
+• File-system recovery
+• Safe modes
+
+
+88. FAULT TOLERANCE
+
+Fault tolerance allows a system to continue operating despite some
+component failures.
+
+Techniques include:
+
+• Redundant hardware
+• Replication
+• Checkpointing
+• Failover
+
+
+89. HIGH AVAILABILITY
+
+High availability aims to minimize service interruption.
+
+It can use:
+
+• Redundant systems
+• Failover
+• Monitoring
+• Replication
+• Recovery mechanisms
+
+
+90. ADVANCED PRACTICE TASKS
+
+Practice the following:
+
+1. Solve CPU scheduling problems.
+2. Compare different scheduling algorithms.
+3. Solve synchronization problems.
+4. Solve Banker's Algorithm examples.
+5. Analyze deadlock scenarios.
+6. Solve FIFO and LRU page replacement problems.
+7. Study virtual memory address translation.
+8. Compare paging and segmentation.
+9. Study file-system allocation methods.
+10. Compare RAID levels.
+11. Study virtualization.
+12. Compare virtual machines and containers.
+13. Explore Linux process management.
+14. Explore Linux memory and disk monitoring.
+15. Study operating-system security mechanisms.
+
+
+91. ADVANCED LEARNING CHECKLIST
+
+After completing this level, you should understand:
+
+✓ Process creation
+✓ Process termination
+✓ Context switching
+✓ Dispatching
+✓ Multiprocessor systems
+✓ Multicore systems
+✓ Load balancing
+✓ CPU affinity
+✓ Real-time operating systems
+✓ Real-time scheduling
+✓ Advanced synchronization
+✓ Starvation
+✓ Aging
+✓ Monitors
+✓ Producer-Consumer problem
+✓ Readers-Writers problem
+✓ Dining Philosophers problem
+✓ Deadlock handling
+✓ Virtual memory
+✓ Demand paging
+✓ Page faults
+✓ Working set
+✓ Thrashing
+✓ Memory-mapped files
+✓ Kernel architecture
+✓ User mode and kernel mode
+✓ System calls
+✓ Device management
+✓ Interrupts
+✓ DMA
+✓ File-system journaling
+✓ RAID
+✓ Distributed operating systems
+✓ RPC
+✓ Virtualization
+✓ Containers
+✓ Cloud computing
+✓ OS security
+✓ Sandboxing
+✓ Secure Boot
+✓ Least privilege
+✓ Performance optimization
+✓ Power management
+✓ Embedded operating systems
+✓ Mobile operating systems
+✓ Fault tolerance
+✓ High availability
+
+
+SUMMARY
+
+Advanced Operating System concepts explain how modern operating
+systems provide efficient, reliable, secure and scalable computing.
+
+At this level, learners should understand advanced process
+management, synchronization, virtual memory, file systems,
+distributed systems, virtualization and operating-system security.
+
+These concepts are useful for software development, system
+administration, cloud computing, cybersecurity, embedded systems
+and computer science applications.

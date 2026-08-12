@@ -1,0 +1,882 @@
+OPERATING SYSTEM – BEGINNER LEVEL
+=================================
+
+1. INTRODUCTION TO OPERATING SYSTEM
+
+An Operating System (OS) is system software that manages computer
+hardware and software resources.
+
+It acts as an interface between the user and the computer hardware.
+
+Examples of Operating Systems:
+
+• Windows
+• Linux
+• macOS
+• Android
+• iOS
+
+
+2. FUNCTIONS OF OPERATING SYSTEM
+
+The major functions of an Operating System are:
+
+• Process management
+• Memory management
+• File management
+• Device management
+• Security management
+• Resource management
+• User interface
+
+
+3. NEED FOR AN OPERATING SYSTEM
+
+An operating system is required because it:
+
+• Manages hardware resources
+• Runs application programs
+• Manages files
+• Controls memory
+• Handles input and output
+• Provides security
+• Allows users to interact with the computer
+
+
+4. TYPES OF OPERATING SYSTEMS
+
+Common types include:
+
+• Batch Operating System
+• Time-Sharing Operating System
+• Distributed Operating System
+• Network Operating System
+• Real-Time Operating System
+• Multiprocessing Operating System
+• Multitasking Operating System
+• Mobile Operating System
+
+
+5. BATCH OPERATING SYSTEM
+
+A batch operating system executes jobs in groups or batches.
+
+Users generally do not interact directly with the computer while
+the batch is being processed.
+
+Example:
+
+Large payroll processing systems can use batch processing.
+
+
+6. TIME-SHARING OPERATING SYSTEM
+
+A time-sharing operating system allows multiple users or processes
+to share CPU time.
+
+The CPU switches between tasks quickly, giving users the impression
+that tasks are running simultaneously.
+
+
+7. REAL-TIME OPERATING SYSTEM
+
+A Real-Time Operating System (RTOS) is designed to respond to events
+within a specified time.
+
+RTOS is commonly used in:
+
+• Industrial control systems
+• Medical equipment
+• Robotics
+• Embedded systems
+• Automobile control systems
+
+
+8. DISTRIBUTED OPERATING SYSTEM
+
+A distributed operating system manages multiple connected computers
+and makes them work together as a system.
+
+It can provide resource sharing and improved performance.
+
+
+9. MULTITASKING OPERATING SYSTEM
+
+Multitasking allows multiple programs to run apparently at the same
+time.
+
+Example:
+
+A user can:
+
+• Listen to music
+• Browse the internet
+• Edit a document
+
+at the same time.
+
+
+10. MULTIPROCESSING OPERATING SYSTEM
+
+A multiprocessing operating system supports the use of multiple
+processors or CPU cores.
+
+It can execute multiple processes in parallel.
+
+
+11. USER INTERFACE
+
+The operating system provides an interface through which users
+communicate with the computer.
+
+Two common interfaces are:
+
+• Command Line Interface (CLI)
+• Graphical User Interface (GUI)
+
+
+12. GRAPHICAL USER INTERFACE
+
+GUI allows users to interact with the computer using:
+
+• Windows
+• Icons
+• Menus
+• Buttons
+• Pointer
+
+Windows and macOS provide graphical user interfaces.
+
+
+13. COMMAND LINE INTERFACE
+
+CLI allows users to interact with the operating system by entering
+commands.
+
+Examples:
+
+Windows Command Prompt
+Linux Terminal
+
+Example:
+
+dir
+
+This command displays files and folders in Windows Command Prompt.
+
+
+14. KERNEL
+
+The kernel is the core part of an operating system.
+
+It manages communication between software and hardware.
+
+Major kernel responsibilities include:
+
+• CPU management
+• Memory management
+• Device management
+• Process management
+• System calls
+
+
+15. SYSTEM CALL
+
+A system call is a mechanism through which a program requests a
+service from the operating system.
+
+Examples of services include:
+
+• Creating a process
+• Opening a file
+• Reading data
+• Writing data
+• Allocating memory
+
+
+16. PROCESS
+
+A process is a program that is currently being executed.
+
+Example:
+
+When a user opens a calculator application, the running application
+becomes a process.
+
+
+17. PROGRAM VS PROCESS
+
+Program:
+
+A program is a set of instructions stored on a storage device.
+
+Process:
+
+A process is a program currently executing.
+
+Example:
+
+A calculator application stored on disk is a program.
+
+When it is running, it becomes a process.
+
+
+18. PROCESS STATES
+
+A process commonly passes through different states:
+
+• New
+• Ready
+• Running
+• Waiting
+• Terminated
+
+
+19. NEW STATE
+
+A process is in the New state when it is being created.
+
+
+20. READY STATE
+
+A process is in the Ready state when it is waiting for the CPU.
+
+
+21. RUNNING STATE
+
+A process is in the Running state when the CPU is executing its
+instructions.
+
+
+22. WAITING STATE
+
+A process enters the Waiting state when it is waiting for an event
+or resource.
+
+Example:
+
+A process may wait for input from a file or device.
+
+
+23. TERMINATED STATE
+
+A process enters the Terminated state after its execution is
+completed.
+
+
+24. PROCESS CONTROL BLOCK
+
+A Process Control Block (PCB) stores information about a process.
+
+It may contain:
+
+• Process ID
+• Process state
+• Program counter
+• CPU registers
+• Scheduling information
+• Memory information
+
+
+25. PROCESS ID
+
+A Process ID (PID) is a unique identifier assigned to a process
+by the operating system.
+
+It helps the operating system identify and manage processes.
+
+
+26. CPU SCHEDULING
+
+CPU scheduling determines which ready process should use the CPU.
+
+The main goal is to use CPU resources efficiently.
+
+
+27. SCHEDULING ALGORITHMS
+
+Common CPU scheduling algorithms include:
+
+• First Come First Serve (FCFS)
+• Shortest Job First (SJF)
+• Priority Scheduling
+• Round Robin
+
+
+28. FIRST COME FIRST SERVE
+
+FCFS executes processes in the order they arrive.
+
+Example:
+
+If processes arrive as:
+
+P1 → P2 → P3
+
+They are executed in the same order.
+
+
+29. SHORTEST JOB FIRST
+
+Shortest Job First selects the process with the shortest CPU burst.
+
+It can reduce average waiting time in suitable situations.
+
+
+30. PRIORITY SCHEDULING
+
+Priority scheduling selects processes based on their priority.
+
+A higher-priority process may be selected before a lower-priority
+process.
+
+
+31. ROUND ROBIN
+
+Round Robin scheduling gives each process a fixed amount of CPU time
+called a time quantum.
+
+After its time quantum expires, the process may move back to the
+ready queue.
+
+
+32. MEMORY MANAGEMENT
+
+Memory management controls the use of main memory.
+
+The operating system:
+
+• Allocates memory
+• Deallocates memory
+• Tracks memory usage
+• Protects memory
+• Manages processes in memory
+
+
+33. RAM
+
+RAM stands for Random Access Memory.
+
+It is the main memory used by a computer to temporarily store
+programs and data that are currently being used.
+
+
+34. VIRTUAL MEMORY
+
+Virtual memory allows the operating system to use storage space as
+an extension of physical memory.
+
+It allows programs to operate when physical RAM is insufficient,
+although storage is slower than RAM.
+
+
+35. PAGING
+
+Paging divides physical memory into fixed-size blocks called frames
+and logical memory into fixed-size blocks called pages.
+
+Pages can be loaded into available frames.
+
+
+36. PAGE
+
+A page is a fixed-size block of a process's logical memory.
+
+
+37. FRAME
+
+A frame is a fixed-size block of physical memory.
+
+A page is loaded into a frame when it is brought into physical
+memory.
+
+
+38. PAGE TABLE
+
+A page table stores mappings between pages and physical memory
+frames.
+
+It helps the operating system translate logical addresses into
+physical addresses.
+
+
+39. PAGE FAULT
+
+A page fault occurs when a required page is not currently present
+in physical memory.
+
+The operating system must retrieve the page from secondary storage.
+
+
+40. FILE SYSTEM
+
+A file system is used to organize and manage files on storage
+devices.
+
+Examples include:
+
+• NTFS
+• FAT32
+• ext4
+• APFS
+
+
+41. FILE
+
+A file is a collection of related information stored on a storage
+device.
+
+Examples:
+
+• Text file
+• Image
+• Video
+• Program
+• Document
+
+
+42. DIRECTORY
+
+A directory, also called a folder, is used to organize files.
+
+Example:
+
+Documents/
+    report.docx
+    notes.txt
+
+
+43. FILE MANAGEMENT
+
+The operating system provides operations such as:
+
+• Create
+• Open
+• Read
+• Write
+• Rename
+• Copy
+• Move
+• Delete
+
+
+44. INPUT AND OUTPUT MANAGEMENT
+
+The operating system manages communication between programs and
+input/output devices.
+
+Examples:
+
+• Keyboard
+• Mouse
+• Monitor
+• Printer
+• Disk
+• Network devices
+
+
+45. DEVICE DRIVER
+
+A device driver is software that allows the operating system to
+communicate with a hardware device.
+
+Examples:
+
+• Printer driver
+• Graphics driver
+• Audio driver
+
+
+46. BOOTING
+
+Booting is the process of starting a computer and loading the
+operating system into memory.
+
+Basic steps include:
+
+1. Computer starts.
+2. Hardware is initialized.
+3. Bootloader starts.
+4. Operating system kernel is loaded.
+5. Operating system becomes ready for use.
+
+
+47. BOOTLOADER
+
+A bootloader is a program that helps load the operating system
+kernel during startup.
+
+
+48. INTERRUPT
+
+An interrupt is a signal that informs the CPU that an event requires
+attention.
+
+Examples:
+
+• Keyboard input
+• Mouse input
+• Hardware events
+• Timer events
+
+
+49. SECURITY
+
+Operating systems provide security mechanisms to protect system
+resources and user data.
+
+Security features include:
+
+• User accounts
+• Passwords
+• Permissions
+• Access control
+• Firewalls
+• Encryption
+
+
+50. USER ACCOUNT
+
+A user account identifies a person using the computer.
+
+Different users can have different permissions.
+
+
+51. FILE PERMISSIONS
+
+File permissions determine who can access or modify a file.
+
+Common permissions include:
+
+• Read
+• Write
+• Execute
+
+
+52. MULTIUSER OPERATING SYSTEM
+
+A multiuser operating system allows multiple users to use the
+computer system.
+
+Each user can have separate accounts and permissions.
+
+
+53. MULTITHREADING
+
+A thread is a smaller unit of execution within a process.
+
+A process can contain multiple threads.
+
+Multithreading can improve responsiveness and allow tasks to
+execute concurrently.
+
+
+54. PROCESS VS THREAD
+
+Process:
+
+• Independent execution unit
+• Has its own address space
+• Generally requires more resources
+
+Thread:
+
+• Execution unit within a process
+• Shares resources with other threads in the same process
+• Generally requires fewer resources
+
+
+55. DEADLOCK
+
+Deadlock occurs when processes wait indefinitely for resources held
+by each other.
+
+Example:
+
+Process P1 holds Resource A and waits for Resource B.
+
+Process P2 holds Resource B and waits for Resource A.
+
+Both processes remain waiting.
+
+
+56. CONDITIONS FOR DEADLOCK
+
+Four necessary conditions are:
+
+• Mutual exclusion
+• Hold and wait
+• No preemption
+• Circular wait
+
+
+57. MUTUAL EXCLUSION
+
+Mutual exclusion means that a resource can be used by only one
+process at a time.
+
+
+58. HOLD AND WAIT
+
+Hold and wait means a process holds at least one resource while
+waiting for another resource.
+
+
+59. NO PREEMPTION
+
+No preemption means a resource cannot be forcibly taken away from
+a process.
+
+
+60. CIRCULAR WAIT
+
+Circular wait occurs when processes form a circular chain where each
+process waits for a resource held by another process.
+
+
+61. RESOURCE MANAGEMENT
+
+The operating system manages system resources such as:
+
+• CPU
+• Memory
+• Storage
+• Input/output devices
+• Network resources
+
+
+62. OPERATING SYSTEM EXAMPLES
+
+Windows:
+
+A widely used desktop operating system.
+
+Linux:
+
+An open-source operating system widely used in servers and
+development environments.
+
+macOS:
+
+An operating system developed for Apple Mac computers.
+
+Android:
+
+A mobile operating system widely used on smartphones and tablets.
+
+
+63. OPEN-SOURCE OPERATING SYSTEM
+
+An open-source operating system provides source code that can be
+viewed, modified and distributed according to its license.
+
+Linux is a well-known example.
+
+
+64. OPERATING SYSTEM AND APPLICATION SOFTWARE
+
+Operating System:
+
+Manages hardware and provides system services.
+
+Application Software:
+
+Performs tasks for users.
+
+Examples of application software:
+
+• Web browsers
+• Word processors
+• Media players
+• Games
+
+
+65. OPERATING SYSTEM AND HARDWARE
+
+The operating system acts as a layer between applications and
+hardware.
+
+Application
+     ↓
+Operating System
+     ↓
+Hardware
+
+
+66. SYSTEM RESOURCES
+
+System resources include:
+
+• CPU time
+• Memory
+• Storage
+• Network
+• Input/output devices
+
+The operating system allocates these resources among programs.
+
+
+67. BASIC OPERATING SYSTEM COMMANDS
+
+Some common commands include:
+
+Windows:
+
+dir
+cd
+mkdir
+copy
+del
+
+Linux:
+
+ls
+cd
+mkdir
+cp
+rm
+
+These commands are used to manage files and directories.
+
+
+68. LINUX BASICS
+
+Linux is an open-source operating system.
+
+Important concepts include:
+
+• Terminal
+• Shell
+• File system
+• Users
+• Permissions
+• Processes
+
+
+69. SHELL
+
+A shell is a program that provides an interface for interacting
+with the operating system.
+
+Examples:
+
+• Bash
+• PowerShell
+• Command Prompt
+
+
+70. ENVIRONMENT VARIABLES
+
+Environment variables store configuration information used by the
+operating system and applications.
+
+Example:
+
+PATH
+
+PATH tells the system where executable programs can be found.
+
+
+71. SYSTEM PERFORMANCE
+
+Operating system performance can be measured using:
+
+• CPU usage
+• Memory usage
+• Disk usage
+• Network usage
+• Process activity
+
+
+72. TASK MANAGER
+
+Windows Task Manager allows users to monitor:
+
+• Running processes
+• CPU usage
+• Memory usage
+• Disk usage
+• Network usage
+
+It can also be used to close unresponsive applications.
+
+
+73. BASIC TROUBLESHOOTING
+
+Common troubleshooting steps include:
+
+1. Check whether the system is powered on.
+2. Check cables and connections.
+3. Restart the application.
+4. Restart the computer.
+5. Check available storage.
+6. Check memory and CPU usage.
+7. Update required drivers or software.
+8. Check error messages.
+
+
+74. OPERATING SYSTEM PRACTICE TASKS
+
+Practice the following:
+
+1. Create and delete folders.
+2. Create and rename files.
+3. Monitor processes using Task Manager.
+4. Check CPU and memory usage.
+5. Use basic command-line commands.
+6. Create a user account.
+7. Explore file permissions.
+8. Identify running processes.
+9. Check available disk space.
+10. Practice basic Linux commands.
+
+
+75. BEGINNER LEARNING CHECKLIST
+
+After completing this level, you should understand:
+
+✓ Operating System
+✓ Functions of OS
+✓ Types of OS
+✓ Kernel
+✓ System calls
+✓ Processes
+✓ Process states
+✓ Process Control Block
+✓ CPU scheduling
+✓ FCFS
+✓ SJF
+✓ Priority Scheduling
+✓ Round Robin
+✓ Memory management
+✓ Virtual memory
+✓ Paging
+✓ Files and directories
+✓ File systems
+✓ Device drivers
+✓ Booting
+✓ Interrupts
+✓ Security
+✓ User accounts
+✓ File permissions
+✓ Threads
+✓ Deadlock
+✓ Resource management
+✓ Linux basics
+✓ Shell
+✓ Environment variables
+✓ Basic troubleshooting
+
+
+SUMMARY
+
+An Operating System is essential system software that manages
+computer hardware and software resources.
+
+At the beginner level, learners should understand processes,
+memory, files, CPU scheduling, devices, security and basic system
+operations.
+
+These concepts provide the foundation for intermediate topics such
+as advanced scheduling, synchronization, virtual memory, page
+replacement and file-system management.

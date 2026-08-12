@@ -1,0 +1,1179 @@
+APTITUDE – ADVANCED LEVEL
+=========================
+
+1. INTRODUCTION
+
+Advanced aptitude focuses on complex mathematical problems,
+shortcuts, analytical thinking and multi-step reasoning.
+
+Important topics include:
+
+• Advanced number system
+• Advanced percentages
+• Profit and loss
+• Advanced ratio and proportion
+• Time and work
+• Pipes and cisterns
+• Time, speed and distance
+• Permutation and combination
+• Probability
+• Algebra
+• Geometry
+• Data interpretation
+• Logical reasoning
+• Data sufficiency
+• Advanced puzzles
+
+
+2. ADVANCED NUMBER SYSTEM
+
+Important concepts include:
+
+• Divisibility
+• Remainders
+• Prime factorization
+• Cyclicity
+• Unit digits
+• Factors
+• Highest powers
+• Modular arithmetic
+
+
+3. PRIME FACTORIZATION
+
+Prime factorization represents a number as a product of prime
+numbers.
+
+Example:
+
+60 = 2 × 2 × 3 × 5
+
+Therefore:
+
+60 = 2² × 3 × 5
+
+
+4. NUMBER OF FACTORS
+
+If:
+
+N = a^p × b^q
+
+then the number of positive factors is:
+
+(p + 1)(q + 1)
+
+Example:
+
+12 = 2² × 3¹
+
+Number of factors:
+
+(2 + 1)(1 + 1)
+
+= 6
+
+
+5. REMAINDER THEOREM
+
+For a number N divided by d:
+
+N = dq + r
+
+where:
+
+q = quotient
+r = remainder
+
+and:
+
+0 ≤ r < d
+
+
+6. MODULAR ARITHMETIC
+
+Modular arithmetic deals with remainders.
+
+Example:
+
+17 mod 5 = 2
+
+because:
+
+17 = 5 × 3 + 2
+
+
+7. CYCLICITY
+
+Some powers follow repeating patterns in their unit digits.
+
+Example:
+
+Powers of 2:
+
+2, 4, 8, 6, 2, 4, 8, 6...
+
+The cycle length is 4.
+
+This can be used to find the last digit of large powers.
+
+
+8. LAST DIGIT
+
+To find the last digit of a large number:
+
+1. Identify the repeating cycle.
+2. Find the position using the exponent.
+3. Select the corresponding digit.
+
+
+9. HCF AND LCM
+
+For two positive integers:
+
+Product of numbers = HCF × LCM
+
+
+10. ADVANCED PERCENTAGE
+
+Successive percentage changes can be calculated using:
+
+Net change = a + b + ab/100
+
+Use negative values for decreases.
+
+Example:
+
+Increase by 20% followed by decrease by 10%:
+
+20 - 10 - 2
+
+= 8% increase
+
+
+11. PERCENTAGE COMPARISON
+
+If A is x% more than B:
+
+A = B(1 + x/100)
+
+If A is x% less than B:
+
+A = B(1 - x/100)
+
+
+12. REVERSE PERCENTAGE
+
+If a value after a percentage increase is known:
+
+Original Value =
+Final Value / (1 + Percentage/100)
+
+
+13. PROFIT AND LOSS
+
+Important formulas:
+
+Profit = SP - CP
+
+Loss = CP - SP
+
+Profit% = Profit/CP × 100
+
+Loss% = Loss/CP × 100
+
+
+14. MARKED PRICE AND DISCOUNT
+
+Selling Price:
+
+SP = MP(100 - Discount%)/100
+
+where:
+
+MP = Marked Price
+
+
+15. SUCCESSIVE DISCOUNTS
+
+Equivalent discount:
+
+a + b - ab/100
+
+Example:
+
+20% and 10% successive discounts:
+
+20 + 10 - (20 × 10)/100
+
+= 28%
+
+Therefore, equivalent discount = 28%.
+
+
+16. RATIO DISTRIBUTION
+
+If a quantity is divided in the ratio:
+
+a : b
+
+Then the shares are:
+
+a/(a+b) × Total
+
+and:
+
+b/(a+b) × Total
+
+
+17. COMPOUND RATIO
+
+If:
+
+A : B = a : b
+
+and
+
+B : C = c : d
+
+Then combine the ratios by making the common term equal.
+
+
+18. PARTNERSHIP
+
+Profit is divided according to:
+
+Capital × Time
+
+For multiple partners, calculate this value for every partner and
+then simplify the resulting ratio.
+
+
+19. ADVANCED AVERAGE
+
+If the average of n numbers is A:
+
+Total = nA
+
+If one value x is replaced by y:
+
+New Total = Old Total - x + y
+
+
+20. ALLEGATION
+
+Alligation is a shortcut for finding the ratio in which two
+quantities with different values should be mixed to obtain a
+desired mean value.
+
+The basic comparison is:
+
+Lower value : Higher value
+
+= (Higher - Mean) : (Mean - Lower)
+
+
+21. MIXTURE PROBLEMS
+
+Mixture problems may involve:
+
+• Price
+• Concentration
+• Quantity
+• Replacement
+• Dilution
+
+
+22. REPLACEMENT PROBLEMS
+
+In replacement problems, a quantity is removed and replaced by
+another quantity repeatedly.
+
+Such questions can often be solved using fractions and ratios.
+
+
+23. SIMPLE INTEREST
+
+SI = PRT/100
+
+Amount:
+
+A = P + SI
+
+
+24. COMPOUND INTEREST
+
+For annual compounding:
+
+A = P(1 + R/100)^T
+
+CI = A - P
+
+
+25. COMPOUND INTEREST FOR DIFFERENT PERIODS
+
+If interest is compounded half-yearly:
+
+Rate becomes R/2
+
+Time becomes 2T
+
+
+If compounded quarterly:
+
+Rate becomes R/4
+
+Time becomes 4T
+
+
+26. TIME AND WORK
+
+If A completes work in x days:
+
+A's one-day work = 1/x
+
+
+27. COMBINED WORK
+
+If A takes x days and B takes y days:
+
+Combined rate:
+
+1/x + 1/y
+
+
+28. EFFICIENCY AND WORK
+
+For the same amount of work:
+
+Efficiency is inversely proportional to time.
+
+If:
+
+A : B efficiency = 3 : 2
+
+then:
+
+A : B time = 2 : 3
+
+
+29. WORK AND WAGES
+
+Wages are generally divided according to the amount of work
+completed.
+
+If workers have different efficiencies and working times, use:
+
+Work = Efficiency × Time
+
+
+30. PIPES AND CISTERNS
+
+Filling pipe:
+
+Positive work rate
+
+Emptying pipe:
+
+Negative work rate
+
+
+31. ALTERNATE PIPES
+
+When pipes are opened at different intervals, calculate the work
+completed during each interval and add the contributions.
+
+
+32. TIME, SPEED AND DISTANCE
+
+Basic relationship:
+
+Distance = Speed × Time
+
+
+33. RELATIVE SPEED
+
+Same direction:
+
+Relative speed = Difference
+
+Opposite direction:
+
+Relative speed = Sum
+
+
+34. AVERAGE SPEED
+
+Average speed:
+
+Total distance / Total time
+
+Do not simply average two speeds unless the conditions justify it.
+
+
+35. TRAINS
+
+When two trains move in opposite directions:
+
+Relative speed = Sum of their speeds
+
+
+When they move in the same direction:
+
+Relative speed = Difference of their speeds
+
+
+36. BOATS AND STREAMS
+
+Let:
+
+B = boat speed in still water
+
+S = stream speed
+
+
+Downstream:
+
+B + S
+
+
+Upstream:
+
+B - S
+
+
+37. RACES
+
+Race problems compare the distances or times taken by different
+participants.
+
+If A beats B by a distance, compare the distance covered by both
+within the same time.
+
+
+38. ESCALATORS
+
+Escalator problems involve relative motion between a person and
+the moving escalator.
+
+The effective speed depends on whether the person moves in the
+same or opposite direction as the escalator.
+
+
+39. PERMUTATION
+
+Permutation:
+
+nPr = n!/(n-r)!
+
+
+40. COMBINATION
+
+Combination:
+
+nCr = n!/[r!(n-r)!]
+
+
+41. RELATIONSHIP BETWEEN PERMUTATION AND COMBINATION
+
+nPr = nCr × r!
+
+
+42. PERMUTATION WITH REPETITION
+
+If objects contain repeated elements, the number of distinct
+arrangements is reduced.
+
+For example, if there are n objects with repeated groups of
+sizes a, b and c:
+
+Number of arrangements:
+
+n!/(a!b!c!)
+
+
+43. CIRCULAR PERMUTATION
+
+For n distinct objects arranged around a circle:
+
+Number of arrangements:
+
+(n - 1)!
+
+
+44. PROBABILITY
+
+Probability:
+
+P(E) = Favourable outcomes / Total outcomes
+
+
+45. COMPLEMENT
+
+P(not E) = 1 - P(E)
+
+
+46. ADDITION RULE
+
+For two events:
+
+P(A or B) = P(A) + P(B) - P(A and B)
+
+
+47. CONDITIONAL PROBABILITY
+
+Conditional probability measures the probability of an event when
+another event is already known to have occurred.
+
+Formula:
+
+P(A|B) = P(A and B)/P(B)
+
+
+48. BAYES' THEOREM
+
+Bayes' theorem is used to calculate conditional probabilities when
+information about related events is available.
+
+It is useful in:
+
+• Decision making
+• Classification
+• Diagnosis
+• Data analysis
+
+
+49. INDEPENDENT EVENTS
+
+For independent events:
+
+P(A and B) = P(A) × P(B)
+
+
+50. EXPECTED VALUE
+
+Expected value represents the weighted average outcome of a
+random experiment.
+
+It is calculated by multiplying each possible outcome by its
+probability and adding the results.
+
+
+51. ALGEBRA
+
+Advanced aptitude may include:
+
+• Linear equations
+• Quadratic equations
+• Inequalities
+• Algebraic identities
+• Functions
+• Sequences
+
+
+52. QUADRATIC EQUATION
+
+General form:
+
+ax² + bx + c = 0
+
+
+53. QUADRATIC FORMULA
+
+x = [-b ± √(b² - 4ac)]/(2a)
+
+
+54. DISCRIMINANT
+
+Discriminant:
+
+D = b² - 4ac
+
+If:
+
+D > 0
+
+there are two distinct real roots.
+
+If:
+
+D = 0
+
+there is one repeated real root.
+
+If:
+
+D < 0
+
+there are no real roots.
+
+
+55. ALGEBRAIC IDENTITIES
+
+(a+b)² = a² + 2ab + b²
+
+(a-b)² = a² - 2ab + b²
+
+a²-b² = (a-b)(a+b)
+
+(a+b)³ = a³ + 3a²b + 3ab² + b³
+
+
+56. INEQUALITIES
+
+Inequalities compare values using:
+
+<
+
+>
+
+≤
+
+≥
+
+When multiplying or dividing an inequality by a negative number,
+the inequality sign reverses.
+
+
+57. SEQUENCES
+
+A sequence is an ordered list of numbers.
+
+Important types:
+
+• Arithmetic progression
+• Geometric progression
+
+
+58. ARITHMETIC PROGRESSION
+
+In an Arithmetic Progression (AP), the difference between
+consecutive terms is constant.
+
+nth term:
+
+aₙ = a + (n-1)d
+
+
+59. SUM OF AP
+
+Sum of first n terms:
+
+Sₙ = n/2 [2a + (n-1)d]
+
+
+60. GEOMETRIC PROGRESSION
+
+In a Geometric Progression (GP), consecutive terms have a constant
+ratio.
+
+nth term:
+
+aₙ = ar^(n-1)
+
+
+61. SUM OF GP
+
+For r ≠ 1:
+
+Sₙ = a(rⁿ - 1)/(r - 1)
+
+
+62. GEOMETRY
+
+Advanced geometry includes:
+
+• Similar triangles
+• Congruent triangles
+• Circles
+• Areas
+• Volumes
+• Coordinate geometry
+
+
+63. SIMILAR TRIANGLES
+
+Similar triangles have:
+
+• Equal corresponding angles
+• Proportional corresponding sides
+
+
+64. PYTHAGOREAN THEOREM
+
+For a right triangle:
+
+a² + b² = c²
+
+
+65. HERON'S FORMULA
+
+For a triangle with sides a, b and c:
+
+s = (a+b+c)/2
+
+Area:
+
+√[s(s-a)(s-b)(s-c)]
+
+
+66. COORDINATE GEOMETRY
+
+Distance between two points:
+
+(x₁,y₁) and (x₂,y₂)
+
+Distance:
+
+√[(x₂-x₁)² + (y₂-y₁)²]
+
+
+67. MIDPOINT
+
+Midpoint of two points:
+
+((x₁+x₂)/2, (y₁+y₂)/2)
+
+
+68. SLOPE
+
+Slope of a line:
+
+m = (y₂-y₁)/(x₂-x₁)
+
+
+69. AREA OF A CIRCLE
+
+Area:
+
+πr²
+
+
+70. CYLINDER
+
+Volume:
+
+πr²h
+
+
+71. CUBE
+
+Volume:
+
+a³
+
+Surface area:
+
+6a²
+
+
+72. CUBOID
+
+Volume:
+
+Length × Breadth × Height
+
+
+73. DATA INTERPRETATION
+
+Advanced DI may combine:
+
+• Tables
+• Multiple graphs
+• Ratios
+• Percentages
+• Averages
+• Profit and loss
+• Growth rates
+
+
+74. DATA INTERPRETATION STRATEGY
+
+1. Understand the data.
+2. Identify units.
+3. Identify relationships.
+4. Calculate only required values.
+5. Use approximation when suitable.
+6. Check the result.
+
+
+75. DATA SUFFICIENCY
+
+Data sufficiency questions ask whether the provided statements
+contain enough information to answer a question.
+
+The goal is not always to calculate the answer.
+
+The goal is to determine whether the answer can be determined.
+
+
+76. DATA SUFFICIENCY METHOD
+
+1. Read the question.
+2. Examine statement 1.
+3. Check whether statement 1 alone is sufficient.
+4. Examine statement 2.
+5. Check whether statement 2 alone is sufficient.
+6. Consider both statements together if necessary.
+
+
+77. LOGICAL REASONING
+
+Advanced reasoning includes:
+
+• Syllogisms
+• Seating arrangements
+• Puzzles
+• Blood relations
+• Directions
+• Coding-decoding
+• Statement and assumption
+• Statement and conclusion
+
+
+78. SYLLOGISM
+
+Syllogism questions contain statements and conclusions.
+
+Use logical relationships instead of assumptions.
+
+
+79. STATEMENT AND ASSUMPTION
+
+An assumption is an unstated idea that must be accepted for the
+statement to make sense.
+
+
+80. STATEMENT AND CONCLUSION
+
+A conclusion must logically follow from the given information.
+
+Do not add external information.
+
+
+81. SEATING ARRANGEMENT
+
+Seating arrangement problems involve placing people according to
+given conditions.
+
+They may be:
+
+• Linear
+• Circular
+• Square
+• Rectangular
+
+
+82. LINEAR ARRANGEMENT
+
+In linear arrangement, people are positioned in a row.
+
+Use a diagram and mark positions from left to right.
+
+
+83. CIRCULAR ARRANGEMENT
+
+In circular arrangement, people are positioned around a circle.
+
+Always establish one fixed reference position before solving.
+
+
+84. PUZZLES
+
+Advanced puzzles may combine:
+
+• People
+• Places
+• Objects
+• Dates
+• Jobs
+• Relationships
+
+
+85. PUZZLE-SOLVING METHOD
+
+1. List all entities.
+2. Create a table.
+3. Enter definite information first.
+4. Eliminate impossible combinations.
+5. Use remaining clues.
+6. Verify the final arrangement.
+
+
+86. CLOCK ANGLES
+
+Angle between clock hands:
+
+|30H - 5.5M|
+
+where:
+
+H = hour
+
+M = minutes
+
+
+87. CALENDAR PROBLEMS
+
+Calendar questions may require finding:
+
+• Day of the week
+• Number of odd days
+• Leap years
+• Date differences
+
+
+88. ODD DAYS
+
+Odd days are the days remaining after complete weeks are removed.
+
+For example:
+
+365 days = 52 weeks + 1 day
+
+Therefore, a normal year has 1 odd day.
+
+
+89. AGES
+
+Advanced age problems may involve:
+
+• Ratios
+• Multiple people
+• Past and future ages
+• Age differences
+
+
+90. AGE RATIO EXAMPLE
+
+If the present ages of A and B are in the ratio:
+
+3 : 5
+
+and their total age is 40:
+
+3x + 5x = 40
+
+8x = 40
+
+x = 5
+
+Therefore:
+
+A = 15
+
+B = 25
+
+
+91. VENN DIAGRAMS
+
+For two sets:
+
+n(A ∪ B) = n(A) + n(B) - n(A ∩ B)
+
+
+92. THREE-SET PROBLEMS
+
+Three-set problems may require careful consideration of:
+
+• Individual groups
+• Pairwise intersections
+• Common intersection
+• Outside group
+
+
+93. APPROXIMATION
+
+Approximation is especially useful in large calculations.
+
+Round numbers to nearby convenient values while maintaining
+reasonable accuracy.
+
+
+94. SHORTCUT CALCULATION
+
+Useful percentage values:
+
+1% = 1/100
+
+5% = 1/20
+
+10% = 1/10
+
+12.5% = 1/8
+
+20% = 1/5
+
+25% = 1/4
+
+33.33% ≈ 1/3
+
+50% = 1/2
+
+75% = 3/4
+
+
+95. ADVANCED PROBLEM-SOLVING STRATEGY
+
+For difficult questions:
+
+1. Identify the topic.
+2. Translate the problem into mathematical form.
+3. Remove unnecessary information.
+4. Select the shortest valid method.
+5. Calculate carefully.
+6. Verify the result.
+7. Move on if the question takes too long.
+
+
+96. PLACEMENT TEST STRATEGY
+
+For placement examinations:
+
+• Start with familiar topics.
+• Solve direct formula questions first.
+• Use elimination in multiple-choice questions.
+• Avoid spending too much time on one problem.
+• Use approximation where appropriate.
+• Keep track of time.
+• Review marked questions at the end.
+
+
+97. COMMON ADVANCED MISTAKES
+
+Avoid:
+
+• Applying formulas without understanding the conditions.
+• Confusing average speed with average of speeds.
+• Forgetting negative signs.
+• Ignoring units.
+• Misreading ratios.
+• Using assumptions in reasoning.
+• Spending too much time on lengthy calculations.
+• Failing to verify answers.
+
+
+98. ADVANCED PRACTICE QUESTIONS
+
+1. Find the number of factors of 360.
+
+2. Find the last digit of 7²⁰.
+
+3. A price increases by 20% and then decreases by 10%.
+   Find the net percentage change.
+
+4. A and B complete a work in 12 and 18 days respectively.
+   Find the time required when working together.
+
+5. A train of length 200 m travels at 72 km/h.
+   How long does it take to cross a pole?
+
+6. A boat travels at 15 km/h in still water and the stream speed
+   is 3 km/h. Find the upstream speed.
+
+7. Find:
+
+   8C3
+
+8. Find:
+
+   8P3
+
+9. Solve:
+
+   x² - 5x + 6 = 0
+
+10. Find the next term:
+
+    2, 6, 12, 20, 30, ?
+
+
+99. PRACTICE ANSWERS
+
+1. Number of factors of 360 = 24
+
+2. Last digit of 7²⁰ = 1
+
+3. Net increase = 8%
+
+4. Time = 36/5 days = 7.2 days
+
+5. Time = 10 seconds
+
+6. Upstream speed = 12 km/h
+
+7. 8C3 = 56
+
+8. 8P3 = 336
+
+9. x = 2 or x = 3
+
+10. Next term = 42
+
+
+100. ADVANCED LEARNING CHECKLIST
+
+✓ Advanced number system
+✓ Prime factorization
+✓ Remainders
+✓ Modular arithmetic
+✓ Cyclicity
+✓ Last-digit problems
+✓ Advanced percentages
+✓ Successive percentage
+✓ Reverse percentage
+✓ Profit and loss
+✓ Discounts
+✓ Ratios
+✓ Partnership
+✓ Averages
+✓ Mixtures
+✓ Alligation
+✓ Simple interest
+✓ Compound interest
+✓ Time and work
+✓ Work and wages
+✓ Pipes and cisterns
+✓ Speed and distance
+✓ Relative speed
+✓ Trains
+✓ Boats and streams
+✓ Races
+✓ Escalators
+✓ Permutation
+✓ Combination
+✓ Circular permutation
+✓ Probability
+✓ Conditional probability
+✓ Bayes' theorem
+✓ Expected value
+✓ Algebra
+✓ Quadratic equations
+✓ Inequalities
+✓ AP and GP
+✓ Geometry
+✓ Coordinate geometry
+✓ Mensuration
+✓ Data interpretation
+✓ Data sufficiency
+✓ Syllogisms
+✓ Seating arrangements
+✓ Logical puzzles
+✓ Clock problems
+✓ Calendar problems
+✓ Age problems
+✓ Venn diagrams
+✓ Approximation
+✓ Placement test strategy
+
+
+SUMMARY
+
+Advanced aptitude requires both mathematical knowledge and
+efficient problem-solving.
+
+The learner should be able to identify the correct concept quickly,
+apply formulas accurately and manage time effectively.
+
+Regular practice with timed questions is essential for placement
+tests and competitive examinations.

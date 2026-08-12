@@ -1,8 +1,811 @@
 from flask import Flask, render_template, request
-from recommendation import get_recommendation
 import sqlite3
+import os
 
 app = Flask(__name__)
+
+
+# =========================================================
+# QUIZ QUESTION BANK
+# =========================================================
+
+QUESTION_BANK = {
+
+    # =====================================================
+    # PYTHON
+    # =====================================================
+
+    "python": {
+
+        "beginner": [
+            {
+                "question": "What type of language is Python?",
+                "options": [
+                    "Programming Language",
+                    "Markup Language",
+                    "Database",
+                    "Operating System"
+                ],
+                "answer": "Programming Language"
+            },
+            {
+                "question": "Which symbol is used for comments in Python?",
+                "options": [
+                    "#",
+                    "//",
+                    "/*",
+                    "<!--"
+                ],
+                "answer": "#"
+            },
+            {
+                "question": "Which keyword is used to define a function?",
+                "options": [
+                    "function",
+                    "def",
+                    "fun",
+                    "define"
+                ],
+                "answer": "def"
+            },
+            {
+                "question": "Which of the following is a Python list?",
+                "options": [
+                    "[1, 2, 3]",
+                    "(1, 2, 3)",
+                    "{1, 2, 3}",
+                    "<1, 2, 3>"
+                ],
+                "answer": "[1, 2, 3]"
+            },
+            {
+                "question": "Which keyword is commonly used for looping through a sequence?",
+                "options": [
+                    "for",
+                    "loop",
+                    "repeat",
+                    "iterate"
+                ],
+                "answer": "for"
+            }
+        ],
+
+        "intermediate": [
+            {
+                "question": "Which data structure stores key-value pairs in Python?",
+                "options": [
+                    "List",
+                    "Tuple",
+                    "Dictionary",
+                    "Set"
+                ],
+                "answer": "Dictionary"
+            },
+            {
+                "question": "What does len() return?",
+                "options": [
+                    "Data type",
+                    "Number of items",
+                    "Memory address",
+                    "Variable name"
+                ],
+                "answer": "Number of items"
+            },
+            {
+                "question": "Which keyword is used to handle exceptions?",
+                "options": [
+                    "try",
+                    "check",
+                    "error",
+                    "handle"
+                ],
+                "answer": "try"
+            },
+            {
+                "question": "What is the output of 10 // 3?",
+                "options": [
+                    "3",
+                    "3.33",
+                    "1",
+                    "4"
+                ],
+                "answer": "3"
+            },
+            {
+                "question": "Which function converts a value into an integer?",
+                "options": [
+                    "str()",
+                    "float()",
+                    "int()",
+                    "number()"
+                ],
+                "answer": "int()"
+            }
+        ],
+
+        "advanced": [
+            {
+                "question": "Which concept allows a class to inherit properties from another class?",
+                "options": [
+                    "Inheritance",
+                    "Encapsulation",
+                    "Iteration",
+                    "Compilation"
+                ],
+                "answer": "Inheritance"
+            },
+            {
+                "question": "What does a Python decorator modify?",
+                "options": [
+                    "Function or class behavior",
+                    "Database",
+                    "Operating system",
+                    "Hardware"
+                ],
+                "answer": "Function or class behavior"
+            },
+            {
+                "question": "Which keyword creates a generator value?",
+                "options": [
+                    "return",
+                    "yield",
+                    "generate",
+                    "next"
+                ],
+                "answer": "yield"
+            },
+            {
+                "question": "Which method is called when an object is initialized?",
+                "options": [
+                    "__start__()",
+                    "__init__()",
+                    "__create__()",
+                    "__newobject__()"
+                ],
+                "answer": "__init__()"
+            },
+            {
+                "question": "What is list comprehension mainly used for?",
+                "options": [
+                    "Creating lists concisely",
+                    "Deleting databases",
+                    "Creating classes only",
+                    "Managing files only"
+                ],
+                "answer": "Creating lists concisely"
+            }
+        ]
+    },
+
+
+    # =====================================================
+    # DBMS
+    # =====================================================
+
+    "dbms": {
+
+        "beginner": [
+            {
+                "question": "What does DBMS stand for?",
+                "options": [
+                    "Database Management System",
+                    "Data Backup Management System",
+                    "Database Machine System",
+                    "Data Management Software"
+                ],
+                "answer": "Database Management System"
+            },
+            {
+                "question": "Which language is commonly used to query relational databases?",
+                "options": [
+                    "SQL",
+                    "HTML",
+                    "CSS",
+                    "Python only"
+                ],
+                "answer": "SQL"
+            },
+            {
+                "question": "What is a table used for?",
+                "options": [
+                    "Storing data",
+                    "Running an operating system",
+                    "Creating images",
+                    "Sending emails"
+                ],
+                "answer": "Storing data"
+            },
+            {
+                "question": "Which key uniquely identifies a record?",
+                "options": [
+                    "Primary Key",
+                    "Foreign Key",
+                    "Normal Key",
+                    "Secondary Key"
+                ],
+                "answer": "Primary Key"
+            },
+            {
+                "question": "Which command is used to retrieve data?",
+                "options": [
+                    "SELECT",
+                    "INSERT",
+                    "DELETE",
+                    "CREATE"
+                ],
+                "answer": "SELECT"
+            }
+        ],
+
+        "intermediate": [
+            {
+                "question": "Which SQL command adds a new record?",
+                "options": [
+                    "INSERT",
+                    "ADD",
+                    "PUT",
+                    "UPDATE"
+                ],
+                "answer": "INSERT"
+            },
+            {
+                "question": "Which SQL command modifies existing data?",
+                "options": [
+                    "CHANGE",
+                    "UPDATE",
+                    "MODIFY",
+                    "EDIT"
+                ],
+                "answer": "UPDATE"
+            },
+            {
+                "question": "What is a foreign key used for?",
+                "options": [
+                    "Linking tables",
+                    "Deleting tables",
+                    "Creating passwords",
+                    "Sorting files"
+                ],
+                "answer": "Linking tables"
+            },
+            {
+                "question": "Which clause filters rows in SQL?",
+                "options": [
+                    "WHERE",
+                    "FILTER",
+                    "IF",
+                    "CHECK"
+                ],
+                "answer": "WHERE"
+            },
+            {
+                "question": "Which SQL command removes records?",
+                "options": [
+                    "REMOVE",
+                    "DELETE",
+                    "CLEAR",
+                    "DROP ROW"
+                ],
+                "answer": "DELETE"
+            }
+        ],
+
+        "advanced": [
+            {
+                "question": "What is normalization used for?",
+                "options": [
+                    "Reducing data redundancy",
+                    "Increasing duplicate data",
+                    "Deleting all records",
+                    "Creating operating systems"
+                ],
+                "answer": "Reducing data redundancy"
+            },
+            {
+                "question": "Which normal form removes partial dependency?",
+                "options": [
+                    "1NF",
+                    "2NF",
+                    "3NF",
+                    "BCNF only"
+                ],
+                "answer": "2NF"
+            },
+            {
+                "question": "What does ACID stand for in transactions?",
+                "options": [
+                    "Atomicity, Consistency, Isolation, Durability",
+                    "Accuracy, Control, Integrity, Data",
+                    "Access, Control, Isolation, Data",
+                    "Atomicity, Control, Integrity, Durability"
+                ],
+                "answer": "Atomicity, Consistency, Isolation, Durability"
+            },
+            {
+                "question": "Which JOIN returns matching rows from both tables?",
+                "options": [
+                    "INNER JOIN",
+                    "OUTER JOIN",
+                    "CROSS JOIN",
+                    "FULL JOIN"
+                ],
+                "answer": "INNER JOIN"
+            },
+            {
+                "question": "What is an index mainly used for?",
+                "options": [
+                    "Improving data retrieval speed",
+                    "Deleting records",
+                    "Creating backups only",
+                    "Changing table names"
+                ],
+                "answer": "Improving data retrieval speed"
+            }
+        ]
+    },
+
+
+    # =====================================================
+    # OPERATING SYSTEM
+    # =====================================================
+
+    "operating_system": {
+
+        "beginner": [
+            {
+                "question": "What is an Operating System?",
+                "options": [
+                    "System software",
+                    "Application software",
+                    "Programming language",
+                    "Database"
+                ],
+                "answer": "System software"
+            },
+            {
+                "question": "Which is an example of an Operating System?",
+                "options": [
+                    "Windows",
+                    "Python",
+                    "MySQL",
+                    "HTML"
+                ],
+                "answer": "Windows"
+            },
+            {
+                "question": "What manages computer hardware and software resources?",
+                "options": [
+                    "Operating System",
+                    "Browser",
+                    "Compiler",
+                    "Text editor"
+                ],
+                "answer": "Operating System"
+            },
+            {
+                "question": "What is a process?",
+                "options": [
+                    "A program in execution",
+                    "A file only",
+                    "A folder",
+                    "A hardware device"
+                ],
+                "answer": "A program in execution"
+            },
+            {
+                "question": "Which component is the core of an operating system?",
+                "options": [
+                    "Kernel",
+                    "Browser",
+                    "Keyboard",
+                    "Monitor"
+                ],
+                "answer": "Kernel"
+            }
+        ],
+
+        "intermediate": [
+            {
+                "question": "What is multitasking?",
+                "options": [
+                    "Running multiple tasks",
+                    "Deleting files",
+                    "Installing software",
+                    "Formatting disks"
+                ],
+                "answer": "Running multiple tasks"
+            },
+            {
+                "question": "Which scheduling algorithm executes processes in arrival order?",
+                "options": [
+                    "FCFS",
+                    "Round Robin",
+                    "Priority",
+                    "SJF"
+                ],
+                "answer": "FCFS"
+            },
+            {
+                "question": "What is virtual memory?",
+                "options": [
+                    "Using disk space as an extension of memory",
+                    "A physical CPU",
+                    "A network cable",
+                    "A type of keyboard"
+                ],
+                "answer": "Using disk space as an extension of memory"
+            },
+            {
+                "question": "Which technique divides memory into fixed-size blocks?",
+                "options": [
+                    "Paging",
+                    "Scheduling",
+                    "Spooling",
+                    "Deadlock"
+                ],
+                "answer": "Paging"
+            },
+            {
+                "question": "What is a thread?",
+                "options": [
+                    "Smallest unit of CPU execution",
+                    "Storage device",
+                    "Network protocol",
+                    "File system"
+                ],
+                "answer": "Smallest unit of CPU execution"
+            }
+        ],
+
+        "advanced": [
+            {
+                "question": "What is deadlock?",
+                "options": [
+                    "Processes waiting indefinitely for resources",
+                    "Fast process execution",
+                    "Memory allocation",
+                    "File creation"
+                ],
+                "answer": "Processes waiting indefinitely for resources"
+            },
+            {
+                "question": "Which is a necessary condition for deadlock?",
+                "options": [
+                    "Mutual exclusion",
+                    "Compilation",
+                    "Multitasking",
+                    "Paging"
+                ],
+                "answer": "Mutual exclusion"
+            },
+            {
+                "question": "What is a semaphore used for?",
+                "options": [
+                    "Process synchronization",
+                    "File compression",
+                    "Disk formatting",
+                    "Network browsing"
+                ],
+                "answer": "Process synchronization"
+            },
+            {
+                "question": "Which page replacement algorithm removes the page that has not been used for the longest time?",
+                "options": [
+                    "LRU",
+                    "FIFO",
+                    "FCFS",
+                    "SJF"
+                ],
+                "answer": "LRU"
+            },
+            {
+                "question": "What does thrashing mainly involve?",
+                "options": [
+                    "Excessive page swapping",
+                    "CPU overheating",
+                    "File deletion",
+                    "Network failure"
+                ],
+                "answer": "Excessive page swapping"
+            }
+        ]
+    },
+
+
+    # =====================================================
+    # APTITUDE
+    # =====================================================
+
+    "aptitude": {
+
+        "beginner": [
+            {
+                "question": "What is 20% of 100?",
+                "options": [
+                    "10",
+                    "20",
+                    "30",
+                    "40"
+                ],
+                "answer": "20"
+            },
+            {
+                "question": "If a number is 10 and another is 20, what is their sum?",
+                "options": [
+                    "20",
+                    "25",
+                    "30",
+                    "40"
+                ],
+                "answer": "30"
+            },
+            {
+                "question": "What is 5 × 6?",
+                "options": [
+                    "25",
+                    "30",
+                    "35",
+                    "40"
+                ],
+                "answer": "30"
+            },
+            {
+                "question": "What is the average of 10 and 20?",
+                "options": [
+                    "10",
+                    "15",
+                    "20",
+                    "25"
+                ],
+                "answer": "15"
+            },
+            {
+                "question": "What is 100 divided by 10?",
+                "options": [
+                    "5",
+                    "10",
+                    "20",
+                    "50"
+                ],
+                "answer": "10"
+            }
+        ],
+
+        "intermediate": [
+            {
+                "question": "A product costs ₹500 and has a 10% discount. What is the discount amount?",
+                "options": [
+                    "₹25",
+                    "₹50",
+                    "₹75",
+                    "₹100"
+                ],
+                "answer": "₹50"
+            },
+            {
+                "question": "If a car travels 60 km in 1 hour, how far will it travel in 3 hours?",
+                "options": [
+                    "120 km",
+                    "150 km",
+                    "180 km",
+                    "200 km"
+                ],
+                "answer": "180 km"
+            },
+            {
+                "question": "What is the ratio 20:40 in simplest form?",
+                "options": [
+                    "1:2",
+                    "2:3",
+                    "1:3",
+                    "2:1"
+                ],
+                "answer": "1:2"
+            },
+            {
+                "question": "If 5 workers complete a job in 10 days, this is a simple example of what?",
+                "options": [
+                    "Time and Work",
+                    "Probability",
+                    "Profit and Loss",
+                    "Permutation"
+                ],
+                "answer": "Time and Work"
+            },
+            {
+                "question": "What is the simple interest on ₹1000 at 10% per year for 1 year?",
+                "options": [
+                    "₹10",
+                    "₹50",
+                    "₹100",
+                    "₹200"
+                ],
+                "answer": "₹100"
+            }
+        ],
+
+        "advanced": [
+            {
+                "question": "If a train travels 120 km in 2 hours, what is its average speed?",
+                "options": [
+                    "40 km/h",
+                    "50 km/h",
+                    "60 km/h",
+                    "80 km/h"
+                ],
+                "answer": "60 km/h"
+            },
+            {
+                "question": "What is the probability of getting a head when a fair coin is tossed?",
+                "options": [
+                    "1/4",
+                    "1/2",
+                    "1",
+                    "2"
+                ],
+                "answer": "1/2"
+            },
+            {
+                "question": "If x + 5 = 15, what is x?",
+                "options": [
+                    "5",
+                    "10",
+                    "15",
+                    "20"
+                ],
+                "answer": "10"
+            },
+            {
+                "question": "What is 25% expressed as a fraction?",
+                "options": [
+                    "1/2",
+                    "1/3",
+                    "1/4",
+                    "3/4"
+                ],
+                "answer": "1/4"
+            },
+            {
+                "question": "A number increases from 100 to 120. What is the percentage increase?",
+                "options": [
+                    "10%",
+                    "15%",
+                    "20%",
+                    "25%"
+                ],
+                "answer": "20%"
+            }
+        ]
+    }
+}
+
+
+# =========================================================
+# HELPER FUNCTIONS
+# =========================================================
+
+def normalize_subject(subject):
+
+    subject = str(subject).strip().lower()
+
+    subject = (
+        subject
+        .replace(" ", "_")
+        .replace("-", "_")
+    )
+
+    if subject in ["os", "operatingsystem"]:
+        return "operating_system"
+
+    return subject
+
+
+def normalize_level(level):
+
+    level = str(level).strip().lower()
+
+    level_map = {
+        "easy": "beginner",
+        "beginner": "beginner",
+        "medium": "intermediate",
+        "intermediate": "intermediate",
+        "hard": "advanced",
+        "advanced": "advanced"
+    }
+
+    return level_map.get(level, level)
+
+
+# =========================================================
+# FIND NOTES FILE
+# =========================================================
+
+def find_notes_file(subject, level):
+
+    subject_name = normalize_subject(subject)
+    level_name = normalize_level(level)
+
+    content_folder = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "content"
+    )
+
+    if not os.path.exists(content_folder):
+        return None
+
+    def normalize(text):
+        return (
+            text.lower()
+            .replace(" ", "")
+            .replace("_", "")
+            .replace("-", "")
+        )
+
+    for folder_name in os.listdir(content_folder):
+
+        folder_path = os.path.join(
+            content_folder,
+            folder_name
+        )
+
+        if not os.path.isdir(folder_path):
+            continue
+
+        if normalize(folder_name) == normalize(subject_name):
+
+            for file_name in os.listdir(folder_path):
+
+                if not file_name.lower().endswith(".txt"):
+                    continue
+
+                file_without_extension = os.path.splitext(
+                    file_name
+                )[0]
+
+                if normalize(file_without_extension) == normalize(level_name):
+
+                    return os.path.join(
+                        folder_path,
+                        file_name
+                    )
+
+    return None
+
+
+# =========================================================
+# GET NOTES
+# =========================================================
+
+def get_notes(subject, level):
+
+    file_path = find_notes_file(
+        subject,
+        level
+    )
+
+    if file_path is None:
+
+        return (
+            "Notes are not available for "
+            + str(subject)
+            + " - "
+            + str(level)
+            + "."
+        )
+
+    try:
+
+        with open(
+            file_path,
+            "r",
+            encoding="utf-8"
+        ) as file:
+
+            return file.read()
+
+    except Exception as e:
+
+        return "Unable to load notes: " + str(e)
 
 
 # =========================================================
@@ -11,7 +814,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def login():
-    return render_template("login.html")
+
+    return render_template(
+        "login.html"
+    )
 
 
 # =========================================================
@@ -21,8 +827,15 @@ def login():
 @app.route("/home", methods=["POST"])
 def home():
 
-    name = request.form["name"]
-    regno = request.form["regno"]
+    name = request.form.get(
+        "name",
+        ""
+    )
+
+    regno = request.form.get(
+        "regno",
+        ""
+    )
 
     return render_template(
         "home.html",
@@ -38,9 +851,20 @@ def home():
 @app.route("/level", methods=["POST"])
 def level():
 
-    name = request.form["name"]
-    regno = request.form["regno"]
-    subject = request.form["subject"]
+    name = request.form.get(
+        "name",
+        ""
+    )
+
+    regno = request.form.get(
+        "regno",
+        ""
+    )
+
+    subject = request.form.get(
+        "subject",
+        ""
+    )
 
     return render_template(
         "level.html",
@@ -51,29 +875,91 @@ def level():
 
 
 # =========================================================
-# RECOMMENDATION
+# RECOMMENDATION + NOTES
 # =========================================================
 
 @app.route("/recommendation", methods=["POST"])
 def recommendation():
 
-    name = request.form["name"]
-    regno = request.form["regno"]
-    subject = request.form["subject"]
-    level = request.form["level"]
+    name = request.form.get(
+        "name",
+        ""
+    )
 
-    conn = sqlite3.connect("database/learning.db")
+    regno = request.form.get(
+        "regno",
+        ""
+    )
+
+    subject = request.form.get(
+        "subject",
+        ""
+    )
+
+    level = request.form.get(
+        "level",
+        ""
+    )
+
+    # Save student details
+    conn = sqlite3.connect(
+        "database/learning.db"
+    )
+
     cursor = conn.cursor()
 
-    cursor.execute("""
-        INSERT INTO students(name, regno, subject, level)
+    cursor.execute(
+        """
+        INSERT INTO students
+        (name, regno, subject, level)
         VALUES (?, ?, ?, ?)
-    """, (name, regno, subject, level))
+        """,
+        (
+            name,
+            regno,
+            subject,
+            level
+        )
+    )
 
     conn.commit()
     conn.close()
 
-    topics = get_recommendation(subject, level)
+    # Recommendations
+    actual_level = normalize_level(level)
+
+    if actual_level == "beginner":
+
+        topics = [
+            "Basic concepts",
+            "Fundamentals",
+            "Simple examples",
+            "Practice basic questions"
+        ]
+
+    elif actual_level == "intermediate":
+
+        topics = [
+            "Intermediate concepts",
+            "Problem solving",
+            "Practical examples",
+            "Practice intermediate questions"
+        ]
+
+    else:
+
+        topics = [
+            "Advanced concepts",
+            "Advanced problem solving",
+            "Real-world applications",
+            "Practice advanced questions"
+        ]
+
+    # Get actual notes
+    content = get_notes(
+        subject,
+        level
+    )
 
     return render_template(
         "recommendation.html",
@@ -81,1301 +967,66 @@ def recommendation():
         regno=regno,
         subject=subject,
         level=level,
-        topics=topics
+        topics=topics,
+        content=content
     )
-
-
-# =========================================================
-# NOTES DATA
-# =========================================================
-
-notes_data = {
-
-    # =====================================================
-    # PYTHON
-    # =====================================================
-
-    "Python": {
-
-        "Beginner": """
-PYTHON - BEGINNER NOTES
-
-1. INTRODUCTION TO PYTHON
-
-Python is a high-level, interpreted and easy-to-learn programming language.
-It is widely used in web development, data science, artificial intelligence,
-machine learning and automation.
-
-Python uses simple and readable syntax.
-
-Example:
-
-print("Hello World")
-
-The print() function is used to display information on the screen.
-
-
-2. VARIABLES
-
-A variable is a name used to store data.
-
-Example:
-
-name = "Pravelika"
-age = 20
-
-Python automatically understands the type of the value.
-
-Example:
-
-x = 10
-name = "Python"
-
-
-3. DATA TYPES
-
-Common Python data types are:
-
-• int - Integer numbers
-• float - Decimal numbers
-• str - Text
-• bool - True or False
-• list - Collection of values
-• tuple - Ordered collection
-• dict - Key-value pairs
-• set - Unordered collection of unique values
-
-Example:
-
-age = 20
-price = 25.5
-name = "Python"
-student = True
-
-
-4. OPERATORS
-
-Arithmetic operators:
-
-+ Addition
-- Subtraction
-* Multiplication
-/ Division
-% Modulus
-** Power
-
-Example:
-
-a = 10
-b = 5
-
-print(a + b)
-print(a * b)
-
-
-5. CONDITIONAL STATEMENTS
-
-Conditional statements are used to make decisions.
-
-Example:
-
-age = 18
-
-if age >= 18:
-    print("Eligible")
-
-else:
-    print("Not Eligible")
-
-
-6. LOOPS
-
-Loops are used to repeat a block of code.
-
-For loop:
-
-for i in range(5):
-    print(i)
-
-While loop:
-
-i = 1
-
-while i <= 5:
-    print(i)
-    i += 1
-
-
-7. FUNCTIONS
-
-A function is a reusable block of code.
-
-Example:
-
-def add(a, b):
-    return a + b
-
-result = add(10, 20)
-print(result)
-
-
-8. LISTS
-
-A list stores multiple values.
-
-Example:
-
-numbers = [10, 20, 30, 40]
-
-print(numbers[0])
-
-Lists can be modified after creation.
-
-
-9. SUMMARY
-
-Python is beginner-friendly and powerful.
-Important beginner concepts include variables, data types,
-operators, conditions, loops, functions and lists.
-""",
-
-
-        "Intermediate": """
-PYTHON - INTERMEDIATE NOTES
-
-1. OBJECT ORIENTED PROGRAMMING
-
-Object Oriented Programming is a programming approach based on objects
-and classes.
-
-Important concepts:
-
-• Class
-• Object
-• Inheritance
-• Encapsulation
-• Polymorphism
-
-
-Example:
-
-class Student:
-
-    def __init__(self, name):
-        self.name = name
-
-    def display(self):
-        print(self.name)
-
-
-student = Student("Pravelika")
-student.display()
-
-
-2. FILE HANDLING
-
-Python can read and write files.
-
-Reading a file:
-
-file = open("data.txt", "r")
-
-content = file.read()
-
-print(content)
-
-file.close()
-
-
-Writing:
-
-file = open("data.txt", "w")
-
-file.write("Hello Python")
-
-file.close()
-
-
-3. EXCEPTION HANDLING
-
-Errors can be handled using try and except.
-
-Example:
-
-try:
-
-    number = int(input("Enter number: "))
-
-except ValueError:
-
-    print("Invalid input")
-
-
-4. MODULES
-
-A module is a Python file containing reusable code.
-
-Example:
-
-import math
-
-print(math.sqrt(25))
-
-
-5. LIST COMPREHENSION
-
-List comprehension provides a short way to create lists.
-
-Example:
-
-numbers = [1, 2, 3, 4, 5]
-
-squares = [x*x for x in numbers]
-
-print(squares)
-
-
-6. DICTIONARIES
-
-A dictionary stores data using key-value pairs.
-
-Example:
-
-student = {
-    "name": "Pravelika",
-    "age": 20
-}
-
-print(student["name"])
-
-
-7. LAMBDA FUNCTIONS
-
-Lambda functions are small anonymous functions.
-
-Example:
-
-square = lambda x: x * x
-
-print(square(5))
-
-
-8. INTERMEDIATE PROJECTS
-
-Students can build:
-
-• Calculator
-• Student management system
-• File management application
-• Quiz application
-• Basic Flask application
-
-
-9. SUMMARY
-
-Intermediate Python focuses on OOP, files, modules,
-exception handling, dictionaries and reusable programming.
-""",
-
-
-        "Advanced": """
-PYTHON - ADVANCED NOTES
-
-1. ADVANCED PYTHON
-
-Advanced Python includes frameworks, APIs, databases,
-automation and data processing.
-
-
-2. FLASK
-
-Flask is a lightweight Python web framework.
-
-Example:
-
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Hello World"
-
-app.run()
-
-
-3. APIS
-
-API means Application Programming Interface.
-
-APIs allow different software applications to communicate.
-
-Python can send requests using the requests library.
-
-Example:
-
-import requests
-
-response = requests.get("https://example.com")
-
-print(response.status_code)
-
-
-4. DATABASE CONNECTIVITY
-
-Python can connect to databases such as SQLite and MySQL.
-
-SQLite example:
-
-import sqlite3
-
-conn = sqlite3.connect("database.db")
-
-cursor = conn.cursor()
-
-cursor.execute("SELECT * FROM students")
-
-data = cursor.fetchall()
-
-conn.close()
-
-
-5. DECORATORS
-
-Decorators modify the behavior of functions.
-
-Example:
-
-def decorator(function):
-
-    def wrapper():
-        print("Before function")
-        function()
-
-    return wrapper
-
-
-6. GENERATORS
-
-Generators produce values one at a time.
-
-Example:
-
-def numbers():
-
-    for i in range(5):
-        yield i
-
-
-7. MACHINE LEARNING
-
-Python is widely used for machine learning.
-
-Popular libraries include:
-
-• NumPy
-• Pandas
-• Scikit-learn
-• TensorFlow
-• PyTorch
-
-
-8. DEPLOYMENT
-
-Python applications can be deployed using platforms
-and cloud services.
-
-Important concepts include:
-
-• Servers
-• Hosting
-• Environment variables
-• Requirements files
-• APIs
-
-
-9. SUMMARY
-
-Advanced Python connects programming concepts with
-real-world applications such as web development,
-APIs, databases, automation and machine learning.
-"""
-    },
-
-
-    # =====================================================
-    # DBMS
-    # =====================================================
-
-    "DBMS": {
-
-        "Beginner": """
-DBMS - BEGINNER NOTES
-
-1. INTRODUCTION
-
-DBMS stands for Database Management System.
-
-It is software used to store, manage and retrieve data.
-
-Examples:
-
-• MySQL
-• PostgreSQL
-• Oracle
-• SQLite
-
-
-2. DATABASE
-
-A database is an organized collection of information.
-
-Example:
-
-A college database can store:
-
-Student ID
-Name
-Department
-Marks
-
-
-3. TABLE
-
-A table stores data in rows and columns.
-
-Example:
-
-Student table:
-
-ID | Name | Department
-1  | Arun | CSE
-2  | Priya | AI
-
-
-4. ROW AND COLUMN
-
-A row represents one record.
-
-A column represents one attribute.
-
-Example:
-
-Name is a column.
-
-"Arun" is a value in a row.
-
-
-5. PRIMARY KEY
-
-A primary key uniquely identifies each record.
-
-Example:
-
-Student_ID can be the primary key.
-
-
-6. SQL
-
-SQL means Structured Query Language.
-
-Example:
-
-SELECT * FROM students;
-
-
-7. INSERT
-
-Used to add data.
-
-INSERT INTO students
-VALUES (1, 'Arun', 'CSE');
-
-
-8. UPDATE
-
-Used to modify existing data.
-
-UPDATE students
-SET name = 'Kumar'
-WHERE id = 1;
-
-
-9. DELETE
-
-Used to remove data.
-
-DELETE FROM students
-WHERE id = 1;
-
-
-10. SUMMARY
-
-DBMS helps organizations store and manage large amounts
-of data efficiently.
-""",
-
-
-        "Intermediate": """
-DBMS - INTERMEDIATE NOTES
-
-1. JOINS
-
-Joins combine data from multiple tables.
-
-Types:
-
-• INNER JOIN
-• LEFT JOIN
-• RIGHT JOIN
-• FULL JOIN
-
-
-2. INNER JOIN
-
-Returns matching records from both tables.
-
-Example:
-
-SELECT students.name, departments.department_name
-FROM students
-INNER JOIN departments
-ON students.department_id = departments.id;
-
-
-3. NORMALIZATION
-
-Normalization organizes data to reduce duplication.
-
-Important normal forms:
-
-• 1NF
-• 2NF
-• 3NF
-
-
-4. VIEWS
-
-A view is a virtual table created using a query.
-
-Example:
-
-CREATE VIEW student_view AS
-SELECT name, department
-FROM students;
-
-
-5. INDEXING
-
-Indexes improve database search performance.
-
-Example:
-
-CREATE INDEX idx_name
-ON students(name);
-
-
-6. SUBQUERIES
-
-A query inside another query is called a subquery.
-
-Example:
-
-SELECT name
-FROM students
-WHERE marks >
-(SELECT AVG(marks) FROM students);
-
-
-7. CONSTRAINTS
-
-Common constraints:
-
-• PRIMARY KEY
-• FOREIGN KEY
-• UNIQUE
-• NOT NULL
-• CHECK
-
-
-8. TRANSACTIONS
-
-A transaction is a group of database operations.
-
-Important commands:
-
-COMMIT
-ROLLBACK
-
-
-9. SUMMARY
-
-Intermediate DBMS focuses on joins, normalization,
-views, indexing, constraints and transactions.
-""",
-
-
-        "Advanced": """
-DBMS - ADVANCED NOTES
-
-1. STORED PROCEDURES
-
-Stored procedures are precompiled SQL programs stored
-inside the database.
-
-They can be reused multiple times.
-
-
-2. TRIGGERS
-
-A trigger automatically executes when a database event occurs.
-
-Example events:
-
-• INSERT
-• UPDATE
-• DELETE
-
-
-3. TRANSACTIONS
-
-Transactions maintain database consistency.
-
-Important properties are ACID:
-
-A - Atomicity
-C - Consistency
-I - Isolation
-D - Durability
-
-
-4. DATABASE SECURITY
-
-Database security protects information from unauthorized access.
-
-Methods include:
-
-• Authentication
-• Authorization
-• Encryption
-• Access control
-
-
-5. QUERY OPTIMIZATION
-
-Query optimization improves SQL query performance.
-
-Indexes and proper joins can reduce execution time.
-
-
-6. DATABASE BACKUP
-
-Regular backups protect data from accidental loss.
-
-Types include:
-
-• Full backup
-• Incremental backup
-• Differential backup
-
-
-7. DISTRIBUTED DATABASE
-
-A distributed database stores data across multiple locations.
-
-It can improve availability and scalability.
-
-
-8. NOSQL
-
-NoSQL databases are useful for flexible and large-scale data.
-
-Examples:
-
-• MongoDB
-• Cassandra
-• Redis
-
-
-9. SUMMARY
-
-Advanced DBMS includes security, optimization,
-transactions, distributed databases, triggers and
-large-scale database management.
-"""
-    },
-
-
-    # =====================================================
-    # OPERATING SYSTEM
-    # =====================================================
-
-    "Operating System": {
-
-        "Beginner": """
-OPERATING SYSTEM - BEGINNER NOTES
-
-1. INTRODUCTION
-
-An Operating System is system software that manages
-computer hardware and software resources.
-
-Examples:
-
-• Windows
-• Linux
-• macOS
-• Android
-
-
-2. FUNCTIONS OF OS
-
-Major functions include:
-
-• Process management
-• Memory management
-• File management
-• Device management
-• Security
-
-
-3. PROCESS
-
-A process is a program currently being executed.
-
-Example:
-
-When you open a browser, the operating system creates
-a process for it.
-
-
-4. MEMORY
-
-Memory stores programs and data needed by the CPU.
-
-Types include:
-
-• RAM
-• ROM
-• Cache
-
-
-5. FILE SYSTEM
-
-The operating system manages files and folders.
-
-Examples:
-
-Documents
-Pictures
-Videos
-
-
-6. DEVICE MANAGEMENT
-
-The OS manages hardware devices such as:
-
-• Keyboard
-• Mouse
-• Printer
-• Disk
-• Monitor
-
-
-7. USER INTERFACE
-
-Users interact with an OS through:
-
-• GUI
-• Command Line Interface
-
-
-8. SUMMARY
-
-An operating system acts as a bridge between the user
-and computer hardware.
-""",
-
-
-        "Intermediate": """
-OPERATING SYSTEM - INTERMEDIATE NOTES
-
-1. PROCESS MANAGEMENT
-
-The OS creates, schedules and terminates processes.
-
-Process states include:
-
-• New
-• Ready
-• Running
-• Waiting
-• Terminated
-
-
-2. CPU SCHEDULING
-
-CPU scheduling decides which process should execute.
-
-Algorithms include:
-
-• FCFS
-• SJF
-• Round Robin
-• Priority Scheduling
-
-
-3. THREADS
-
-A thread is a smaller unit of a process.
-
-Multiple threads can execute within one process.
-
-
-4. DEADLOCK
-
-Deadlock occurs when processes wait indefinitely
-for resources held by each other.
-
-Four conditions:
-
-• Mutual exclusion
-• Hold and wait
-• No preemption
-• Circular wait
-
-
-5. VIRTUAL MEMORY
-
-Virtual memory allows the system to use disk space
-as an extension of RAM.
-
-
-6. PAGING
-
-Paging divides memory into fixed-size blocks called pages
-and frames.
-
-
-7. FILE MANAGEMENT
-
-The OS manages creation, deletion, reading and writing
-of files.
-
-
-8. SUMMARY
-
-Intermediate OS concepts include scheduling,
-deadlocks, threads, paging and memory management.
-""",
-
-
-        "Advanced": """
-OPERATING SYSTEM - ADVANCED NOTES
-
-1. ADVANCED PROCESS MANAGEMENT
-
-Modern operating systems support multiple processes
-and threads simultaneously.
-
-Process synchronization is required when processes
-share resources.
-
-
-2. SYNCHRONIZATION
-
-Synchronization prevents incorrect results when
-multiple processes access shared data.
-
-Common techniques:
-
-• Mutex
-• Semaphore
-• Monitor
-
-
-3. DEADLOCK HANDLING
-
-Deadlocks can be handled using:
-
-• Prevention
-• Avoidance
-• Detection
-• Recovery
-
-
-4. PAGE REPLACEMENT
-
-When memory is full, the OS replaces pages.
-
-Algorithms include:
-
-• FIFO
-• LRU
-• Optimal
-
-
-5. FILE SYSTEM DESIGN
-
-Advanced file systems manage:
-
-• File allocation
-• Directories
-• Permissions
-• Storage blocks
-
-
-6. SECURITY
-
-Operating systems provide:
-
-• User authentication
-• Access control
-• Encryption
-• Process isolation
-
-
-7. VIRTUALIZATION
-
-Virtualization allows multiple virtual machines
-to run on one physical system.
-
-Examples include virtual machines and containers.
-
-
-8. SUMMARY
-
-Advanced OS concepts include synchronization,
-deadlock handling, memory management, security
-and virtualization.
-"""
-    },
-
-
-    # =====================================================
-    # APTITUDE
-    # =====================================================
-
-    "Aptitude": {
-
-        "Easy": """
-APTITUDE - EASY LEVEL
-
-1. NUMBER SYSTEM
-
-A number system represents numbers using different forms.
-
-Important types:
-
-• Natural numbers
-• Whole numbers
-• Integers
-• Rational numbers
-• Prime numbers
-
-
-2. PERCENTAGE
-
-Percentage means a value out of 100.
-
-Formula:
-
-Percentage = (Part / Total) × 100
-
-Example:
-
-20 out of 100 = 20%
-
-
-3. RATIO
-
-Ratio compares two quantities.
-
-Example:
-
-If boys = 10 and girls = 20,
-
-Ratio = 10 : 20
-      = 1 : 2
-
-
-4. AVERAGE
-
-Average is calculated using:
-
-Average = Sum of values / Number of values
-
-
-Example:
-
-10, 20, 30
-
-Average = 60 / 3
-        = 20
-
-
-5. PROFIT AND LOSS
-
-Profit = Selling Price - Cost Price
-
-Loss = Cost Price - Selling Price
-
-
-6. SIMPLE INTEREST
-
-Simple Interest:
-
-SI = (P × R × T) / 100
-
-where:
-
-P = Principal
-R = Rate
-T = Time
-
-
-7. TIME AND WORK
-
-If a person completes a work in 10 days,
-their one-day work is:
-
-1/10
-
-
-8. BASIC REASONING
-
-Reasoning questions test logical thinking.
-
-Common topics:
-
-• Series
-• Odd one out
-• Coding
-• Directions
-• Analogy
-
-
-9. SUMMARY
-
-Easy aptitude focuses on basic arithmetic,
-percentages, ratios, averages, profit and loss,
-time and work and simple reasoning.
-""",
-
-
-        "Medium": """
-APTITUDE - MEDIUM LEVEL
-
-1. PROFIT AND LOSS
-
-Profit percentage:
-
-Profit % = (Profit / Cost Price) × 100
-
-
-2. COMPOUND INTEREST
-
-Compound interest calculates interest on
-principal plus previously earned interest.
-
-Formula:
-
-A = P(1 + R/100)^T
-
-CI = A - P
-
-
-3. TIME, SPEED AND DISTANCE
-
-Speed = Distance / Time
-
-Distance = Speed × Time
-
-Time = Distance / Speed
-
-
-4. PROBLEMS ON TRAINS
-
-Important concepts include:
-
-Time = Distance / Speed
-
-When a train crosses a person,
-distance is usually the length of the train.
-
-
-5. WORK AND WAGES
-
-Work problems compare the efficiency of workers.
-
-If A completes a task in 10 days:
-
-One-day work = 1/10
-
-
-6. PERMUTATION
-
-Permutation deals with arrangements.
-
-Formula:
-
-nPr = n! / (n-r)!
-
-
-7. COMBINATION
-
-Combination deals with selections.
-
-Formula:
-
-nCr = n! / (r!(n-r)!)
-
-
-8. PROBABILITY
-
-Probability measures the chance of an event.
-
-Probability = Favorable outcomes / Total outcomes
-
-
-9. DATA INTERPRETATION
-
-Data interpretation involves tables,
-charts and graphs.
-
-The student must calculate:
-
-• Percentage
-• Difference
-• Ratio
-• Average
-
-
-10. SUMMARY
-
-Medium aptitude focuses on mathematical
-problem solving and logical reasoning.
-""",
-
-
-        "Hard": """
-APTITUDE - HARD LEVEL
-
-1. ADVANCED PROBABILITY
-
-Probability can involve multiple events.
-
-Important concepts:
-
-• Independent events
-• Dependent events
-• Conditional probability
-
-
-2. PERMUTATION AND COMBINATION
-
-Advanced problems combine arrangements,
-selections and restrictions.
-
-Example:
-
-Number of arrangements of n objects:
-
-n!
-
-
-3. TIME AND WORK
-
-Advanced problems may involve multiple workers,
-efficiency changes and work distribution.
-
-
-4. SPEED AND DISTANCE
-
-Advanced questions may involve:
-
-• Relative speed
-• Boats and streams
-• Trains
-• Circular tracks
-
-
-5. DATA INTERPRETATION
-
-Advanced DI may involve multiple tables,
-graphs and calculations.
-
-Students should identify relationships
-before performing calculations.
-
-
-6. NUMBER THEORY
-
-Important concepts:
-
-• HCF
-• LCM
-• Prime numbers
-• Divisibility
-• Remainders
-
-
-7. ALGEBRA
-
-Important concepts include:
-
-• Linear equations
-• Quadratic equations
-• Algebraic identities
-• Inequalities
-
-
-8. LOGICAL REASONING
-
-Advanced reasoning includes:
-
-• Seating arrangement
-• Blood relations
-• Syllogisms
-• Puzzles
-• Statement and conclusion
-
-
-9. INTERVIEW APTITUDE
-
-Aptitude preparation is useful for placement
-tests and competitive examinations.
-
-Students should practice regularly
-and improve speed and accuracy.
-
-
-10. SUMMARY
-
-Hard aptitude focuses on advanced mathematical
-reasoning, probability, combinations, algebra,
-data interpretation and complex puzzles.
-"""
-    }
-}
 
 
 # =========================================================
 # NOTES PAGE
 # =========================================================
 
-@app.route("/notes", methods=["POST"])
+@app.route("/notes", methods=["GET", "POST"])
 def notes():
 
-    name = request.form["name"]
-    regno = request.form["regno"]
-    subject = request.form["subject"]
-    level = request.form["level"]
+    if request.method == "POST":
 
-    content = notes_data.get(subject, {}).get(level)
+        name = request.form.get(
+            "name",
+            ""
+        )
 
-    if content is None:
-        content = "Notes are not available for this subject and level."
+        regno = request.form.get(
+            "regno",
+            ""
+        )
+
+        subject = request.form.get(
+            "subject",
+            ""
+        )
+
+        level = request.form.get(
+            "level",
+            ""
+        )
+
+    else:
+
+        name = request.args.get(
+            "name",
+            ""
+        )
+
+        regno = request.args.get(
+            "regno",
+            ""
+        )
+
+        subject = request.args.get(
+            "subject",
+            ""
+        )
+
+        level = request.args.get(
+            "level",
+            ""
+        )
+
+    content = get_notes(
+        subject,
+        level
+    )
 
     return render_template(
         "notes.html",
@@ -1388,19 +1039,192 @@ def notes():
 
 
 # =========================================================
+# QUIZ PAGE
+# =========================================================
+
+@app.route("/quiz", methods=["POST"])
+def quiz():
+
+    name = request.form.get(
+        "name",
+        ""
+    )
+
+    regno = request.form.get(
+        "regno",
+        ""
+    )
+
+    subject = request.form.get(
+        "subject",
+        ""
+    )
+
+    level = request.form.get(
+        "level",
+        ""
+    )
+
+    subject_key = normalize_subject(
+        subject
+    )
+
+    level_key = normalize_level(
+        level
+    )
+
+    questions = QUESTION_BANK.get(
+        subject_key,
+        {}
+    ).get(
+        level_key,
+        []
+    )
+
+    return render_template(
+        "quiz.html",
+        name=name,
+        regno=regno,
+        subject=subject,
+        level=level,
+        questions=questions
+    )
+
+
+# =========================================================
+# SUBMIT QUIZ
+# =========================================================
+
+@app.route("/submit_quiz", methods=["POST"])
+def submit_quiz():
+
+    name = request.form.get(
+        "name",
+        ""
+    )
+
+    regno = request.form.get(
+        "regno",
+        ""
+    )
+
+    subject = request.form.get(
+        "subject",
+        ""
+    )
+
+    level = request.form.get(
+        "level",
+        ""
+    )
+
+    subject_key = normalize_subject(
+        subject
+    )
+
+    level_key = normalize_level(
+        level
+    )
+
+    questions = QUESTION_BANK.get(
+        subject_key,
+        {}
+    ).get(
+        level_key,
+        []
+    )
+
+    score = 0
+
+    # Check answers
+    for index, question in enumerate(
+        questions,
+        start=1
+    ):
+
+        selected_answer = request.form.get(
+            "q" + str(index)
+        )
+
+        if selected_answer == question["answer"]:
+
+            score += 1
+
+    total_questions = len(
+        questions
+    )
+
+    if total_questions > 0:
+
+        percentage = (
+            score / total_questions
+        ) * 100
+
+    else:
+
+        percentage = 0
+
+    # Save result
+    conn = sqlite3.connect(
+        "database/learning.db"
+    )
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO quiz_results
+        (name, regno, subject, level, score, percentage)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """,
+        (
+            name,
+            regno,
+            subject,
+            level,
+            score,
+            percentage
+        )
+    )
+
+    conn.commit()
+    conn.close()
+
+    return render_template(
+        "quiz_result.html",
+        name=name,
+        regno=regno,
+        subject=subject,
+        level=level,
+        score=score,
+        percentage=percentage
+    )
+
+
+# =========================================================
 # DASHBOARD
 # =========================================================
 
 @app.route("/dashboard", methods=["POST"])
 def dashboard():
 
-    name = request.form["name"]
+    name = request.form.get(
+        "name",
+        ""
+    )
 
-    conn = sqlite3.connect("database/learning.db")
+    conn = sqlite3.connect(
+        "database/learning.db"
+    )
+
     cursor = conn.cursor()
 
     cursor.execute(
-        "SELECT subject, level FROM students WHERE name=?",
+        """
+        SELECT subject, level
+        FROM students
+        WHERE name=?
+        """,
         (name,)
     )
 
@@ -1416,154 +1240,11 @@ def dashboard():
 
 
 # =========================================================
-# QUIZ
-# =========================================================
-
-@app.route("/quiz", methods=["POST"])
-def quiz():
-
-    name = request.form["name"]
-    regno = request.form["regno"]
-    subject = request.form["subject"]
-    level = request.form["level"]
-
-    return render_template(
-        "quiz.html",
-        name=name,
-        regno=regno,
-        subject=subject,
-        level=level
-    )
-
-
-# =========================================================
-# SUBMIT QUIZ
-# =========================================================
-
-@app.route("/submit_quiz", methods=["POST"])
-def submit_quiz():
-
-    name = request.form["name"]
-    regno = request.form["regno"]
-    subject = request.form["subject"]
-    level = request.form["level"]
-
-    score = 0
-
-    # Python questions
-    if subject == "Python":
-
-        if request.form.get("q1") == "Language":
-            score += 1
-
-        if request.form.get("q2") == "#":
-            score += 1
-
-        if request.form.get("q3") == "def":
-            score += 1
-
-        if request.form.get("q4") == "List":
-            score += 1
-
-        if request.form.get("q5") == "for":
-            score += 1
-
-
-    # DBMS questions
-    elif subject == "DBMS":
-
-        if request.form.get("q1") == "Database Management System":
-            score += 1
-
-        if request.form.get("q2") == "Table":
-            score += 1
-
-        if request.form.get("q3") == "Primary Key":
-            score += 1
-
-        if request.form.get("q4") == "SELECT":
-            score += 1
-
-        if request.form.get("q5") == "SQL":
-            score += 1
-
-
-    # Operating System questions
-    elif subject == "Operating System":
-
-        if request.form.get("q1") == "Operating System":
-            score += 1
-
-        if request.form.get("q2") == "Process":
-            score += 1
-
-        if request.form.get("q3") == "RAM":
-            score += 1
-
-        if request.form.get("q4") == "Round Robin":
-            score += 1
-
-        if request.form.get("q5") == "Deadlock":
-            score += 1
-
-
-    # Aptitude questions
-    elif subject == "Aptitude":
-
-        if request.form.get("q1") == "20":
-            score += 1
-
-        if request.form.get("q2") == "50":
-            score += 1
-
-        if request.form.get("q3") == "20":
-            score += 1
-
-        if request.form.get("q4") == "10":
-            score += 1
-
-        if request.form.get("q5") == "100":
-            score += 1
-
-
-    percentage = (score / 5) * 100
-
-
-    # Save result
-    conn = sqlite3.connect("database/learning.db")
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        INSERT INTO quiz_results
-        (name, regno, subject, level, score, percentage)
-        VALUES (?, ?, ?, ?, ?, ?)
-    """, (
-        name,
-        regno,
-        subject,
-        level,
-        score,
-        percentage
-    ))
-
-    conn.commit()
-    conn.close()
-
-
-    return render_template(
-        "quiz_result.html",
-        name=name,
-        regno=regno,
-        subject=subject,
-        level=level,
-        score=score,
-        percentage=percentage
-    )
-
-
-# =========================================================
-# RUN APPLICATION
+# RUN APP
 # =========================================================
 
 if __name__ == "__main__":
-    app.run(debug=True)
+
+    app.run(
+        debug=True
+    )

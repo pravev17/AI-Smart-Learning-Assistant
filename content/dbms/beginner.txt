@@ -1,0 +1,734 @@
+DBMS – BEGINNER LEVEL
+=====================
+
+1. INTRODUCTION TO DATABASE
+
+A database is an organized collection of data that can be easily
+stored, accessed, managed and updated.
+
+Examples of data stored in databases include:
+
+• Student details
+• Employee information
+• Customer records
+• Product details
+• Bank transactions
+• Hospital records
+
+A database helps organizations manage large amounts of information
+efficiently.
+
+
+2. WHAT IS DBMS?
+
+DBMS stands for Database Management System.
+
+A DBMS is software used to create, store, retrieve, update and manage
+data in a database.
+
+Examples of DBMS:
+
+• MySQL
+• SQLite
+• Oracle Database
+• PostgreSQL
+• Microsoft SQL Server
+
+A DBMS provides an organized way to work with stored data.
+
+
+3. ADVANTAGES OF DBMS
+
+Important advantages include:
+
+• Reduces data duplication
+• Provides organized data storage
+• Improves data security
+• Allows multiple users to access data
+• Provides backup and recovery
+• Maintains data consistency
+• Makes data retrieval easier
+
+
+4. DATABASE TABLE
+
+A table stores data in rows and columns.
+
+Example:
+
+STUDENT
+
+ID     NAME       AGE
+1      Arun       20
+2      Priya      21
+3      Ravi       20
+
+Here:
+
+ID, NAME and AGE are columns.
+
+Each individual record is a row.
+
+
+5. ROWS AND COLUMNS
+
+A row represents one complete record.
+
+A column represents one type of information.
+
+For example:
+
+ID | Name | Department
+
+1 | Arun | AI&DS
+2 | Priya | CSE
+
+The first row represents one student record.
+
+
+6. DATABASE MANAGEMENT SYSTEM COMPONENTS
+
+A DBMS generally consists of:
+
+• Database
+• Database engine
+• Query processor
+• Storage manager
+• Users
+• Application programs
+
+These components work together to store and manage information.
+
+
+7. TYPES OF DATABASES
+
+Common types include:
+
+• Relational databases
+• Hierarchical databases
+• Network databases
+• Object-oriented databases
+• NoSQL databases
+
+A relational database stores data mainly in tables.
+
+
+8. RELATIONAL DATABASE
+
+A relational database stores information in tables.
+
+Tables can be connected using relationships.
+
+For example:
+
+STUDENT table
+
+Student_ID
+Name
+Department_ID
+
+DEPARTMENT table
+
+Department_ID
+Department_Name
+
+The Department_ID can connect the two tables.
+
+
+9. SQL
+
+SQL stands for Structured Query Language.
+
+SQL is used to communicate with relational databases.
+
+SQL can be used to:
+
+• Create tables
+• Insert data
+• Retrieve data
+• Update data
+• Delete data
+
+
+10. CREATE DATABASE
+
+A database can be created using SQL.
+
+Example:
+
+CREATE DATABASE college;
+
+
+11. CREATE TABLE
+
+The CREATE TABLE command creates a new table.
+
+Example:
+
+CREATE TABLE students (
+    id INTEGER,
+    name VARCHAR(50),
+    age INTEGER
+);
+
+
+12. INSERT DATA
+
+The INSERT command adds records to a table.
+
+Example:
+
+INSERT INTO students
+VALUES (1, 'Arun', 20);
+
+Another example:
+
+INSERT INTO students (id, name, age)
+VALUES (2, 'Priya', 21);
+
+
+13. SELECT DATA
+
+The SELECT command is used to retrieve data.
+
+Example:
+
+SELECT * FROM students;
+
+The * means all columns.
+
+To retrieve specific columns:
+
+SELECT name, age
+FROM students;
+
+
+14. WHERE CLAUSE
+
+WHERE is used to filter records.
+
+Example:
+
+SELECT *
+FROM students
+WHERE age = 20;
+
+Only students whose age is 20 will be returned.
+
+
+15. UPDATE
+
+UPDATE is used to modify existing data.
+
+Example:
+
+UPDATE students
+SET age = 21
+WHERE id = 1;
+
+
+16. DELETE
+
+DELETE removes records from a table.
+
+Example:
+
+DELETE FROM students
+WHERE id = 1;
+
+
+17. PRIMARY KEY
+
+A primary key uniquely identifies each record in a table.
+
+Example:
+
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+The id value should be unique for each student.
+
+
+18. FOREIGN KEY
+
+A foreign key is used to create a relationship between tables.
+
+Example:
+
+CREATE TABLE departments (
+    department_id INTEGER PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+CREATE TABLE students (
+    student_id INTEGER PRIMARY KEY,
+    name VARCHAR(50),
+    department_id INTEGER,
+    FOREIGN KEY (department_id)
+    REFERENCES departments(department_id)
+);
+
+
+19. UNIQUE KEY
+
+A UNIQUE constraint prevents duplicate values in a column.
+
+Example:
+
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    email VARCHAR(100) UNIQUE
+);
+
+
+20. NOT NULL
+
+NOT NULL ensures that a column cannot contain an empty NULL value.
+
+Example:
+
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+
+21. DEFAULT
+
+DEFAULT provides a value automatically when no value is supplied.
+
+Example:
+
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50),
+    status VARCHAR(20) DEFAULT 'Active'
+);
+
+
+22. SQL OPERATORS
+
+Common SQL operators include:
+
+=
+<>
+>
+<
+>=
+<=
+
+Example:
+
+SELECT *
+FROM students
+WHERE age > 18;
+
+
+23. AND OPERATOR
+
+AND is used when multiple conditions must be true.
+
+Example:
+
+SELECT *
+FROM students
+WHERE age > 18
+AND department = 'AI&DS';
+
+
+24. OR OPERATOR
+
+OR is used when at least one condition should be true.
+
+Example:
+
+SELECT *
+FROM students
+WHERE department = 'CSE'
+OR department = 'AI&DS';
+
+
+25. ORDER BY
+
+ORDER BY is used to sort query results.
+
+Example:
+
+SELECT *
+FROM students
+ORDER BY age;
+
+
+Descending order:
+
+SELECT *
+FROM students
+ORDER BY age DESC;
+
+
+26. DISTINCT
+
+DISTINCT removes duplicate values from query results.
+
+Example:
+
+SELECT DISTINCT department
+FROM students;
+
+
+27. LIKE
+
+LIKE is used for pattern matching.
+
+Example:
+
+SELECT *
+FROM students
+WHERE name LIKE 'A%';
+
+This finds names beginning with A.
+
+
+28. BETWEEN
+
+BETWEEN selects values within a specified range.
+
+Example:
+
+SELECT *
+FROM students
+WHERE age BETWEEN 18 AND 25;
+
+
+29. IN
+
+IN checks whether a value belongs to a list of values.
+
+Example:
+
+SELECT *
+FROM students
+WHERE department IN ('CSE', 'AI&DS');
+
+
+30. NULL
+
+NULL represents a missing or unknown value.
+
+NULL is different from zero or an empty string.
+
+To check NULL values:
+
+SELECT *
+FROM students
+WHERE email IS NULL;
+
+
+31. AGGREGATE FUNCTIONS
+
+Aggregate functions perform calculations on multiple records.
+
+Important functions:
+
+• COUNT()
+• SUM()
+• AVG()
+• MIN()
+• MAX()
+
+Example:
+
+SELECT COUNT(*)
+FROM students;
+
+
+32. COUNT()
+
+COUNT() returns the number of records.
+
+Example:
+
+SELECT COUNT(*)
+FROM students
+WHERE age > 18;
+
+
+33. SUM()
+
+SUM() calculates the total of numeric values.
+
+Example:
+
+SELECT SUM(salary)
+FROM employees;
+
+
+34. AVG()
+
+AVG() calculates the average.
+
+Example:
+
+SELECT AVG(marks)
+FROM students;
+
+
+35. MIN() AND MAX()
+
+MIN() returns the smallest value.
+
+MAX() returns the largest value.
+
+Example:
+
+SELECT MIN(marks), MAX(marks)
+FROM students;
+
+
+36. GROUP BY
+
+GROUP BY groups records with the same value.
+
+Example:
+
+SELECT department, COUNT(*)
+FROM students
+GROUP BY department;
+
+This can show the number of students in each department.
+
+
+37. HAVING
+
+HAVING filters grouped results.
+
+Example:
+
+SELECT department, COUNT(*)
+FROM students
+GROUP BY department
+HAVING COUNT(*) > 5;
+
+
+38. BASIC SQL JOINS
+
+A JOIN combines information from multiple tables.
+
+Common types include:
+
+• INNER JOIN
+• LEFT JOIN
+• RIGHT JOIN
+• FULL JOIN
+
+At the beginner level, understand that joins are used when related
+information is stored in different tables.
+
+
+39. INNER JOIN
+
+INNER JOIN returns matching records from both tables.
+
+Example:
+
+SELECT students.name, departments.department_name
+FROM students
+INNER JOIN departments
+ON students.department_id = departments.department_id;
+
+
+40. DATABASE RELATIONSHIPS
+
+Common relationships include:
+
+• One-to-One
+• One-to-Many
+• Many-to-Many
+
+Example:
+
+One department can have many students.
+
+This is a one-to-many relationship.
+
+
+41. DATABASE NORMALIZATION
+
+Normalization is the process of organizing database tables to reduce
+data duplication and improve data consistency.
+
+Basic normal forms include:
+
+• First Normal Form (1NF)
+• Second Normal Form (2NF)
+• Third Normal Form (3NF)
+
+The main purpose is to organize data efficiently.
+
+
+42. DATA INTEGRITY
+
+Data integrity means maintaining the accuracy and consistency of
+data.
+
+Constraints such as:
+
+• PRIMARY KEY
+• FOREIGN KEY
+• UNIQUE
+• NOT NULL
+• CHECK
+
+help maintain data integrity.
+
+
+43. TRANSACTIONS
+
+A transaction is a sequence of database operations treated as
+one logical unit.
+
+Example:
+
+Transferring money from one bank account to another may involve:
+
+1. Deducting money from Account A.
+2. Adding money to Account B.
+
+Both operations should be completed correctly.
+
+
+44. SQLITE
+
+SQLite is a lightweight relational database.
+
+It does not require a separate database server.
+
+Python can work with SQLite using the sqlite3 module.
+
+Example:
+
+import sqlite3
+
+conn = sqlite3.connect("college.db")
+
+cursor = conn.cursor()
+
+cursor.execute(
+    "CREATE TABLE IF NOT EXISTS students "
+    "(id INTEGER PRIMARY KEY, name TEXT)"
+)
+
+conn.commit()
+conn.close()
+
+
+45. DATABASE SECURITY
+
+Database security protects information from unauthorized access.
+
+Basic security practices include:
+
+• Strong authentication
+• Access control
+• Secure passwords
+• Input validation
+• Parameterized queries
+• Regular backups
+
+
+46. DBMS VS FILE SYSTEM
+
+A traditional file system stores information in separate files.
+
+A DBMS provides additional features such as:
+
+• Data consistency
+• Security
+• Querying
+• Relationships
+• Backup and recovery
+• Multi-user access
+
+
+47. BASIC DBMS EXAMPLE
+
+Suppose a college wants to store student information.
+
+Table:
+
+students
+
+id
+name
+department
+marks
+
+Example record:
+
+1
+Arun
+AI&DS
+85
+
+SQL can be used to insert, retrieve, update and delete this
+information.
+
+
+48. PRACTICE TASKS
+
+Try creating SQL programs to:
+
+1. Create a student database.
+2. Create a student table.
+3. Insert five student records.
+4. Display all students.
+5. Find students with marks above 80.
+6. Update a student's marks.
+7. Delete a student record.
+8. Count the number of students.
+9. Find the average marks.
+10. Sort students according to marks.
+
+
+49. BEGINNER LEARNING CHECKLIST
+
+After completing this level, you should understand:
+
+✓ Database
+✓ DBMS
+✓ Relational database
+✓ Tables
+✓ Rows and columns
+✓ SQL
+✓ CREATE
+✓ INSERT
+✓ SELECT
+✓ UPDATE
+✓ DELETE
+✓ Primary key
+✓ Foreign key
+✓ Constraints
+✓ WHERE
+✓ ORDER BY
+✓ GROUP BY
+✓ Aggregate functions
+✓ Basic JOIN
+✓ Relationships
+✓ Normalization basics
+✓ SQLite
+✓ Database security basics
+
+
+SUMMARY
+
+A DBMS is used to store, organize, retrieve and manage data.
+
+At the beginner level, learners should understand tables, records,
+SQL commands, keys, constraints, relationships and basic database
+operations.
+
+These concepts provide the foundation for learning advanced topics
+such as normalization, transactions, indexing, query optimization
+and database administration.

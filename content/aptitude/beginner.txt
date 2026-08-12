@@ -1,0 +1,1181 @@
+APTITUDE – BEGINNER LEVEL
+=========================
+
+1. INTRODUCTION TO APTITUDE
+
+Aptitude is the ability to solve problems using logical thinking,
+basic mathematics and reasoning.
+
+Aptitude is commonly used in:
+
+• Placement tests
+• Competitive examinations
+• Entrance examinations
+• Job assessments
+• Interview screening tests
+
+Important beginner topics include:
+
+• Number system
+• Simplification
+• HCF and LCM
+• Percentages
+• Profit and loss
+• Ratio and proportion
+• Average
+• Simple interest
+• Time and work
+• Time, speed and distance
+• Basic probability
+• Basic data interpretation
+• Logical reasoning
+
+
+2. NUMBER SYSTEM
+
+A number system is a method of representing numbers.
+
+Common types of numbers include:
+
+• Natural numbers
+• Whole numbers
+• Integers
+• Rational numbers
+• Irrational numbers
+• Real numbers
+
+
+3. NATURAL NUMBERS
+
+Natural numbers are positive counting numbers.
+
+Examples:
+
+1, 2, 3, 4, 5, 6, ...
+
+Natural numbers are commonly used for counting.
+
+
+4. WHOLE NUMBERS
+
+Whole numbers include zero and all positive integers.
+
+Examples:
+
+0, 1, 2, 3, 4, 5, ...
+
+
+5. INTEGERS
+
+Integers include positive numbers, negative numbers and zero.
+
+Examples:
+
+..., -3, -2, -1, 0, 1, 2, 3, ...
+
+
+6. EVEN NUMBERS
+
+An even number is divisible by 2.
+
+Examples:
+
+2, 4, 6, 8, 10, 12
+
+
+7. ODD NUMBERS
+
+An odd number is not divisible by 2.
+
+Examples:
+
+1, 3, 5, 7, 9, 11
+
+
+8. PRIME NUMBERS
+
+A prime number has exactly two positive factors:
+
+1 and the number itself.
+
+Examples:
+
+2, 3, 5, 7, 11, 13, 17
+
+
+9. COMPOSITE NUMBERS
+
+A composite number has more than two positive factors.
+
+Examples:
+
+4, 6, 8, 9, 10, 12
+
+
+10. FACTORS
+
+A factor is a number that divides another number exactly.
+
+Example:
+
+Factors of 12 are:
+
+1, 2, 3, 4, 6 and 12.
+
+
+11. MULTIPLES
+
+Multiples are obtained by multiplying a number by whole numbers.
+
+Example:
+
+Multiples of 5:
+
+5, 10, 15, 20, 25, ...
+
+
+12. DIVISIBILITY RULES
+
+Divisibility rules help determine whether a number can be divided
+by another number without a remainder.
+
+Divisible by 2:
+
+The last digit is even.
+
+Example:
+
+246 is divisible by 2.
+
+
+Divisible by 5:
+
+The last digit is 0 or 5.
+
+Example:
+
+125 is divisible by 5.
+
+
+Divisible by 10:
+
+The last digit is 0.
+
+Example:
+
+340 is divisible by 10.
+
+
+Divisible by 3:
+
+The sum of digits is divisible by 3.
+
+Example:
+
+123
+
+1 + 2 + 3 = 6
+
+Therefore, 123 is divisible by 3.
+
+
+13. HCF
+
+HCF stands for Highest Common Factor.
+
+It is the greatest number that divides two or more numbers exactly.
+
+Example:
+
+HCF of 12 and 18 is 6.
+
+
+14. LCM
+
+LCM stands for Least Common Multiple.
+
+It is the smallest positive number that is a multiple of two or
+more numbers.
+
+Example:
+
+LCM of 4 and 6 is 12.
+
+
+15. HCF AND LCM RELATIONSHIP
+
+For two positive integers:
+
+Product of numbers = HCF × LCM
+
+Example:
+
+Numbers = 4 and 6
+
+HCF = 2
+
+LCM = 12
+
+2 × 12 = 24
+
+4 × 6 = 24
+
+
+16. SIMPLIFICATION
+
+Simplification means solving mathematical expressions by following
+the correct order of operations.
+
+A common order is:
+
+B – Brackets
+O – Orders
+D – Division
+M – Multiplication
+A – Addition
+S – Subtraction
+
+Example:
+
+10 + 5 × 2
+
+First multiply:
+
+5 × 2 = 10
+
+Then add:
+
+10 + 10 = 20
+
+
+17. FRACTIONS
+
+A fraction represents a part of a whole.
+
+Example:
+
+3/4
+
+Here:
+
+3 = numerator
+4 = denominator
+
+
+18. TYPES OF FRACTIONS
+
+Proper fraction:
+
+Numerator is smaller than denominator.
+
+Example:
+
+3/5
+
+
+Improper fraction:
+
+Numerator is greater than or equal to denominator.
+
+Example:
+
+7/5
+
+
+Mixed fraction:
+
+A whole number and a fraction are combined.
+
+Example:
+
+1 2/3
+
+
+19. DECIMAL NUMBERS
+
+A decimal represents a number using a decimal point.
+
+Examples:
+
+0.5
+2.75
+10.25
+
+
+20. CONVERSION OF FRACTION TO DECIMAL
+
+Divide the numerator by the denominator.
+
+Example:
+
+1/2 = 0.5
+
+3/4 = 0.75
+
+
+21. PERCENTAGE
+
+Percentage means a value out of 100.
+
+Symbol:
+
+%
+
+Example:
+
+25% means 25 out of 100.
+
+
+22. PERCENTAGE FORMULA
+
+Percentage:
+
+(Part / Whole) × 100
+
+
+23. PERCENTAGE EXAMPLE
+
+If a student scores 40 marks out of 50:
+
+Percentage:
+
+(40 / 50) × 100
+
+= 80%
+
+Therefore, the student scored 80%.
+
+
+24. CONVERTING PERCENTAGE TO DECIMAL
+
+Divide the percentage by 100.
+
+Example:
+
+25% = 25/100 = 0.25
+
+
+25. PERCENTAGE INCREASE
+
+Percentage increase:
+
+(Increase / Original Value) × 100
+
+
+26. PERCENTAGE DECREASE
+
+Percentage decrease:
+
+(Decrease / Original Value) × 100
+
+
+27. PROFIT
+
+Profit occurs when the selling price is greater than the cost price.
+
+Profit:
+
+Selling Price - Cost Price
+
+
+28. LOSS
+
+Loss occurs when the selling price is less than the cost price.
+
+Loss:
+
+Cost Price - Selling Price
+
+
+29. PROFIT PERCENTAGE
+
+Profit percentage:
+
+(Profit / Cost Price) × 100
+
+
+30. LOSS PERCENTAGE
+
+Loss percentage:
+
+(Loss / Cost Price) × 100
+
+
+31. COST PRICE
+
+Cost Price (CP) is the price paid to purchase an item.
+
+
+32. SELLING PRICE
+
+Selling Price (SP) is the price at which an item is sold.
+
+
+33. RATIO
+
+A ratio compares two quantities.
+
+Example:
+
+If there are 2 boys and 3 girls:
+
+Ratio of boys to girls:
+
+2 : 3
+
+
+34. RATIO SIMPLIFICATION
+
+Divide both terms by their common factor.
+
+Example:
+
+10 : 15
+
+Divide by 5:
+
+2 : 3
+
+
+35. PROPORTION
+
+A proportion states that two ratios are equal.
+
+Example:
+
+2 : 4 = 3 : 6
+
+Both ratios represent the same relationship.
+
+
+36. DIRECT PROPORTION
+
+In direct proportion, when one quantity increases, the other
+quantity also increases in the same proportion.
+
+Example:
+
+More items generally require more total cost when price per item
+is fixed.
+
+
+37. INVERSE PROPORTION
+
+In inverse proportion, when one quantity increases, the other
+quantity decreases.
+
+Example:
+
+For a fixed amount of work, more workers may require fewer days.
+
+
+38. AVERAGE
+
+Average is calculated by:
+
+Average = Sum of values / Number of values
+
+
+39. AVERAGE EXAMPLE
+
+Find the average of:
+
+10, 20 and 30
+
+Sum:
+
+10 + 20 + 30 = 60
+
+Number of values = 3
+
+Average:
+
+60 / 3 = 20
+
+
+40. SIMPLE INTEREST
+
+Simple Interest is interest calculated only on the original
+principal amount.
+
+Formula:
+
+SI = (P × R × T) / 100
+
+Where:
+
+P = Principal
+R = Rate of interest
+T = Time
+
+
+41. SIMPLE INTEREST EXAMPLE
+
+If:
+
+P = 1000
+R = 10%
+T = 2 years
+
+SI:
+
+(1000 × 10 × 2) / 100
+
+= 200
+
+
+42. AMOUNT
+
+Amount is the total money after adding interest to the principal.
+
+Amount:
+
+Principal + Simple Interest
+
+
+43. TIME AND WORK
+
+Time and Work problems deal with the amount of work completed by
+people or machines.
+
+If a person completes a work in 10 days:
+
+Work completed in one day:
+
+1/10
+
+
+44. WORK TOGETHER
+
+If A completes a work in 10 days and B completes it in 20 days:
+
+A's one-day work = 1/10
+
+B's one-day work = 1/20
+
+Together:
+
+1/10 + 1/20
+
+= 3/20
+
+
+45. TIME, SPEED AND DISTANCE
+
+The basic relationship is:
+
+Distance = Speed × Time
+
+
+46. SPEED
+
+Speed is the distance travelled per unit of time.
+
+Formula:
+
+Speed = Distance / Time
+
+
+47. TIME
+
+Time can be calculated using:
+
+Time = Distance / Speed
+
+
+48. DISTANCE
+
+Distance can be calculated using:
+
+Distance = Speed × Time
+
+
+49. SPEED EXAMPLE
+
+If a vehicle travels 120 km in 3 hours:
+
+Speed:
+
+120 / 3
+
+= 40 km/h
+
+
+50. UNIT CONVERSION
+
+Common conversions:
+
+1 kilometre = 1000 metres
+
+1 metre = 100 centimetres
+
+1 hour = 60 minutes
+
+1 minute = 60 seconds
+
+
+51. BASIC PROBABILITY
+
+Probability measures the chance of an event occurring.
+
+Formula:
+
+Probability = Favourable Outcomes / Total Outcomes
+
+
+52. PROBABILITY EXAMPLE
+
+A coin has two possible outcomes:
+
+Head
+Tail
+
+Probability of getting Head:
+
+1/2
+
+
+53. BASIC DATA INTERPRETATION
+
+Data Interpretation involves understanding information presented
+in:
+
+• Tables
+• Bar charts
+• Line charts
+• Pie charts
+• Graphs
+
+
+54. TABLES
+
+A table organizes information into rows and columns.
+
+Example:
+
+Month       Sales
+
+January     100
+February    120
+March       150
+
+
+55. BAR CHART
+
+A bar chart represents data using rectangular bars.
+
+The length or height of each bar represents the value.
+
+
+56. PIE CHART
+
+A pie chart represents data as parts of a whole.
+
+The complete circle represents:
+
+100%
+
+
+57. BASIC LOGICAL REASONING
+
+Logical reasoning tests the ability to identify patterns,
+relationships and conclusions.
+
+
+58. NUMBER SERIES
+
+A number series contains numbers following a particular pattern.
+
+Example:
+
+2, 4, 6, 8, 10
+
+The pattern is:
+
++2
+
+
+59. ANOTHER NUMBER SERIES
+
+Example:
+
+5, 10, 15, 20, 25
+
+The pattern is:
+
++5
+
+
+60. ALPHABET SERIES
+
+Alphabet series questions involve patterns using letters.
+
+Example:
+
+A, C, E, G, I
+
+The pattern skips one letter each time.
+
+
+61. ODD ONE OUT
+
+In an odd-one-out question, identify the item that does not belong
+to the same group.
+
+Example:
+
+Apple, Mango, Banana, Carrot
+
+Carrot is different because it is a vegetable.
+
+
+62. CODING AND DECODING
+
+Coding-decoding questions replace letters or words according to
+a particular rule.
+
+Example:
+
+If A = 1, B = 2, C = 3,
+
+then:
+
+CAB = 3, 1, 2
+
+
+63. ANALOGY
+
+Analogy questions identify a relationship between two pairs.
+
+Example:
+
+Bird : Fly :: Fish : Swim
+
+
+64. DIRECTIONS
+
+Direction questions involve:
+
+• North
+• South
+• East
+• West
+
+
+65. BASIC DIRECTION EXAMPLE
+
+If a person moves:
+
+5 km North
+
+and then
+
+5 km South
+
+the person returns to the starting point.
+
+
+66. BLOOD RELATIONSHIPS
+
+Blood relation questions identify relationships between family
+members.
+
+Common relationships:
+
+• Father
+• Mother
+• Brother
+• Sister
+• Son
+• Daughter
+• Grandfather
+• Grandmother
+
+
+67. CLOCK BASICS
+
+A clock has:
+
+12 numbers
+60 minutes
+60 seconds in one minute
+
+The minute hand completes one full rotation in 60 minutes.
+
+
+68. CALENDAR BASICS
+
+A normal year has:
+
+365 days
+
+A leap year has:
+
+366 days
+
+A week has:
+
+7 days
+
+
+69. BASIC AGES
+
+Age problems involve the present, past or future ages of people.
+
+Example:
+
+If a person is 20 years old now, after 5 years the person will be:
+
+20 + 5 = 25 years old.
+
+
+70. BASIC MIXTURES
+
+Mixture problems involve combining two or more quantities.
+
+Examples:
+
+• Water and milk
+• Different prices of materials
+• Different concentrations
+
+
+71. BASIC PERMUTATION
+
+Permutation deals with arrangements where order matters.
+
+Example:
+
+Arrangements of A and B:
+
+AB
+BA
+
+There are 2 arrangements.
+
+
+72. BASIC COMBINATION
+
+Combination deals with selecting items where order does not matter.
+
+Example:
+
+Selecting 2 students from a group is a combination problem when
+the order of selection is not important.
+
+
+73. BASIC SETS
+
+A set is a collection of distinct objects.
+
+Example:
+
+A = {1, 2, 3, 4}
+
+
+74. VENN DIAGRAM
+
+A Venn diagram represents relationships between sets using circles.
+
+It can be used to find:
+
+• Common elements
+• Different elements
+• Union
+• Intersection
+
+
+75. BASIC ALGEBRA
+
+Algebra uses letters to represent unknown values.
+
+Example:
+
+x + 5 = 10
+
+Therefore:
+
+x = 5
+
+
+76. LINEAR EQUATION
+
+A linear equation has variables with power 1.
+
+Example:
+
+2x + 4 = 10
+
+2x = 6
+
+x = 3
+
+
+77. BASIC GEOMETRY
+
+Important basic shapes include:
+
+• Square
+• Rectangle
+• Triangle
+• Circle
+
+
+78. RECTANGLE
+
+Area:
+
+Length × Breadth
+
+Perimeter:
+
+2 × (Length + Breadth)
+
+
+79. SQUARE
+
+Area:
+
+Side × Side
+
+Perimeter:
+
+4 × Side
+
+
+80. TRIANGLE
+
+Area:
+
+1/2 × Base × Height
+
+
+81. CIRCLE
+
+Area:
+
+πr²
+
+Circumference:
+
+2πr
+
+where:
+
+r = radius
+
+
+82. BASIC DATA COMPARISON
+
+When comparing values, check:
+
+• Greater value
+• Smaller value
+• Difference
+• Percentage change
+• Ratio
+
+
+83. APPROXIMATION
+
+Approximation means finding a value that is close to the exact
+answer.
+
+It is useful for quickly solving aptitude questions.
+
+
+84. SIMPLIFICATION TIPS
+
+For faster calculations:
+
+• Memorize multiplication tables.
+• Learn common fraction-to-percentage conversions.
+• Practice squares and cubes.
+• Use divisibility rules.
+• Follow the correct order of operations.
+
+
+85. COMMON FRACTION-PERCENTAGE VALUES
+
+1/2 = 50%
+
+1/4 = 25%
+
+3/4 = 75%
+
+1/5 = 20%
+
+1/10 = 10%
+
+1/20 = 5%
+
+
+86. BASIC SQUARES
+
+Important squares:
+
+1² = 1
+2² = 4
+3² = 9
+4² = 16
+5² = 25
+6² = 36
+7² = 49
+8² = 64
+9² = 81
+10² = 100
+
+
+87. BASIC CUBES
+
+Important cubes:
+
+1³ = 1
+2³ = 8
+3³ = 27
+4³ = 64
+5³ = 125
+
+
+88. APTITUDE PROBLEM-SOLVING METHOD
+
+Follow these steps:
+
+1. Read the question carefully.
+2. Identify the given values.
+3. Identify what needs to be found.
+4. Select the appropriate formula.
+5. Substitute the values.
+6. Calculate carefully.
+7. Check the answer.
+
+
+89. TIME MANAGEMENT
+
+In aptitude tests, time management is important.
+
+Useful strategy:
+
+• Solve easy questions first.
+• Do not spend too much time on one question.
+• Mark difficult questions for later.
+• Check calculations when time is available.
+
+
+90. COMMON APTITUDE MISTAKES
+
+Avoid:
+
+• Reading the question incorrectly.
+• Using the wrong formula.
+• Forgetting units.
+• Making calculation errors.
+• Spending too much time on one question.
+• Ignoring negative values.
+• Not checking the final answer.
+
+
+91. BEGINNER PRACTICE QUESTIONS
+
+1. Find the HCF of 12 and 18.
+
+2. Find the LCM of 4 and 6.
+
+3. Find 20% of 250.
+
+4. A product costs Rs. 500 and is sold for Rs. 600.
+   Find the profit.
+
+5. Find the average of 10, 20 and 30.
+
+6. A car travels 120 km in 3 hours.
+   Find its speed.
+
+7. Find the simple interest on Rs. 1000 at 10% per year for
+   2 years.
+
+8. Solve:
+
+   2x + 4 = 10
+
+9. What is the probability of getting Head when a fair coin is
+   tossed once?
+
+10. Find the next number:
+
+    2, 4, 6, 8, ?
+
+
+92. ANSWER CHECK
+
+1. HCF = 6
+
+2. LCM = 12
+
+3. 20% of 250 = 50
+
+4. Profit = Rs. 100
+
+5. Average = 20
+
+6. Speed = 40 km/h
+
+7. Simple Interest = Rs. 200
+
+8. x = 3
+
+9. Probability = 1/2
+
+10. Next number = 10
+
+
+93. BEGINNER LEARNING CHECKLIST
+
+After completing this level, you should understand:
+
+✓ Number system
+✓ Natural numbers
+✓ Whole numbers
+✓ Integers
+✓ Prime numbers
+✓ Factors and multiples
+✓ Divisibility rules
+✓ HCF
+✓ LCM
+✓ Simplification
+✓ Fractions
+✓ Decimals
+✓ Percentages
+✓ Profit and loss
+✓ Ratio and proportion
+✓ Average
+✓ Simple interest
+✓ Time and work
+✓ Time, speed and distance
+✓ Probability
+✓ Data interpretation
+✓ Number series
+✓ Alphabet series
+✓ Coding and decoding
+✓ Analogy
+✓ Directions
+✓ Blood relations
+✓ Ages
+✓ Basic algebra
+✓ Basic geometry
+✓ Sets and Venn diagrams
+✓ Basic permutation and combination
+✓ Time management
+
+
+SUMMARY
+
+Beginner aptitude focuses on building strong mathematical and
+logical reasoning fundamentals.
+
+The most important areas are numbers, percentages, ratios,
+averages, profit and loss, simple interest, time and work,
+speed-distance-time, probability and basic reasoning.
+
+Regular practice improves calculation speed, accuracy and
+problem-solving ability.

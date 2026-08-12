@@ -1,0 +1,953 @@
+DBMS – ADVANCED LEVEL
+=====================
+
+1. INTRODUCTION
+
+Advanced Database Management Systems focus on designing, optimizing,
+securing and managing databases used in large-scale applications.
+
+Important advanced concepts include:
+
+• Query optimization
+• Indexing
+• Transactions and concurrency
+• Distributed databases
+• Database security
+• Recovery
+• NoSQL databases
+• Data warehousing
+• Replication
+• Partitioning
+• Advanced database architecture
+
+
+2. QUERY OPTIMIZATION
+
+Query optimization is the process of selecting the most efficient
+method to execute an SQL query.
+
+A database management system analyzes different execution strategies
+and selects an efficient execution plan.
+
+Optimization can involve:
+
+• Choosing appropriate indexes
+• Selecting efficient join methods
+• Reducing unnecessary data retrieval
+• Filtering records early
+• Selecting appropriate access paths
+
+
+3. QUERY EXECUTION PLAN
+
+An execution plan describes how the database will execute a query.
+
+For example, a database may decide to:
+
+1. Scan an index.
+2. Retrieve matching records.
+3. Join another table.
+4. Sort the result.
+
+Execution plans can help identify performance problems.
+
+
+4. INDEXING
+
+Indexes are data structures used to improve data retrieval speed.
+
+Common index types include:
+
+• B-tree indexes
+• Hash indexes
+• Bitmap indexes
+• Composite indexes
+• Clustered indexes
+• Non-clustered indexes
+
+The correct index depends on the database system and workload.
+
+
+5. B-TREE INDEX
+
+B-tree indexes organize values in a tree structure.
+
+They are commonly used for:
+
+• Equality searches
+• Range searches
+• Sorting
+• Ordered data retrieval
+
+Example:
+
+CREATE INDEX idx_marks
+ON students(marks);
+
+
+6. HASH INDEX
+
+Hash indexes use a hash function to locate values.
+
+They can be efficient for exact-match searches.
+
+Example:
+
+Searching for:
+
+student_id = 105
+
+can use a hash-based lookup to find the required record quickly.
+
+Hash indexes are generally less suitable for range queries.
+
+
+7. CLUSTERED INDEX
+
+A clustered index determines how records are physically or logically
+organized according to the indexing system.
+
+A table generally has only one clustered ordering.
+
+The exact implementation depends on the database system.
+
+
+8. NON-CLUSTERED INDEX
+
+A non-clustered index is stored separately from the table data and
+contains references to the actual records.
+
+A table can generally have multiple non-clustered indexes.
+
+
+9. COMPOSITE INDEX
+
+A composite index contains multiple columns.
+
+Example:
+
+CREATE INDEX idx_student_department_marks
+ON students(department, marks);
+
+The order of columns in a composite index is important for query
+performance.
+
+
+10. INDEX SELECTIVITY
+
+Selectivity describes how effectively an index distinguishes between
+different values.
+
+A column containing many unique values generally has higher
+selectivity than a column containing only a few repeated values.
+
+High-selectivity columns can often be useful for indexing.
+
+
+11. TRANSACTION MANAGEMENT
+
+Transaction management ensures that database operations are completed
+reliably.
+
+A transaction may contain multiple operations that should be treated
+as one logical unit.
+
+
+12. ACID PROPERTIES
+
+The four major properties of transactions are:
+
+A – Atomicity
+C – Consistency
+I – Isolation
+D – Durability
+
+These properties help maintain reliable database operations.
+
+
+13. CONCURRENCY CONTROL
+
+Concurrency control manages simultaneous transactions.
+
+Multiple users may access and modify the database at the same time.
+
+Without proper concurrency control, problems can occur.
+
+
+14. CONCURRENCY PROBLEMS
+
+Common problems include:
+
+• Lost update
+• Dirty read
+• Non-repeatable read
+• Phantom read
+
+These problems occur when transactions interact without sufficient
+isolation.
+
+
+15. LOST UPDATE
+
+A lost update occurs when one transaction overwrites a change made
+by another transaction.
+
+Example:
+
+Two users read the same account balance.
+
+Both modify it independently.
+
+One update may overwrite the other update.
+
+
+16. DIRTY READ
+
+A dirty read occurs when one transaction reads data that another
+transaction has modified but not yet committed.
+
+If the first transaction is rolled back, the second transaction
+may have read invalid information.
+
+
+17. NON-REPEATABLE READ
+
+A non-repeatable read occurs when a transaction reads the same row
+twice and receives different values because another transaction
+modified the row between the two reads.
+
+
+18. PHANTOM READ
+
+A phantom read occurs when repeated execution of a query returns
+additional or missing rows because another transaction inserted or
+deleted records.
+
+
+19. ISOLATION LEVELS
+
+Common transaction isolation levels include:
+
+• Read Uncommitted
+• Read Committed
+• Repeatable Read
+• Serializable
+
+Higher isolation generally provides stronger consistency but can
+reduce concurrency.
+
+
+20. READ UNCOMMITTED
+
+Read Uncommitted allows transactions to read changes that have not
+yet been committed.
+
+It provides weak isolation and can allow dirty reads.
+
+
+21. READ COMMITTED
+
+Read Committed prevents a transaction from reading uncommitted data.
+
+It is commonly used as a practical balance between consistency and
+concurrency.
+
+
+22. REPEATABLE READ
+
+Repeatable Read ensures that data already read by a transaction
+remains consistent during that transaction according to the database
+system's implementation.
+
+
+23. SERIALIZABLE
+
+Serializable provides the strongest standard isolation level.
+
+Transactions behave as if they were executed one after another.
+
+This improves consistency but can reduce concurrency.
+
+
+24. LOCKING
+
+Locks control access to database resources.
+
+Common lock types include:
+
+• Shared lock
+• Exclusive lock
+
+
+25. SHARED LOCK
+
+A shared lock allows multiple transactions to read a resource while
+preventing conflicting modifications.
+
+It is generally associated with read operations.
+
+
+26. EXCLUSIVE LOCK
+
+An exclusive lock is used when a transaction modifies data.
+
+Other transactions are generally prevented from making conflicting
+accesses until the lock is released.
+
+
+27. DEADLOCK
+
+A deadlock occurs when two or more transactions wait indefinitely
+for resources held by each other.
+
+Example:
+
+Transaction A holds Resource 1 and waits for Resource 2.
+
+Transaction B holds Resource 2 and waits for Resource 1.
+
+Neither transaction can continue.
+
+
+28. DEADLOCK HANDLING
+
+Deadlocks can be handled using:
+
+• Deadlock prevention
+• Deadlock avoidance
+• Deadlock detection
+• Deadlock recovery
+• Timeouts
+
+The exact strategy depends on the database system.
+
+
+29. DATABASE RECOVERY
+
+Database recovery restores a database to a consistent state after
+a failure.
+
+Failures may include:
+
+• Hardware failure
+• Software failure
+• Transaction failure
+• Power failure
+• Storage failure
+
+
+30. LOG-BASED RECOVERY
+
+Database systems can maintain logs of changes.
+
+The log can be used during recovery to determine which operations
+should be redone or undone.
+
+
+31. UNDO
+
+UNDO reverses changes made by transactions that should not remain
+in the database.
+
+For example, an incomplete transaction may need to be rolled back.
+
+
+32. REDO
+
+REDO reapplies committed changes that may not have reached permanent
+storage before a failure.
+
+
+33. CHECKPOINT
+
+A checkpoint records a known consistent point in the database system.
+
+Checkpoints can reduce the amount of work required during recovery.
+
+
+34. BACKUP AND RECOVERY STRATEGIES
+
+Common backup types include:
+
+• Full backup
+• Incremental backup
+• Differential backup
+
+A proper backup strategy helps reduce the risk of permanent data
+loss.
+
+
+35. DATABASE REPLICATION
+
+Replication means maintaining copies of data on multiple database
+servers.
+
+Replication can improve:
+
+• Availability
+• Read performance
+• Fault tolerance
+• Disaster recovery
+
+
+36. PRIMARY AND REPLICA SERVERS
+
+In a replicated architecture, one database server may handle
+primary operations while other servers maintain replicated copies.
+
+The exact terminology and architecture depend on the database system.
+
+
+37. DATABASE PARTITIONING
+
+Partitioning divides a large table or database into smaller logical
+parts.
+
+Benefits can include:
+
+• Improved query performance
+• Easier maintenance
+• Better data management
+• Reduced scanning requirements
+
+
+38. RANGE PARTITIONING
+
+Range partitioning divides data according to ranges of values.
+
+Example:
+
+Records may be divided by year:
+
+2023
+2024
+2025
+2026
+
+
+39. LIST PARTITIONING
+
+List partitioning divides records according to specific values.
+
+Example:
+
+Region:
+
+Chennai
+Bangalore
+Mumbai
+Delhi
+
+
+40. HASH PARTITIONING
+
+Hash partitioning uses a hash function to distribute records across
+partitions.
+
+It can help distribute data more evenly.
+
+
+41. DISTRIBUTED DATABASE
+
+A distributed database stores data across multiple physical locations
+or systems.
+
+The locations may be connected through a network.
+
+
+42. ADVANTAGES OF DISTRIBUTED DATABASES
+
+Advantages include:
+
+• High availability
+• Scalability
+• Local access to data
+• Fault tolerance
+• Load distribution
+
+
+43. DISTRIBUTED DATABASE CHALLENGES
+
+Challenges include:
+
+• Network failures
+• Data consistency
+• Distributed transactions
+• Security
+• Synchronization
+• Complex administration
+
+
+44. DISTRIBUTED TRANSACTIONS
+
+A distributed transaction can involve multiple database systems.
+
+Maintaining consistency across multiple systems is more complex than
+managing a transaction in a single database.
+
+
+45. TWO-PHASE COMMIT
+
+Two-Phase Commit is a protocol used to coordinate distributed
+transactions.
+
+It generally consists of:
+
+Phase 1 – Prepare
+Phase 2 – Commit
+
+
+46. NOSQL DATABASES
+
+NoSQL databases are designed for data models that do not necessarily
+follow the traditional relational table structure.
+
+Common NoSQL categories include:
+
+• Document databases
+• Key-value databases
+• Column-family databases
+• Graph databases
+
+
+47. DOCUMENT DATABASE
+
+Document databases store information in document-like structures.
+
+A common format is JSON-like data.
+
+Example:
+
+{
+    "name": "Arun",
+    "age": 20,
+    "department": "AI&DS"
+}
+
+
+48. KEY-VALUE DATABASE
+
+Key-value databases store information as key-value pairs.
+
+Example:
+
+student_101 → Arun
+
+
+49. GRAPH DATABASE
+
+Graph databases represent information using:
+
+• Nodes
+• Relationships
+• Properties
+
+They are useful for highly connected data.
+
+Examples include:
+
+• Social networks
+• Recommendation systems
+• Fraud detection
+• Network analysis
+
+
+50. RELATIONAL DATABASE VS NOSQL
+
+Relational databases generally use:
+
+• Tables
+• Rows
+• Columns
+• SQL
+• Structured schemas
+
+NoSQL systems may provide:
+
+• Flexible schemas
+• Document-based storage
+• Key-value structures
+• Graph-based models
+
+The appropriate choice depends on application requirements.
+
+
+51. CAP THEOREM
+
+CAP theorem describes trade-offs in distributed systems.
+
+The three properties are:
+
+C – Consistency
+A – Availability
+P – Partition tolerance
+
+A distributed system must make trade-offs when a network
+partition occurs.
+
+
+52. DATA WAREHOUSING
+
+A data warehouse is designed mainly for analytical processing.
+
+It can combine data from multiple sources.
+
+Data warehouses are commonly used for:
+
+• Business intelligence
+• Reporting
+• Data analysis
+• Decision making
+
+
+53. OLTP
+
+OLTP stands for Online Transaction Processing.
+
+It focuses on frequent operational transactions.
+
+Examples:
+
+• Banking transactions
+• Online shopping
+• Ticket booking
+• Student registration
+
+
+54. OLAP
+
+OLAP stands for Online Analytical Processing.
+
+It focuses on analysis of large amounts of data.
+
+Examples:
+
+• Sales analysis
+• Business reporting
+• Trend analysis
+• Performance analysis
+
+
+55. OLTP VS OLAP
+
+OLTP:
+
+• Handles daily transactions
+• Frequent inserts and updates
+• Usually highly normalized
+• Fast individual transactions
+
+OLAP:
+
+• Handles analytical queries
+• Large-scale data analysis
+• Often uses dimensional models
+• Focuses on reporting and aggregation
+
+
+56. DATA MART
+
+A data mart is a smaller analytical data store focused on a
+specific department or business area.
+
+Examples:
+
+• Sales data mart
+• Finance data mart
+• Marketing data mart
+
+
+57. STAR SCHEMA
+
+A star schema is commonly used in data warehousing.
+
+It contains:
+
+• Fact table
+• Dimension tables
+
+The fact table stores measurable business data.
+
+Dimension tables provide descriptive information.
+
+
+58. FACT TABLE
+
+A fact table stores measurable events.
+
+Examples:
+
+• Sales amount
+• Quantity sold
+• Profit
+• Transaction count
+
+
+59. DIMENSION TABLE
+
+A dimension table stores descriptive information.
+
+Examples:
+
+• Customer
+• Product
+• Location
+• Date
+
+
+60. DATABASE SECURITY
+
+Advanced database security protects data from unauthorized access,
+modification and disclosure.
+
+Security techniques include:
+
+• Authentication
+• Authorization
+• Encryption
+• Auditing
+• Access control
+• Secure connections
+• Backup protection
+
+
+61. ROLE-BASED ACCESS CONTROL
+
+Role-Based Access Control assigns permissions to roles rather than
+individual users.
+
+Example roles:
+
+• Administrator
+• Manager
+• Employee
+• Read-only user
+
+
+62. ENCRYPTION
+
+Encryption converts readable information into a protected form.
+
+Database encryption can protect sensitive information during storage
+and transmission.
+
+
+63. AUDITING
+
+Database auditing records activities performed by users.
+
+Audit records may include:
+
+• Login activity
+• Data modifications
+• Query activity
+• Permission changes
+
+Auditing is useful for security and compliance.
+
+
+64. SQL INJECTION PREVENTION
+
+SQL injection can be reduced by:
+
+• Parameterized queries
+• Input validation
+• Stored procedures where appropriate
+• Least-privilege database accounts
+• Avoiding direct string concatenation
+
+
+65. DATABASE SCALABILITY
+
+Scalability is the ability of a database system to handle increasing
+amounts of data and users.
+
+Scalability can be achieved using:
+
+• Indexing
+• Partitioning
+• Replication
+• Caching
+• Load balancing
+• Database sharding
+
+
+66. SHARDING
+
+Sharding divides data across multiple database servers.
+
+Each server, or shard, stores a portion of the total dataset.
+
+Sharding can improve scalability for very large systems.
+
+
+67. DATABASE CACHING
+
+Caching stores frequently accessed information in faster storage.
+
+Caching can reduce repeated database queries and improve application
+response time.
+
+
+68. DATABASE MONITORING
+
+Database monitoring helps administrators identify:
+
+• Slow queries
+• High CPU usage
+• Memory usage
+• Storage problems
+• Connection issues
+• Locking problems
+
+
+69. QUERY PERFORMANCE ANALYSIS
+
+Performance analysis may involve:
+
+• Execution plans
+• Query statistics
+• Index usage
+• Resource consumption
+• Response time
+
+The goal is to identify and remove database bottlenecks.
+
+
+70. HIGH AVAILABILITY
+
+High availability means keeping database services accessible even
+when failures occur.
+
+Techniques include:
+
+• Replication
+• Failover
+• Redundant servers
+• Backup systems
+• Monitoring
+
+
+71. DISASTER RECOVERY
+
+Disaster recovery is the process of restoring database services
+after a major failure.
+
+A disaster recovery plan should define:
+
+• Backup strategy
+• Recovery procedures
+• Recovery time objectives
+• Recovery point objectives
+• Responsible personnel
+
+
+72. DATABASE MIGRATION
+
+Database migration means moving data from one database system or
+environment to another.
+
+Migration may involve:
+
+• Schema conversion
+• Data transformation
+• Data validation
+• Testing
+• Deployment
+
+
+73. DATABASE TESTING
+
+Database testing verifies:
+
+• Data accuracy
+• Constraints
+• Queries
+• Transactions
+• Performance
+• Security
+• Recovery
+
+
+74. ADVANCED DBMS APPLICATIONS
+
+DBMS technology is used in:
+
+• Banking
+• E-commerce
+• Healthcare
+• Education
+• Social media
+• Transportation
+• Government systems
+• Artificial Intelligence
+• Data analytics
+
+
+75. PRACTICE TASKS
+
+Practice the following:
+
+1. Analyze a complex SQL query.
+2. Create and compare different indexes.
+3. Study transaction isolation levels.
+4. Create a deadlock example.
+5. Design a normalized database.
+6. Create a database backup strategy.
+7. Design a replicated database architecture.
+8. Design a partitioning strategy.
+9. Compare relational and NoSQL databases.
+10. Design a simple data warehouse.
+11. Create a star schema.
+12. Design database security roles.
+
+
+76. ADVANCED LEARNING CHECKLIST
+
+After completing this level, you should understand:
+
+✓ Query optimization
+✓ Execution plans
+✓ Advanced indexing
+✓ Composite indexes
+✓ Transactions
+✓ Concurrency control
+✓ Isolation levels
+✓ Locks
+✓ Deadlocks
+✓ Database recovery
+✓ Logging
+✓ Checkpoints
+✓ Replication
+✓ Partitioning
+✓ Distributed databases
+✓ Two-phase commit
+✓ NoSQL databases
+✓ CAP theorem
+✓ Data warehouses
+✓ OLTP
+✓ OLAP
+✓ Star schema
+✓ Fact tables
+✓ Dimension tables
+✓ Database security
+✓ Encryption
+✓ Auditing
+✓ Sharding
+✓ High availability
+✓ Disaster recovery
+✓ Database migration
+
+
+SUMMARY
+
+Advanced DBMS concepts focus on building reliable, secure,
+high-performance and scalable database systems.
+
+A learner at this level should understand how databases handle
+concurrency, failures, distributed operations, large datasets,
+security and performance.
+
+These concepts are important for developing enterprise applications,
+large-scale web systems, banking applications, analytics platforms
+and other data-intensive systems.

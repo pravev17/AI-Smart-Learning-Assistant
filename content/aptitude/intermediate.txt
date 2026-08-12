@@ -1,0 +1,1228 @@
+APTITUDE – INTERMEDIATE LEVEL
+=============================
+
+1. INTRODUCTION
+
+Intermediate aptitude focuses on solving problems using formulas,
+shortcuts, logical thinking and multiple-step calculations.
+
+Important topics include:
+
+• Advanced number system
+• Percentages
+• Profit and loss
+• Ratio and proportion
+• Partnership
+• Averages
+• Simple and compound interest
+• Time and work
+• Pipes and cisterns
+• Time, speed and distance
+• Trains
+• Boats and streams
+• Probability
+• Permutation and combination
+• Algebra
+• Geometry
+• Data interpretation
+• Logical reasoning
+
+
+2. NUMBER SYSTEM
+
+The number system is used to represent and classify numbers.
+
+Important concepts:
+
+• Divisibility
+• Factors
+• Multiples
+• Prime numbers
+• HCF and LCM
+• Remainders
+• Unit digits
+• Number patterns
+
+
+3. DIVISIBILITY RULE FOR 4
+
+A number is divisible by 4 if its last two digits are divisible
+by 4.
+
+Example:
+
+312
+
+Last two digits = 12
+
+12 is divisible by 4.
+
+Therefore, 312 is divisible by 4.
+
+
+4. DIVISIBILITY RULE FOR 8
+
+A number is divisible by 8 if its last three digits are divisible
+by 8.
+
+Example:
+
+1,216
+
+Last three digits = 216
+
+216 ÷ 8 = 27
+
+Therefore, 1216 is divisible by 8.
+
+
+5. DIVISIBILITY RULE FOR 9
+
+A number is divisible by 9 if the sum of its digits is divisible
+by 9.
+
+Example:
+
+729
+
+7 + 2 + 9 = 18
+
+18 is divisible by 9.
+
+Therefore, 729 is divisible by 9.
+
+
+6. DIVISIBILITY RULE FOR 11
+
+For divisibility by 11, find the difference between the sums of
+alternate digits.
+
+Example:
+
+121
+
+(1 + 1) - 2 = 0
+
+Therefore, 121 is divisible by 11.
+
+
+7. REMAINDER
+
+The remainder is the value left after division.
+
+Example:
+
+17 ÷ 5
+
+Quotient = 3
+Remainder = 2
+
+
+8. PERCENTAGE CHANGE
+
+Percentage change:
+
+(Change / Original Value) × 100
+
+If a value increases from 200 to 250:
+
+Change = 50
+
+Percentage increase:
+
+(50 / 200) × 100 = 25%
+
+
+9. SUCCESSIVE PERCENTAGE CHANGE
+
+If a value changes by x% and then by y%, the overall percentage
+change is:
+
+x + y + (xy / 100)
+
+The signs of x and y should be considered according to whether the
+change is an increase or decrease.
+
+
+10. PERCENTAGE AND POPULATION
+
+Percentage calculations are commonly used for:
+
+• Population growth
+• Salary increase
+• Price changes
+• Marks
+• Production
+
+
+11. PROFIT AND LOSS
+
+Important formulas:
+
+Profit = SP - CP
+
+Loss = CP - SP
+
+Profit% = (Profit / CP) × 100
+
+Loss% = (Loss / CP) × 100
+
+
+12. DISCOUNT
+
+Discount is the reduction given on the marked price.
+
+Discount:
+
+Marked Price - Selling Price
+
+Discount percentage:
+
+(Discount / Marked Price) × 100
+
+
+13. SELLING PRICE AFTER DISCOUNT
+
+Selling Price:
+
+Marked Price × (100 - Discount%) / 100
+
+
+14. SUCCESSIVE DISCOUNTS
+
+When two discounts are applied successively:
+
+Equivalent discount:
+
+a + b - (ab / 100)
+
+where a and b are the two discount percentages.
+
+
+15. RATIO
+
+A ratio compares two quantities of the same type.
+
+Example:
+
+20 : 30
+
+Divide by 10:
+
+2 : 3
+
+
+16. PROPORTION
+
+If:
+
+a : b = c : d
+
+then:
+
+a/b = c/d
+
+and:
+
+ad = bc
+
+
+17. DIRECT PROPORTION
+
+If two quantities increase or decrease together in the same ratio,
+they are directly proportional.
+
+Example:
+
+If 1 notebook costs Rs. 20,
+
+5 notebooks cost:
+
+5 × 20 = Rs. 100
+
+
+18. INVERSE PROPORTION
+
+If one quantity increases while the other decreases in such a way
+that their product remains constant, they are inversely
+proportional.
+
+Example:
+
+More workers can complete the same work in fewer days, assuming
+equal efficiency.
+
+
+19. PARTNERSHIP
+
+Partnership problems involve sharing profit among partners.
+
+Profit is generally divided according to:
+
+Capital × Time
+
+
+20. PARTNERSHIP EXAMPLE
+
+A invests Rs. 10,000 for 12 months.
+
+B invests Rs. 20,000 for 6 months.
+
+A's ratio:
+
+10,000 × 12 = 120,000
+
+B's ratio:
+
+20,000 × 6 = 120,000
+
+Therefore:
+
+A : B = 1 : 1
+
+
+21. AVERAGE
+
+Average:
+
+Sum of observations / Number of observations
+
+
+22. AVERAGE WITH A NEW VALUE
+
+If the average of n values is A, then:
+
+Total = n × A
+
+When a new value is added:
+
+New Average = New Total / New Number of Values
+
+
+23. WEIGHTED AVERAGE
+
+Weighted average gives different importance to different values.
+
+Formula:
+
+Weighted Average =
+Σ(value × weight) / Σweights
+
+
+24. SIMPLE INTEREST
+
+Simple Interest:
+
+SI = (P × R × T) / 100
+
+Amount:
+
+A = P + SI
+
+
+25. COMPOUND INTEREST
+
+Compound Interest is calculated on the principal plus accumulated
+interest.
+
+For annual compounding:
+
+A = P(1 + R/100)^T
+
+Compound Interest:
+
+CI = A - P
+
+
+26. SIMPLE VS COMPOUND INTEREST
+
+Simple Interest:
+
+Interest is calculated only on the original principal.
+
+Compound Interest:
+
+Interest is calculated on the accumulated amount.
+
+
+27. COMPOUND INTEREST EXAMPLE
+
+Suppose:
+
+P = Rs. 1000
+R = 10%
+T = 2 years
+
+Amount:
+
+A = 1000(1.10)^2
+
+A = Rs. 1210
+
+Compound Interest:
+
+1210 - 1000 = Rs. 210
+
+
+28. TIME AND WORK
+
+If A completes a work in x days:
+
+A's one-day work = 1/x
+
+
+29. WORKING TOGETHER
+
+If A completes work in 10 days and B in 15 days:
+
+A's work per day = 1/10
+
+B's work per day = 1/15
+
+Together:
+
+1/10 + 1/15
+
+= 1/6
+
+Therefore, they complete the work in 6 days.
+
+
+30. EFFICIENCY
+
+Efficiency is inversely related to the time required for the same
+amount of work.
+
+If A is twice as efficient as B:
+
+A takes half the time taken by B.
+
+
+31. PIPES AND CISTERNS
+
+Pipes and cistern problems are similar to time and work problems.
+
+A pipe that fills a tank in 10 hours fills:
+
+1/10 of the tank per hour.
+
+
+32. EMPTYING PIPE
+
+If a pipe empties a tank in 20 hours, its work rate is:
+
+-1/20
+
+The negative sign represents removal of water.
+
+
+33. COMBINED PIPES
+
+If one pipe fills a tank in 10 hours and another empties it in
+20 hours:
+
+Net work per hour:
+
+1/10 - 1/20
+
+= 1/20
+
+Therefore, the tank fills in 20 hours.
+
+
+34. TIME, SPEED AND DISTANCE
+
+Basic formulas:
+
+Distance = Speed × Time
+
+Speed = Distance / Time
+
+Time = Distance / Speed
+
+
+35. AVERAGE SPEED
+
+Average speed is:
+
+Total Distance / Total Time
+
+It is not always equal to the simple average of speeds.
+
+
+36. RELATIVE SPEED
+
+Relative speed depends on the direction of motion.
+
+For objects moving in the same direction:
+
+Relative Speed = Difference of speeds
+
+For objects moving in opposite directions:
+
+Relative Speed = Sum of speeds
+
+
+37. TRAIN PROBLEMS
+
+When a train passes a stationary object:
+
+Distance covered is generally the length of the train.
+
+Time:
+
+Distance / Speed
+
+
+38. TRAIN CROSSING A PLATFORM
+
+When a train crosses a platform:
+
+Distance covered:
+
+Length of train + Length of platform
+
+Time:
+
+Total distance / Speed
+
+
+39. UNIT CONVERSION FOR SPEED
+
+Important conversion:
+
+1 km/h = 5/18 m/s
+
+1 m/s = 18/5 km/h
+
+
+40. BOATS AND STREAMS
+
+Let:
+
+Speed of boat in still water = B
+
+Speed of stream = S
+
+
+41. DOWNSTREAM SPEED
+
+Downstream speed:
+
+B + S
+
+
+42. UPSTREAM SPEED
+
+Upstream speed:
+
+B - S
+
+
+43. BOAT EXAMPLE
+
+If boat speed is 10 km/h and stream speed is 2 km/h:
+
+Downstream:
+
+10 + 2 = 12 km/h
+
+Upstream:
+
+10 - 2 = 8 km/h
+
+
+44. PROBABILITY
+
+Probability:
+
+Favourable outcomes / Total possible outcomes
+
+
+45. COMPLEMENTARY PROBABILITY
+
+Probability of an event not occurring:
+
+P(not A) = 1 - P(A)
+
+
+46. INDEPENDENT EVENTS
+
+Two events are independent if the occurrence of one does not affect
+the probability of the other.
+
+For independent events:
+
+P(A and B) = P(A) × P(B)
+
+
+47. ADDITION RULE OF PROBABILITY
+
+For mutually exclusive events:
+
+P(A or B) = P(A) + P(B)
+
+
+48. PERMUTATION
+
+Permutation deals with arrangements where order matters.
+
+Formula:
+
+nPr = n! / (n-r)!
+
+
+49. COMBINATION
+
+Combination deals with selections where order does not matter.
+
+Formula:
+
+nCr = n! / [r!(n-r)!]
+
+
+50. FACTORIAL
+
+Factorial of n:
+
+n! = n × (n-1) × (n-2) × ... × 1
+
+Example:
+
+5! = 5 × 4 × 3 × 2 × 1
+
+= 120
+
+
+51. PERMUTATION EXAMPLE
+
+Number of ways to arrange 3 different objects:
+
+3!
+
+= 3 × 2 × 1
+
+= 6
+
+
+52. COMBINATION EXAMPLE
+
+Number of ways to select 2 objects from 4:
+
+4C2
+
+= 4! / (2! × 2!)
+
+= 6
+
+
+53. ALGEBRAIC IDENTITIES
+
+Important identities:
+
+(a + b)² = a² + 2ab + b²
+
+(a - b)² = a² - 2ab + b²
+
+(a + b)(a - b) = a² - b²
+
+
+54. LINEAR EQUATIONS
+
+Example:
+
+3x + 5 = 20
+
+3x = 15
+
+x = 5
+
+
+55. SIMULTANEOUS EQUATIONS
+
+Two equations can be solved together.
+
+Example:
+
+x + y = 10
+
+x - y = 2
+
+Adding:
+
+2x = 12
+
+x = 6
+
+Therefore:
+
+y = 4
+
+
+56. QUADRATIC EQUATION
+
+A quadratic equation has the form:
+
+ax² + bx + c = 0
+
+The quadratic formula is:
+
+x = [-b ± √(b² - 4ac)] / 2a
+
+
+57. GEOMETRY
+
+Important concepts:
+
+• Angles
+• Triangles
+• Quadrilaterals
+• Circles
+• Areas
+• Perimeters
+
+
+58. TRIANGLE
+
+Sum of interior angles of a triangle:
+
+180°
+
+
+59. PYTHAGOREAN THEOREM
+
+For a right-angled triangle:
+
+a² + b² = c²
+
+where c is the hypotenuse.
+
+
+60. AREA OF TRIANGLE
+
+Area:
+
+1/2 × Base × Height
+
+
+61. AREA OF CIRCLE
+
+Area:
+
+πr²
+
+
+62. CIRCUMFERENCE
+
+Circumference:
+
+2πr
+
+
+63. DATA INTERPRETATION
+
+Intermediate data interpretation may involve:
+
+• Tables
+• Bar graphs
+• Pie charts
+• Line graphs
+• Multiple data sets
+
+
+64. DATA INTERPRETATION STRATEGY
+
+Follow these steps:
+
+1. Read the title.
+2. Understand the units.
+3. Identify the required values.
+4. Compare relevant data.
+5. Perform calculations.
+6. Check the answer.
+
+
+65. RATIO IN DATA INTERPRETATION
+
+If a table shows:
+
+A = 200
+
+B = 300
+
+Ratio:
+
+A : B = 200 : 300
+
+= 2 : 3
+
+
+66. PERCENTAGE IN DATA INTERPRETATION
+
+Percentage contribution:
+
+Value / Total × 100
+
+
+67. NUMBER SERIES
+
+Intermediate series may use:
+
+• Addition
+• Subtraction
+• Multiplication
+• Division
+• Squares
+• Cubes
+• Alternating patterns
+
+
+68. NUMBER SERIES EXAMPLE
+
+2, 6, 12, 20, 30, ?
+
+Differences:
+
+4, 6, 8, 10
+
+Next difference = 12
+
+Therefore:
+
+30 + 12 = 42
+
+
+69. ALPHABET REASONING
+
+Letters can be assigned numerical positions:
+
+A = 1
+B = 2
+C = 3
+...
+Z = 26
+
+
+70. CODING AND DECODING
+
+Coding-decoding questions may involve:
+
+• Letter shifting
+• Number substitution
+• Reversal
+• Pattern recognition
+
+
+71. BLOOD RELATIONSHIPS
+
+Solve blood-relation questions by drawing a small family tree.
+
+Identify:
+
+• Gender
+• Generation
+• Direct relationship
+• Indirect relationship
+
+
+72. DIRECTION SENSE
+
+Use a simple diagram:
+
+          North
+            ↑
+West ←       → East
+            ↓
+          South
+
+Track each movement carefully.
+
+
+73. SYLLOGISM
+
+A syllogism contains statements and conclusions.
+
+Example:
+
+All cats are animals.
+
+Tom is a cat.
+
+Therefore:
+
+Tom is an animal.
+
+
+74. STATEMENT AND CONCLUSION
+
+A conclusion should be selected only if it logically follows from
+the given statement.
+
+Do not use outside assumptions.
+
+
+75. CLOCK PROBLEMS
+
+The clock has:
+
+• 12 hours
+• 60 minutes
+• 360 degrees
+
+Therefore:
+
+1 hour = 30°
+
+1 minute = 6°
+
+
+76. CLOCK ANGLE
+
+The minute hand moves faster than the hour hand.
+
+Basic formula for the angle between hands:
+
+|30H - 5.5M|
+
+where:
+
+H = hour
+M = minutes
+
+
+77. CALENDAR
+
+Important facts:
+
+Normal year = 365 days
+
+Leap year = 366 days
+
+Normal year has:
+
+52 weeks + 1 day
+
+Leap year has:
+
+52 weeks + 2 days
+
+
+78. LEAP YEAR
+
+A year is generally a leap year if:
+
+• It is divisible by 4.
+
+For century years, it must also be divisible by 400.
+
+Example:
+
+2000 is a leap year.
+
+1900 is not a leap year.
+
+
+79. AGES
+
+Age problems may involve:
+
+• Present age
+• Past age
+• Future age
+• Age ratios
+• Difference between ages
+
+
+80. AGE EXAMPLE
+
+If A is 5 years older than B and B is 20:
+
+A = 20 + 5
+
+A = 25
+
+
+81. MIXTURES
+
+Mixture problems involve combining quantities with different
+prices, concentrations or characteristics.
+
+
+82. ALLIGATION
+
+Alligation is a shortcut method for solving certain mixture
+problems.
+
+It compares:
+
+Lower value
+Mean value
+Higher value
+
+
+83. PARTNERSHIP AND PROFIT
+
+Profit sharing is proportional to:
+
+Investment × Time
+
+If two partners invest different amounts for different periods,
+calculate their capital-time products before dividing profit.
+
+
+84. BASIC SET THEORY
+
+For two sets A and B:
+
+Union:
+
+A ∪ B
+
+Intersection:
+
+A ∩ B
+
+
+85. VENN DIAGRAM
+
+Venn diagrams can be used to solve:
+
+• Set problems
+• Survey problems
+• Grouping problems
+• Common and unique elements
+
+
+86. SET FORMULA
+
+For two sets:
+
+n(A ∪ B) = n(A) + n(B) - n(A ∩ B)
+
+
+87. WORKING WITH FRACTIONS
+
+For addition:
+
+a/b + c/d = (ad + bc)/bd
+
+For subtraction:
+
+a/b - c/d = (ad - bc)/bd
+
+
+88. RATIO AND FRACTION
+
+A ratio of:
+
+2 : 3
+
+means:
+
+2/3
+
+when comparing the first quantity with the second.
+
+
+89. SHORTCUT CALCULATION
+
+Useful values:
+
+10% of a number = divide by 10
+
+5% = half of 10%
+
+1% = divide by 100
+
+25% = one-fourth
+
+50% = one-half
+
+75% = three-fourths
+
+
+90. SQUARE ROOTS
+
+Important square roots:
+
+√1 = 1
+
+√4 = 2
+
+√9 = 3
+
+√16 = 4
+
+√25 = 5
+
+√36 = 6
+
+√49 = 7
+
+√64 = 8
+
+√81 = 9
+
+√100 = 10
+
+
+91. APPROXIMATION
+
+Approximation is useful when exact calculation is unnecessary.
+
+Round numbers to convenient values and estimate the answer.
+
+
+92. INTERMEDIATE PROBLEM-SOLVING STRATEGY
+
+For every question:
+
+1. Read carefully.
+2. Identify the topic.
+3. Write the known values.
+4. Select the formula.
+5. Solve step by step.
+6. Check units.
+7. Check whether the answer is reasonable.
+
+
+93. TIME MANAGEMENT
+
+For placement aptitude tests:
+
+• Start with easy questions.
+• Avoid spending too long on one problem.
+• Use shortcuts when appropriate.
+• Skip difficult questions temporarily.
+• Return to skipped questions later.
+• Keep a few minutes for checking.
+
+
+94. COMMON MISTAKES
+
+Avoid:
+
+• Using the wrong formula.
+• Confusing CP and SP.
+• Confusing percentage with percentage points.
+• Forgetting unit conversion.
+• Using average speed incorrectly.
+• Ignoring negative signs.
+• Making assumptions in reasoning questions.
+
+
+95. INTERMEDIATE PRACTICE QUESTIONS
+
+1. Find the LCM of 12, 18 and 24.
+
+2. A product marked at Rs. 1000 is sold at a discount of 20%.
+   Find the selling price.
+
+3. Find the compound interest on Rs. 2000 at 10% per annum
+   for 2 years.
+
+4. A can complete a work in 12 days and B in 18 days.
+   How many days will they take together?
+
+5. A train travels at 60 km/h. How much distance will it cover
+   in 2.5 hours?
+
+6. A boat travels at 12 km/h in still water and the stream speed
+   is 3 km/h. Find the downstream speed.
+
+7. Find:
+
+   5C2
+
+8. Find:
+
+   5P2
+
+9. Solve:
+
+   x + y = 12
+   x - y = 4
+
+10. Find the next number:
+
+    2, 6, 12, 20, 30, ?
+
+
+96. PRACTICE ANSWERS
+
+1. LCM = 72
+
+2. Selling Price = Rs. 800
+
+3. Compound Interest = Rs. 420
+
+4. Together = 36/5 days = 7.2 days
+
+5. Distance = 150 km
+
+6. Downstream speed = 15 km/h
+
+7. 5C2 = 10
+
+8. 5P2 = 20
+
+9. x = 8, y = 4
+
+10. Next number = 42
+
+
+97. INTERMEDIATE LEARNING CHECKLIST
+
+✓ Advanced divisibility
+✓ Remainders
+✓ Percentage change
+✓ Successive percentage
+✓ Profit and loss
+✓ Discount
+✓ Ratio
+✓ Proportion
+✓ Partnership
+✓ Average
+✓ Weighted average
+✓ Simple interest
+✓ Compound interest
+✓ Time and work
+✓ Efficiency
+✓ Pipes and cisterns
+✓ Speed and distance
+✓ Relative speed
+✓ Train problems
+✓ Boats and streams
+✓ Probability
+✓ Permutation
+✓ Combination
+✓ Factorials
+✓ Algebra
+✓ Quadratic equations
+✓ Geometry
+✓ Data interpretation
+✓ Number series
+✓ Coding and decoding
+✓ Blood relations
+✓ Directions
+✓ Syllogism
+✓ Clock
+✓ Calendar
+✓ Ages
+✓ Mixtures
+✓ Sets and Venn diagrams
+✓ Approximation
+✓ Time management
+
+
+SUMMARY
+
+Intermediate aptitude develops the ability to solve multi-step
+problems quickly and accurately.
+
+The learner should be comfortable with mathematical formulas,
+percentages, ratios, averages, interest, work, speed, probability,
+permutation, combination, algebra, geometry and reasoning.
+
+Regular timed practice is important for placement and competitive
+examinations.

@@ -1,189 +1,1319 @@
-<!DOCTYPE html>
-<html lang="en">
+# =========================================================
+# NOTES
+# =========================================================
 
-<head>
+@app.route("/notes", methods=["POST"])
+def notes():
 
-    <meta charset="UTF-8">
+    name = request.form["name"]
+    regno = request.form["regno"]
+    subject = request.form["subject"]
+    level = request.form["level"]
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    notes_content = {
 
-    <title>{{ subject }} Notes</title>
+        # =================================================
+        # PYTHON
+        # =================================================
 
-    <style>
+        "Python": {
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            margin: 0;
-            padding: 0;
+            "Beginner": """
+PYTHON - BEGINNER NOTES
+
+1. INTRODUCTION TO PYTHON
+
+Python is a high-level, interpreted and general-purpose programming language.
+It is easy to learn because its syntax is simple and readable.
+
+Python is widely used in:
+• Web development
+• Data Science
+• Artificial Intelligence
+• Machine Learning
+• Automation
+• Software development
+
+Example:
+
+print("Hello World")
+
+The print() function is used to display output on the screen.
+
+
+2. VARIABLES
+
+A variable is a name used to store a value.
+
+Example:
+
+name = "Pravelika"
+age = 20
+marks = 85
+
+Python automatically identifies the data type of the value.
+
+
+3. DATA TYPES
+
+Common Python data types are:
+
+• int - Integer numbers
+• float - Decimal numbers
+• str - Text
+• bool - True or False
+• list - Collection of values
+• tuple - Ordered immutable collection
+• dict - Key-value pairs
+• set - Unordered collection of unique values
+
+Example:
+
+age = 20
+name = "Student"
+percentage = 85.5
+passed = True
+
+
+4. OPERATORS
+
+Operators are used to perform operations.
+
+Arithmetic operators:
+
++ Addition
+- Subtraction
+* Multiplication
+/ Division
+% Modulus
+** Power
+
+Example:
+
+a = 10
+b = 5
+
+print(a + b)
+print(a * b)
+
+
+5. CONDITIONAL STATEMENTS
+
+Conditional statements are used to make decisions.
+
+Example:
+
+age = 18
+
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not Eligible")
+
+Python mainly uses if, elif and else.
+
+
+6. LOOPS
+
+Loops are used to repeat a block of code.
+
+For loop:
+
+for i in range(5):
+    print(i)
+
+While loop:
+
+i = 1
+
+while i <= 5:
+    print(i)
+    i += 1
+
+
+7. FUNCTIONS
+
+A function is a reusable block of code.
+
+Example:
+
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+print(result)
+
+Functions make programs easier to organize and reuse.
+
+
+8. LISTS
+
+A list stores multiple values.
+
+Example:
+
+fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits[0])
+
+Lists are ordered and changeable.
+
+
+SUMMARY
+
+In the beginner level, you should understand:
+
+• Python basics
+• Variables
+• Data types
+• Operators
+• Conditions
+• Loops
+• Functions
+• Lists
+""",
+
+            "Intermediate": """
+PYTHON - INTERMEDIATE NOTES
+
+1. OBJECT ORIENTED PROGRAMMING
+
+Object Oriented Programming (OOP) is a programming approach based on classes and objects.
+
+Important OOP concepts include:
+
+• Class
+• Object
+• Inheritance
+• Encapsulation
+• Polymorphism
+• Abstraction
+
+Example:
+
+class Student:
+
+    def __init__(self, name):
+        self.name = name
+
+student = Student("John")
+
+Here Student is a class and student is an object.
+
+
+2. FILE HANDLING
+
+Python can read and write files.
+
+Reading a file:
+
+with open("data.txt", "r") as file:
+    content = file.read()
+
+Writing a file:
+
+with open("data.txt", "w") as file:
+    file.write("Hello")
+
+
+3. EXCEPTION HANDLING
+
+Exceptions are runtime errors.
+
+Python uses:
+
+try
+except
+else
+finally
+
+Example:
+
+try:
+    number = int(input("Enter number: "))
+except ValueError:
+    print("Invalid input")
+
+Exception handling prevents the program from stopping unexpectedly.
+
+
+4. MODULES
+
+A module is a Python file containing reusable code.
+
+Example:
+
+import math
+
+print(math.sqrt(25))
+
+Python provides many built-in modules such as:
+
+• math
+• random
+• os
+• datetime
+• json
+
+
+5. DICTIONARIES
+
+A dictionary stores data as key-value pairs.
+
+Example:
+
+student = {
+    "name": "John",
+    "age": 20,
+    "mark": 85
+}
+
+print(student["name"])
+
+
+6. SETS
+
+A set stores unique values.
+
+Example:
+
+numbers = {1, 2, 3, 3}
+
+The duplicate value is automatically removed.
+
+
+7. LAMBDA FUNCTIONS
+
+A lambda is a small anonymous function.
+
+Example:
+
+square = lambda x: x * x
+
+print(square(5))
+
+
+8. PROJECT DEVELOPMENT
+
+At intermediate level, students can develop projects such as:
+
+• Calculator
+• Student Management System
+• To-Do Application
+• File Management System
+• Simple Web Application
+
+The main goal is to combine Python concepts into complete programs.
+
+
+SUMMARY
+
+Intermediate Python focuses on:
+
+• OOP
+• File handling
+• Exception handling
+• Modules
+• Dictionaries
+• Sets
+• Lambda functions
+• Project development
+""",
+
+            "Advanced": """
+PYTHON - ADVANCED NOTES
+
+1. FLASK
+
+Flask is a lightweight Python web framework.
+
+It is commonly used to create web applications and APIs.
+
+Example:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello World"
+
+if __name__ == "__main__":
+    app.run()
+
+
+2. APIs
+
+API stands for Application Programming Interface.
+
+An API allows different software applications to communicate with each other.
+
+For example, a web application can request information from a server through an API.
+
+
+3. MACHINE LEARNING
+
+Machine Learning allows computers to learn patterns from data.
+
+Common types include:
+
+• Supervised Learning
+• Unsupervised Learning
+• Reinforcement Learning
+
+Examples:
+
+• Classification
+• Regression
+• Clustering
+
+
+4. DATA PROCESSING
+
+Python is widely used for data processing.
+
+Popular libraries include:
+
+• NumPy
+• Pandas
+• Matplotlib
+• Scikit-learn
+
+Pandas is commonly used to work with structured datasets.
+
+
+5. ADVANCED OOP
+
+Advanced Python programs can use:
+
+• Inheritance
+• Multiple inheritance
+• Abstract classes
+• Decorators
+• Special methods
+
+These concepts help create reusable and maintainable applications.
+
+
+6. DEPLOYMENT
+
+Deployment means making an application available for users.
+
+A Flask application can be deployed using cloud platforms or production web servers.
+
+Before deployment, developers should test:
+
+• Application functionality
+• Database connection
+• Security
+• Performance
+
+
+7. PROJECT DEVELOPMENT
+
+Advanced Python projects can combine:
+
+Python + Flask + Database + APIs + Machine Learning
+
+Examples:
+
+• AI learning assistant
+• Recommendation system
+• Prediction application
+• Data analysis platform
+
+
+SUMMARY
+
+Advanced Python focuses on:
+
+• Flask
+• APIs
+• Machine Learning
+• Data processing
+• Advanced OOP
+• Deployment
+• Real-world projects
+"""
+        },
+
+
+        # =================================================
+        # DBMS
+        # =================================================
+
+        "DBMS": {
+
+            "Beginner": """
+DBMS - BEGINNER NOTES
+
+1. INTRODUCTION
+
+DBMS stands for Database Management System.
+
+It is software used to store, manage, organize and retrieve data.
+
+Examples:
+
+• MySQL
+• Oracle
+• PostgreSQL
+• SQLite
+
+
+2. DATABASE
+
+A database is an organized collection of information.
+
+For example, a student database may contain:
+
+Name
+Register Number
+Department
+Marks
+
+
+3. TABLE
+
+A table stores data in rows and columns.
+
+Example:
+
+Student Table
+
+ID | Name | Mark
+1  | Arun | 85
+2  | Priya | 90
+
+
+4. PRIMARY KEY
+
+A primary key uniquely identifies each record in a table.
+
+Example:
+
+Student ID can be a primary key.
+
+No two students should have the same primary key value.
+
+
+5. SQL
+
+SQL stands for Structured Query Language.
+
+It is used to communicate with relational databases.
+
+Example:
+
+SELECT * FROM students;
+
+
+6. INSERT
+
+INSERT is used to add records.
+
+Example:
+
+INSERT INTO students
+(name, mark)
+VALUES
+('John', 85);
+
+
+7. UPDATE
+
+UPDATE changes existing data.
+
+Example:
+
+UPDATE students
+SET mark = 90
+WHERE id = 1;
+
+
+8. DELETE
+
+DELETE removes records.
+
+Example:
+
+DELETE FROM students
+WHERE id = 1;
+
+
+SUMMARY
+
+Beginner DBMS includes:
+
+• Database
+• Tables
+• Rows and columns
+• Primary keys
+• SQL
+• SELECT
+• INSERT
+• UPDATE
+• DELETE
+""",
+
+            "Intermediate": """
+DBMS - INTERMEDIATE NOTES
+
+1. JOINS
+
+Joins are used to combine data from multiple tables.
+
+Common joins:
+
+• INNER JOIN
+• LEFT JOIN
+• RIGHT JOIN
+• FULL JOIN
+
+
+2. INNER JOIN
+
+INNER JOIN returns matching records from both tables.
+
+Example:
+
+SELECT students.name, departments.department
+FROM students
+INNER JOIN departments
+ON students.dept_id = departments.id;
+
+
+3. NORMALIZATION
+
+Normalization organizes data to reduce redundancy.
+
+Main normal forms include:
+
+• First Normal Form
+• Second Normal Form
+• Third Normal Form
+
+
+4. KEYS
+
+Important database keys include:
+
+• Primary Key
+• Foreign Key
+• Candidate Key
+• Composite Key
+
+
+5. FOREIGN KEY
+
+A foreign key connects one table with another.
+
+Example:
+
+A student table may contain department_id that refers to the department table.
+
+
+6. VIEWS
+
+A view is a virtual table based on a SQL query.
+
+Example:
+
+CREATE VIEW student_view AS
+SELECT name, mark
+FROM students;
+
+
+7. AGGREGATE FUNCTIONS
+
+Common aggregate functions:
+
+• COUNT()
+• SUM()
+• AVG()
+• MAX()
+• MIN()
+
+Example:
+
+SELECT AVG(mark)
+FROM students;
+
+
+8. SUBQUERIES
+
+A subquery is a query inside another query.
+
+It can be used when one query depends on the result of another query.
+
+
+SUMMARY
+
+Intermediate DBMS includes:
+
+• Joins
+• Normalization
+• Keys
+• Foreign keys
+• Views
+• Aggregate functions
+• Subqueries
+• Database design
+""",
+
+            "Advanced": """
+DBMS - ADVANCED NOTES
+
+1. TRANSACTIONS
+
+A transaction is a sequence of database operations treated as one unit.
+
+Example:
+
+Money transfer between two bank accounts involves multiple operations that should be completed together.
+
+
+2. ACID PROPERTIES
+
+ACID stands for:
+
+A - Atomicity
+C - Consistency
+I - Isolation
+D - Durability
+
+Atomicity ensures that a transaction is completed fully or not at all.
+
+
+3. STORED PROCEDURES
+
+A stored procedure is a group of SQL statements stored in the database.
+
+It can be executed when required.
+
+Stored procedures can improve code reuse and database management.
+
+
+4. TRIGGERS
+
+A trigger is an automatic action executed when a database event occurs.
+
+For example, a trigger can record changes when a student record is updated.
+
+
+5. INDEXING
+
+An index helps the database find records faster.
+
+Indexes improve search performance but may require additional storage.
+
+
+6. QUERY OPTIMIZATION
+
+Query optimization attempts to execute SQL queries efficiently.
+
+Optimization can involve:
+
+• Proper indexes
+• Efficient joins
+• Avoiding unnecessary columns
+• Using appropriate conditions
+
+
+7. DATABASE SECURITY
+
+Database security protects data from unauthorized access.
+
+Methods include:
+
+• Authentication
+• Authorization
+• Access control
+• Encryption
+• Backup
+
+
+SUMMARY
+
+Advanced DBMS includes:
+
+• Transactions
+• ACID properties
+• Stored procedures
+• Triggers
+• Indexing
+• Query optimization
+• Database security
+"""
+        },
+
+
+        # =================================================
+        # OPERATING SYSTEM
+        # =================================================
+
+        "Operating System": {
+
+            "Beginner": """
+OPERATING SYSTEM - BEGINNER NOTES
+
+1. INTRODUCTION
+
+An Operating System (OS) is system software that manages computer hardware and software resources.
+
+Examples:
+
+• Windows
+• Linux
+• macOS
+• Android
+
+
+2. FUNCTIONS OF AN OS
+
+Important functions include:
+
+• Process management
+• Memory management
+• File management
+• Device management
+• Security
+
+
+3. PROCESS
+
+A process is a program currently being executed.
+
+For example, when you open a browser, the operating system creates a process for it.
+
+
+4. FILE MANAGEMENT
+
+The OS manages files and folders.
+
+It allows users to:
+
+• Create files
+• Delete files
+• Rename files
+• Organize folders
+• Access stored data
+
+
+5. MEMORY
+
+Memory stores programs and data while they are being used.
+
+RAM is the main memory used by running applications.
+
+
+6. INPUT AND OUTPUT
+
+The operating system manages input/output devices such as:
+
+• Keyboard
+• Mouse
+• Printer
+• Monitor
+• Storage devices
+
+
+7. SYSTEM CALLS
+
+System calls allow applications to request services from the operating system.
+
+Examples include file operations and process operations.
+
+
+SUMMARY
+
+Beginner OS includes:
+
+• OS basics
+• OS functions
+• Processes
+• Files
+• Memory
+• I/O
+• System calls
+""",
+
+            "Intermediate": """
+OPERATING SYSTEM - INTERMEDIATE NOTES
+
+1. PROCESS SCHEDULING
+
+Process scheduling determines which process gets CPU time.
+
+Common algorithms:
+
+• FCFS
+• SJF
+• Priority Scheduling
+• Round Robin
+
+
+2. ROUND ROBIN
+
+Round Robin gives each process a fixed time slice called a time quantum.
+
+After the time quantum expires, the CPU moves to another process.
+
+
+3. THREADS
+
+A thread is a lightweight unit of execution within a process.
+
+Multiple threads can allow a program to perform several tasks concurrently.
+
+
+4. DEADLOCK
+
+Deadlock occurs when processes wait indefinitely for resources held by each other.
+
+Four necessary conditions are:
+
+• Mutual exclusion
+• Hold and wait
+• No preemption
+• Circular wait
+
+
+5. PAGING
+
+Paging divides memory into fixed-size pages and frames.
+
+It helps manage memory efficiently.
+
+
+6. MEMORY MANAGEMENT
+
+The operating system manages the allocation and deallocation of memory to processes.
+
+
+7. FILE SYSTEM
+
+A file system organizes and manages files on storage devices.
+
+Examples include NTFS and ext4.
+
+
+SUMMARY
+
+Intermediate OS includes:
+
+• Scheduling
+• Threads
+• Deadlocks
+• Paging
+• Memory management
+• File systems
+"""
+            ,
+
+            "Advanced": """
+OPERATING SYSTEM - ADVANCED NOTES
+
+1. VIRTUAL MEMORY
+
+Virtual memory allows a computer to use part of secondary storage as an extension of RAM.
+
+It allows larger programs to run even when physical memory is limited.
+
+
+2. PAGE REPLACEMENT
+
+When memory is full, the OS may need to replace an existing page.
+
+Common algorithms include:
+
+• FIFO
+• LRU
+• Optimal
+
+
+3. DEADLOCK AVOIDANCE
+
+Deadlock avoidance attempts to keep the system in a safe state.
+
+Banker's Algorithm is a well-known deadlock avoidance algorithm.
+
+
+4. PROCESS SYNCHRONIZATION
+
+Synchronization ensures that multiple processes or threads access shared resources safely.
+
+Common concepts include:
+
+• Mutex
+• Semaphore
+• Critical section
+
+
+5. CONTEXT SWITCH
+
+A context switch occurs when the CPU changes from one process or thread to another.
+
+The operating system saves the state of the current process and loads the state of another.
+
+
+6. ADVANCED SCHEDULING
+
+Advanced scheduling considers:
+
+• CPU utilization
+• Waiting time
+• Response time
+• Turnaround time
+• Throughput
+
+
+7. OPERATING SYSTEM SECURITY
+
+OS security protects resources from unauthorized access.
+
+Security techniques include:
+
+• Authentication
+• Authorization
+• Access control
+• Encryption
+• Secure updates
+
+
+SUMMARY
+
+Advanced OS includes:
+
+• Virtual memory
+• Page replacement
+• Deadlock avoidance
+• Synchronization
+• Context switching
+• Advanced scheduling
+• Security
+"""
+        },
+
+
+        # =================================================
+        # APTITUDE
+        # =================================================
+
+        "Aptitude": {
+
+            "Easy": """
+APTITUDE - EASY LEVEL NOTES
+
+1. NUMBER BASICS
+
+Numbers are used in almost every aptitude problem.
+
+Important types include:
+
+• Natural numbers
+• Whole numbers
+• Integers
+• Rational numbers
+• Prime numbers
+
+
+2. PERCENTAGE
+
+Percentage means a value out of 100.
+
+Formula:
+
+Percentage = (Part / Total) × 100
+
+Example:
+
+If 20 students out of 100 passed:
+
+Percentage = (20/100) × 100 = 20%
+
+
+3. AVERAGE
+
+Average is calculated using:
+
+Average = Sum of values / Number of values
+
+Example:
+
+Average of 10, 20 and 30:
+
+(10 + 20 + 30) / 3 = 20
+
+
+4. RATIO
+
+A ratio compares two quantities.
+
+Example:
+
+If there are 2 boys and 3 girls:
+
+Ratio = 2 : 3
+
+
+5. PROFIT AND LOSS
+
+Profit:
+
+Profit = Selling Price - Cost Price
+
+Loss:
+
+Loss = Cost Price - Selling Price
+
+
+6. SIMPLE INTEREST
+
+Formula:
+
+SI = (P × R × T) / 100
+
+P = Principal
+R = Rate
+T = Time
+
+
+7. TIME AND DISTANCE
+
+Basic formula:
+
+Distance = Speed × Time
+
+Speed = Distance / Time
+
+Time = Distance / Speed
+
+
+SUMMARY
+
+Easy aptitude focuses on basic:
+
+• Numbers
+• Percentages
+• Averages
+• Ratios
+• Profit and loss
+• Simple interest
+• Time and distance
+""",
+
+            "Medium": """
+APTITUDE - MEDIUM LEVEL NOTES
+
+1. PERCENTAGES
+
+Percentage problems can involve increase and decrease.
+
+Percentage increase:
+
+Increase % = (Increase / Original value) × 100
+
+Percentage decrease:
+
+Decrease % = (Decrease / Original value) × 100
+
+
+2. PROFIT AND LOSS
+
+Profit percentage:
+
+Profit % = (Profit / Cost Price) × 100
+
+Loss percentage:
+
+Loss % = (Loss / Cost Price) × 100
+
+
+3. RATIO AND PROPORTION
+
+A ratio compares quantities.
+
+Example:
+
+3 : 5
+
+If the first value is 12:
+
+3 × 4 = 12
+
+Therefore:
+
+5 × 4 = 20
+
+So the second value is 20.
+
+
+4. TIME AND WORK
+
+Work problems are based on the amount of work completed per unit time.
+
+If one person completes a job in 10 days:
+
+One day's work = 1/10
+
+
+5. TIME AND DISTANCE
+
+Speed:
+
+Speed = Distance / Time
+
+If distance is 120 km and time is 3 hours:
+
+Speed = 120 / 3 = 40 km/h
+
+
+6. SIMPLE AND COMPOUND INTEREST
+
+Simple Interest:
+
+SI = PRT / 100
+
+Compound interest calculates interest on the accumulated amount over time.
+
+
+7. AVERAGES
+
+Average:
+
+Average = Total / Number of values
+
+If one value is added or removed, the average can be recalculated using the new total.
+
+
+SUMMARY
+
+Medium aptitude includes:
+
+• Percentages
+• Profit and loss
+• Ratios
+• Averages
+• Time and work
+• Time and distance
+• Interest
+""",
+
+            "Hard": """
+APTITUDE - HARD LEVEL NOTES
+
+1. ADVANCED PERCENTAGES
+
+Successive percentage changes should not simply be added.
+
+For example, increasing a value by 10% and then decreasing it by 10% does not return the value to its original amount.
+
+
+2. RATIO AND PROPORTION
+
+Ratios can be used to solve problems involving:
+
+• Mixtures
+• Ages
+• Work
+• Partnership
+• Quantities
+
+
+3. TIME AND WORK
+
+For multiple workers, work rates are combined.
+
+If one person completes 1/10 of a job per day and another completes 1/15:
+
+Combined work per day:
+
+1/10 + 1/15
+
+= 5/30
+
+= 1/6
+
+Therefore they complete the work in 6 days.
+
+
+4. PROBABILITY
+
+Probability measures the chance of an event occurring.
+
+Formula:
+
+Probability = Favorable outcomes / Total outcomes
+
+
+5. PERMUTATIONS
+
+Permutation deals with arrangements where order matters.
+
+Example:
+
+Arranging different students in different seats.
+
+
+6. COMBINATIONS
+
+Combination deals with selections where order does not matter.
+
+Example:
+
+Selecting 3 students from a group.
+
+
+7. DATA INTERPRETATION
+
+Data interpretation problems use:
+
+• Tables
+• Bar charts
+• Pie charts
+• Line graphs
+
+Questions may involve percentages, ratios, averages and comparisons.
+
+
+8. EXAM STRATEGY
+
+For difficult aptitude questions:
+
+• Read the question carefully
+• Identify the required formula
+• Write the given values
+• Solve step by step
+• Check the final answer
+
+
+SUMMARY
+
+Hard aptitude includes:
+
+• Advanced percentages
+• Ratio and proportion
+• Time and work
+• Probability
+• Permutations
+• Combinations
+• Data interpretation
+"""
         }
+    }
 
-        .container {
-            width: 85%;
-            max-width: 1000px;
-            margin: 40px auto;
-            background: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+    content = notes_content.get(subject, {}).get(
+        level,
+        "No notes available for the selected subject and level."
+    )
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            margin-bottom: 10px;
-        }
-
-        .info {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
-        .info p {
-            margin: 7px 0;
-        }
-
-        .notes {
-            white-space: pre-line;
-            line-height: 1.8;
-            font-size: 16px;
-        }
-
-        .buttons {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-        }
-
-        button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 7px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .quiz {
-            background: #2563eb;
-            color: white;
-        }
-
-        .back {
-            background: #64748b;
-            color: white;
-        }
-
-    </style>
-
-</head>
-
-
-<body>
-
-
-<div class="container">
-
-
-    <div class="header">
-
-        <h1>📚 {{ subject }} Notes</h1>
-
-        <h2>{{ level }} Level</h2>
-
-        <p>
-            AI Smart Learning Assistant
-        </p>
-
-    </div>
-
-
-    <div class="info">
-
-        <p>
-            <strong>Student:</strong>
-            {{ name }}
-        </p>
-
-        <p>
-            <strong>Register Number:</strong>
-            {{ regno }}
-        </p>
-
-        <p>
-            <strong>Subject:</strong>
-            {{ subject }}
-        </p>
-
-        <p>
-            <strong>Level:</strong>
-            {{ level }}
-        </p>
-
-    </div>
-
-
-    <div class="notes">
-
-        {{ content }}
-
-    </div>
-
-
-    <div class="buttons">
-
-
-        <!-- Quiz Button -->
-
-        <form action="/quiz" method="POST">
-
-            <input type="hidden"
-                   name="name"
-                   value="{{ name }}">
-
-            <input type="hidden"
-                   name="regno"
-                   value="{{ regno }}">
-
-            <input type="hidden"
-                   name="subject"
-                   value="{{ subject }}">
-
-            <input type="hidden"
-                   name="level"
-                   value="{{ level }}">
-
-            <button class="quiz"
-                    type="submit">
-
-                📝 Take Quiz
-
-            </button>
-
-        </form>
-
-
-        <!-- Back Button -->
-
-        <button class="back"
-                onclick="history.back()">
-
-            ← Back
-
-        </button>
-
-
-    </div>
-
-
-</div>
-
-
-</body>
-
-</html>
+    return render_template(
+        "notes.html",
+        name=name,
+        regno=regno,
+        subject=subject,
+        level=level,
+        content=content
+    )
